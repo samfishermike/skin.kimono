@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1151">
+	<defaultcontrol>499</defaultcontrol>
+	<visible>VideoPlayer.IsStereoscopic</visible>
+	<include>screen-fade</include>
+	<coordinates>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<controls>
+		<include>fadebackground</include>
+		<control type="image">
+			<!-- Dialog background -->
+			<left>1080</left>
+			<top>150</top>
+			<width>594</width>
+			<height>324</height>
+			<texture border="12">button-menu-background.png</texture>
+			<colordiffuse>UnFocusedPosters</colordiffuse>
+		</control>
+		<control type="group" id="499">
+			<control type="grouplist" id="500">
+				<!-- STEREOSCOPIC 3D !LiveTV -->
+				<visible>![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks)]</visible>
+				<animation effect="fade" time="200">VisibleChange</animation>
+				<left>1095</left>
+				<top>162</top>
+				<width>564</width>
+				<height>300</height>
+				<itemgap>0</itemgap>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<control type="label">
+					<!-- Header -->
+					<width>564</width>
+					<height>60</height>
+					<label>3D $LOCALIZE[5]</label>
+					<align>center</align>
+				</control>
+				<control type="image">
+					<width>564</width>
+					<height>6</height>
+					<texture>separator.png</texture>
+				</control>
+				<control type="radiobutton" id="503">
+					<height>75</height>
+					<width>564</width>
+					<textoffsetx>45</textoffsetx>
+					<font>font12</font>
+					<label>$LOCALIZE[305]</label>
+					<radioposx>495</radioposx>
+					<onclick>ToggleStereoMode</onclick>
+					<onleft>Dialog.Close(1151)</onleft>
+					<onright>Dialog.Close(1151)</onright>
+					<selected>IntegerGreaterThan(System.StereoscopicMode,0)</selected>
+				</control>
+				<control type="button" id="502">
+					<height>75</height>
+					<width>564</width>
+					<font>font12</font>
+					<textoffsetx>45</textoffsetx>
+					<label>$LOCALIZE[240]</label>
+					<onclick>StereoMode</onclick>
+					<onleft>Dialog.Close(1151)</onleft>
+					<onright>Dialog.Close(1151)</onright>
+				</control>
+				<control type="radiobutton" id="501">
+					<height>75</height>
+					<width>564</width>
+					<textoffsetx>45</textoffsetx>
+					<font>font12</font>
+					<!--<label>Watch as 2D</label>-->
+					<label>2D ?</label>
+					<radioposx>495</radioposx>
+					<onclick>StereoModeToMono</onclick>
+					<onleft>Dialog.Close(1151)</onleft>
+					<onright>Dialog.Close(1151)</onright>
+					<selected>StringCompare(System.StereoscopicMode,7)</selected>
+				</control>
+			</control>
+			<control type="grouplist" id="550">
+				<!-- STEREOSCOPIC 3D LiveTV -->
+				<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>
+				<animation effect="fade" time="200">VisibleChange</animation>
+				<left>1095</left>
+				<top>162</top>
+				<width>564</width>
+				<height>300</height>
+				<itemgap>0</itemgap>
+				<onup>550</onup>
+				<ondown>550</ondown>
+				<control type="label" id="">
+					<!-- Header -->
+					<width>564</width>
+					<height>60</height>
+					<label>3D $LOCALIZE[5]</label>
+					<align>center</align>
+				</control>
+				<control type="image">
+					<width>564</width>
+					<height>6</height>
+					<texture>separator.png</texture>
+				</control>
+				<control type="radiobutton" id="553">
+					<height>75</height>
+					<width>564</width>
+					<textoffsetx>45</textoffsetx>
+					<font>font12</font>
+					<label>$LOCALIZE[305]</label>
+					<radioposx>495</radioposx>
+					<onclick>ToggleStereoMode</onclick>
+					<selected>IntegerGreaterThan(System.StereoscopicMode,0)</selected>
+					<onleft>Dialog.Close(1151)</onleft>
+					<onright>Dialog.Close(1151)</onright>
+				</control>
+				<control type="button" id="552">
+					<height>75</height>
+					<width>564</width>
+					<font>font12</font>
+					<textoffsetx>45</textoffsetx>
+					<label>$LOCALIZE[240]</label>
+					<onclick>StereoMode</onclick>
+					<onleft>Dialog.Close(1151)</onleft>
+					<onright>Dialog.Close(1151)</onright>
+				</control>
+				<control type="radiobutton" id="551">
+					<height>75</height>
+					<width>564</width>
+					<textoffsetx>45</textoffsetx>
+					<font>font12</font>
+					<!--<label>Watch as 2D</label>-->
+					<label>2D ?</label>
+					<radioposx>495</radioposx>
+					<onclick>StereoModeToMono</onclick>
+					<onleft>Dialog.Close(1151)</onleft>
+					<onright>Dialog.Close(1151)</onright>
+					<selected>StringCompare(System.StereoscopicMode,7)</selected>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

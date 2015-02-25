@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding </visible>
+	<animation effect="fade" end="0" time="200">WindowClose</animation>
+	<!--<animation effect="fade" end="0" time="200" condition="[Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks)]">Conditional</animation>-->
+	<coordinates>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<visible>![Window.IsVisible(fullscreeninfo) | Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks)]</visible>
+			<control type="image">
+				<!-- Seekbar Dialog background image -->
+				<left>0</left>
+				<top>969</top>
+				<height>120</height>
+				<width>1920</width>
+				<texture>background.png</texture>
+				<colordiffuse>osd-background</colordiffuse>
+				<visible>[Window.IsActive(fullscreenvideo)] + ![Window.IsActive(musicosd)]</visible>
+			</control>
+			<include>player-mediaicon</include>
+		</control>
+		<!-- Player action labels -->
+		<control type="group">
+			<visible>[Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)]</visible>
+			<control type="grouplist">
+				<left>612</left>
+				<top>986</top>
+				<width>696</width>
+				<height>96</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<width>96</width>
+					<height>96</height>
+					<texture>$VAR[PlayStateImage]</texture>
+				</control>
+				<control type="label">
+					<!-- Video screen headings -->
+					<width min="225" max="600">auto</width>
+					<height>96</height>
+					<label>$VAR[PlayStateTxt]</label>
+					<font>font22</font>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<visible>[Window.IsVisible(fullscreenvideo)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks)]</visible>
+			<!-- Player info labels -->
+			<control type="label">
+				<left>12</left>
+				<top>966</top>
+				<width>330</width>
+				<height>39</height>
+				<font>font10</font>
+				<label>[COLOR=disabled-text]($INFO[System.Time])[/COLOR] $INFO[VideoPlayer.Time]</label>
+				<align>right</align>
+			</control>
+			<control type="label">
+				<left>1572</left>
+				<top>966</top>
+				<width>345</width>
+				<height>39</height>
+				<font>font10</font>
+				<label>-$INFO[VideoPlayer.TimeRemaining] [COLOR=disabled-text]($INFO[Player.FinishTime])[/COLOR]</label>
+			</control>
+			<control type="group">
+				<visible>!Window.IsVisible(fullscreeninfo)</visible>
+				<!-- Progress bar -->
+				<control type="progress">
+					<left>357</left>
+					<top>978</top>
+					<width>1200</width>
+					<height>24</height>
+					<info>Player.ProgressCache</info>
+					<colordiffuse>FF777777</colordiffuse>
+				</control>
+				<control type="progress">
+					<left>357</left>
+					<top>978</top>
+					<width>1200</width>
+					<height>24</height>
+					<info>Player.Progress</info>
+					<colordiffuse>ProgressBarColor</colordiffuse>
+				</control>
+				<control type="slider" id="401">
+					<!-- Seek Slider -->
+					<left>357</left>
+					<top>975</top>
+					<width>1200</width>
+					<height>30</height>
+					<action>seek</action>
+				</control>
+			</control>
+		</control>
+		<!-- Start Progress Control for all Windows Except VideoFullScreen , KaraokeVisualisation, MusicVisualisation, MyMusicPlaylist, PVRGuide and PlayerControls-->
+		<control type="group">
+			<visible>![Window.IsActive(fullscreenvideo) | Window.IsActive(karaoke) | Window.IsActive(visualisation) | Window.IsActive(musicplaylist) | Window.IsActive(tvguide) | Window.IsActive(playercontrols)]</visible>
+			<control type="image">
+				<!-- Dialog background image -->
+				<left>694</left>
+				<top>33</top>
+				<width>531</width>
+				<height>130</height>
+				<texture border="12">button-menu-background.png</texture>
+			</control>
+			<control type="label">
+				<left>648</left>
+				<top>68</top>
+				<width>266</width>
+				<height>30</height>
+				<font>font12</font>
+				<align>right</align>
+				<label>$INFO[Player.Time]</label>
+				<visible>!Player.Seeking</visible>
+			</control>
+			<control type="label">
+				<left>648</left>
+				<top>68</top>
+				<width>266</width>
+				<height>30</height>
+				<font>font12</font>
+				<align>right</align>
+				<label>$INFO[Player.SeekTime]</label>
+				<visible>Player.Seeking</visible>
+			</control>
+			<control type="label">
+				<left>928</left>
+				<top>68</top>
+				<width>266</width>
+				<height>30</height>
+				<label>$INFO[Player.Duration,/ ]</label>
+				<font>font12</font>
+			</control>
+			<control type="progress">
+				<left>722</left>
+				<top>129</top>
+				<width>450</width>
+				<height>12</height>
+				<info>Player.ProgressCache</info>
+				<colordiffuse>FF777777</colordiffuse>
+			</control>
+			<control type="progress">
+				<left>722</left>
+				<top>129</top>
+				<width>450</width>
+				<height>12</height>
+				<info>Player.Progress</info>
+				<colordiffuse>ProgressBarColor</colordiffuse>
+			</control>
+		</control>
+	</controls>
+</window>

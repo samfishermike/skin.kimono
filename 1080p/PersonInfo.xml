@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">3002</defaultcontrol>
+	<zorder>2</zorder>
+	<include>screen-fade</include>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<controls>
+		<include>fadebackground</include>
+		<control type="image">
+			<left>435</left>
+			<top>180</top>
+			<width>1050</width>
+			<height>698</height>
+			<texture border="12">button-menu-background.png</texture>
+		</control>
+		<control type="label" id="3000">
+			<!-- Persons name -->
+			<left>477</left>
+			<top>204</top>
+			<width>966</width>
+			<height>45</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<label>-</label>
+			<font>font13</font>
+		</control>
+		<control type="image">
+			<left>477</left>
+			<top>262</top>
+			<width>966</width>
+			<height>6</height>
+			<texture>separator.png</texture>
+		</control>
+		<control type="textbox" id="3001">
+			<left>477</left>
+			<top>285</top>
+			<width>930</width>
+			<height>420</height>
+			<align>left</align>
+			<label>-</label>
+			<font>font11</font>
+			<pagecontrol>3010</pagecontrol>
+		</control>
+		<control type="scrollbar" id="3010">
+			<left>1416</left>
+			<top>285</top>
+			<width>27</width>
+			<height>420</height>
+			<ondown>3002</ondown>
+			<animation condition="!Control.HasFocus(3010) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+		</control>
+		<control type="button" id="3002">
+			<!-- Movies buttom -->
+			<left>772</left>
+			<top>772</top>
+			<width>375</width>
+			<height>75</height>
+			<align>center</align>
+			<label>$LOCALIZE[342]</label>
+			<font>font12</font>
+			<onup>3010</onup>
+		</control>
+	</controls>
+</window>

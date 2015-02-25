@@ -1,0 +1,52 @@
+<window>
+	<defaultcontrol always="true">1000</defaultcontrol>
+	<coordinates>
+		<origin x="0" y="0" />
+	</coordinates>
+	<include>screen-fade</include>
+	<controls>
+		<include>fadebackground</include>
+		<control type="group">
+			<left>576</left>
+			<top>174</top>
+			<control type="image" id="999">
+				<!-- Dialog background image -->
+				<left>0</left>
+				<top>0</top>
+				<width>755</width>
+				<height>825</height>
+				<texture border="50">button-menu-background.png</texture>
+			</control>
+			<control type="button">
+				<!-- Close Button -->
+				<left>694</left>
+				<top>12</top>
+				<width>48</width>
+				<height>48</height>
+				<font>-</font>
+				<onclick>Dialog.Close(contextmenu)</onclick>
+				<texturefocus>close-icon.png</texturefocus>
+				<texturenofocus>close-icon.png</texturenofocus>
+			</control>
+			<control type="grouplist" id="996">
+				<!-- Grouplist for context buttons -->
+				<left>50</left>
+				<top>65</top>
+				<width>650</width>
+				<height min="15" max="700">auto</height>
+				<itemgap>0</itemgap>
+				<control type="button" id="1000">
+					<!-- Button template -->
+					<left>0</left>
+					<top>0</top>
+					<width>650</width>
+					<height>72</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<onleft>Close</onleft>
+					<onright>Close</onright>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

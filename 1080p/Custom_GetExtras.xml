@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1154">
+	<defaultcontrol always="true">999</defaultcontrol>
+	<coordinates>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<allowoverlay>no</allowoverlay>
+	<include>screen-fade</include>
+	<controls>
+		<include>fadebackground</include>
+		<control type="button" id="998">
+			<!-- Dummy hidden button to close dialog -->
+			<left>-15</left>
+			<top>-15</top>
+			<width>1</width>
+			<height>1</height>
+			<onfocus>Dialog.Close(1154)</onfocus>
+		</control>
+		<control type="group">
+			<left>506</left>
+			<top>292</top>
+			<control type="image">
+				<!-- Dialog background -->
+				<left>0</left>
+				<top>0</top>
+				<width>906</width>
+				<height>495</height>
+				<texture border="12">button-menu-background.png</texture>
+			</control>
+			<control type="label">
+				<!-- Dialog heading -->
+				<left>38</left>
+				<top>18</top>
+				<width>831</width>
+				<height>45</height>
+				<align>center</align>
+				<label>$LOCALIZE[31693]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			</control>
+			<control type="image">
+				<left>38</left>
+				<top>72</top>
+				<width>831</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="list" id="999">
+				<left>38</left>
+				<top>90</top>
+				<width>831</width>
+				<height>375</height>
+				<scrolltime>200</scrolltime>
+				<viewtype label="536">List</viewtype>
+				<onright>998</onright>
+				<onleft>998</onleft>
+				<itemlayout height="75">
+					<control type="label">
+						<left>30</left>
+						<top>0</top>
+						<width>771</width>
+						<height>75</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font11</font>
+					</control>
+				</itemlayout>
+				<focusedlayout height="75">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>831</width>
+						<height>75</height>
+						<texture border="12">button-default-focus.png</texture>
+						<visible>Control.HasFocus(999)</visible>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<top>0</top>
+						<width>771</width>
+						<height>75</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font11</font>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>$LOCALIZE[31680]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>SendClick(movieinformation,10)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31681]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick condition="Container.Content(TVShows)">RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID])</onclick>
+						<onclick condition="Container.Content(Movies)">RunScript(script.artwork.downloader,mode=gui,mediatype=movie,dbid=$INFO[ListItem.DBID])</onclick>
+						<onclick condition="Container.Content(MusicVideos)">RunScript(script.artwork.downloader,mode=gui,mediatype=musicvideo,dbid=$INFO[ListItem.DBID])</onclick>
+						<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(TVShows) | Container.Content(Movies) | Container.Content(MusicVideos)]</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31892]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
+						<visible>System.HasAddon(script.tvtunes) + [Container.Content(TVShows) | Container.Content(Movies) | Container.Content(MusicVideos)]</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31689]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
+						<visible>System.HasAddon(script.libraryeditor) + !Container.Content(files)</visible>
+					</item>
+				</content>
+			</control>
+		</control>
+	</controls>
+</window>

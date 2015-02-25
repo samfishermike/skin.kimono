@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">10</defaultcontrol>
+	<coordinates>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<include>screen-fade</include>
+	<controls>
+		<include>fadebackground</include>
+		<control type="image">
+			<!-- Dialog background image -->
+			<left>442</left>
+			<top>360</top>
+			<width>1035</width>
+			<height>360</height>
+			<texture border="12">button-menu-background.png</texture>
+		</control>
+		<control type="label" id="1">
+			<!-- Dialog heading -->
+			<left>472</left>
+			<top>378</top>
+			<width>975</width>
+			<height>56</height>
+			<align>center</align>
+		</control>
+		<control type="image">
+			<left>472</left>
+			<top>435</top>
+			<width>975</width>
+			<height>6</height>
+			<texture>separator.png</texture>
+		</control>
+		<control type="textbox" id="9">
+			<!-- Dialog info prompt -->
+			<left>472</left>
+			<top>456</top>
+			<width>975</width>
+			<height>165</height>
+			<align>center</align>
+			<font>font11</font>
+			<autoscroll time="2000" delay="8000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
+		</control>
+		<control type="button" id="11">
+			<!-- YES button -->
+			<left>514</left>
+			<top>624</top>
+			<width>398</width>
+			<height>75</height>
+			<label>$LOCALIZE[107]</label>
+			<font>font12</font>
+			<align>center</align>
+			<onright>10</onright>
+		</control>
+		<control type="button" id="10">
+			<!-- NO button -->
+			<left>986</left>
+			<top>624</top>
+			<width>398</width>
+			<height>75</height>
+			<label>$LOCALIZE[106]</label>
+			<font>font12</font>
+			<align>center</align>
+			<onleft>11</onleft>
+		</control>
+	</controls>
+</window>

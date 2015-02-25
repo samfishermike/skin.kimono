@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<include>screen-fade</include>
+	<controls>
+		<control type="image">
+			<!-- Background shadow -->
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>264</height>
+			<texture>colours/black.png</texture>
+			<colordiffuse>osd-background</colordiffuse>
+			<visible>Player.ShowCodec + !VideoPlayer.Content(LiveTV)</visible>
+		</control>
+		<control type="image">
+			<!-- Background shadow for LiveTV -->
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>594</height>
+			<texture>colours/black.png</texture>
+			<colordiffuse>osd-background</colordiffuse>
+			<visible>Player.ShowCodec + VideoPlayer.Content(LiveTV)</visible>
+		</control>
+		<!-- codec infos -->
+		<control type="label" id="10">
+			<!-- Row 1 label -->
+			<left>22</left>
+			<top>12</top>
+			<width>1875</width>
+			<height>78</height>
+			<font>font12</font>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="11">
+			<!-- Row 2 label -->
+			<left>22</left>
+			<top>90</top>
+			<width>1875</width>
+			<height>78</height>
+			<font>font12</font>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="12">
+			<!-- Row 3 label -->
+			<left>22</left>
+			<top>168</top>
+			<width>1875</width>
+			<height>117</height>
+			<font>font12</font>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="group">
+			<visible>Player.ShowCodec + VideoPlayer.Content(LiveTV) + system.getbool(pvrplayback.signalquality)</visible>
+			<top>246</top>
+			<control type="label">
+				<!-- PVR Codec header -->
+				<left>22</left>
+				<top>0</top>
+				<width>1875</width>
+				<height>38</height>
+				<label>$LOCALIZE[19005]</label>
+			</control>
+			<control type="label">
+				<!-- Backend title -->
+				<left>75</left>
+				<top>60</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19012]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Backend value -->
+				<left>330</left>
+				<top>60</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamClient]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Device title -->
+				<left>75</left>
+				<top>98</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19006]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Device value -->
+				<left>330</left>
+				<top>98</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamDevice]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Status title -->
+				<left>75</left>
+				<top>135</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19007]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Status value -->
+				<left>330</left>
+				<top>135</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamStatus]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Signal title -->
+				<left>75</left>
+				<top>172</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19008]:</label>
+				<font>font12</font>
+			</control>
+			<control type="progress">
+				<!-- Signal progressbar -->
+				<left>330</left>
+				<top>183</top>
+				<width>1365</width>
+				<height>21</height>
+				<info>PVR.ActStreamProgrSignal</info>
+			</control>
+			<control type="label">
+				<!-- Signal value -->
+				<left>1800</left>
+				<top>172</top>
+				<width>270</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamSignal]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- SNR Title -->
+				<left>75</left>
+				<top>210</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19009]:</label>
+				<font>font12</font>
+			</control>
+			<control type="progress">
+				<!-- SNR progressbar -->
+				<left>330</left>
+				<top>220</top>
+				<width>1365</width>
+				<height>21</height>
+				<overlaytexture>-</overlaytexture>
+				<info>PVR.ActStreamProgrSNR</info>
+			</control>
+			<control type="label">
+				<!-- SNR value -->
+				<left>1800</left>
+				<top>210</top>
+				<width>270</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamSNR]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- BER Title -->
+				<left>75</left>
+				<top>248</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19010]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- BER value -->
+				<left>330</left>
+				<top>248</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamBER]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- UNC title -->
+				<left>585</left>
+				<top>248</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19011]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- UNC value -->
+				<left>840</left>
+				<top>248</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamUNC]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Service title -->
+				<left>1095</left>
+				<top>248</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19099]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Service value -->
+				<left>1350</left>
+				<top>248</top>
+				<width>495</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamServiceName]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Encryption title -->
+				<left>75</left>
+				<top>285</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19015]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Encryption value -->
+				<left>330</left>
+				<top>285</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamEncryptionName]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Provider title -->
+				<left>585</left>
+				<top>285</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19101]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Provider value -->
+				<left>840</left>
+				<top>285</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamProviderName]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Mux title -->
+				<left>1095</left>
+				<top>285</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19100]:</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Mux value -->
+				<left>1350</left>
+				<top>285</top>
+				<width>495</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamMux]</label>
+				<font>font12</font>
+			</control>
+		</control>
+	</controls>
+</window>

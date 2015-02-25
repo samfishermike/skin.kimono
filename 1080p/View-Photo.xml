@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="PhotoWrap">
+		<control type="wraplist" id="54">
+			<viewtype label="31942">Wraplist</viewtype>
+			<left>15</left>
+			<top>290</top>
+			<width>1884</width>
+			<height>750</height>
+			<onleft>54</onleft>
+			<onright>54</onright>
+			<onup>9000</onup>
+			<ondown>1354</ondown>
+			<focusposition>2</focusposition>
+			<orientation>horizontal</orientation>
+			<preloaditems>2</preloaditems>
+			<scrolltime>0</scrolltime>
+			<pagecontrol>1354</pagecontrol>
+			<include>transition-fade</include>
+			<itemlayout height="303" width="303">
+				<control type="image">
+					<left>24</left>
+					<top>348</top>
+					<width>262</width>
+					<height>270</height>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<fadetime>300</fadetime>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<visible>SubString(ListItem.Icon,Default,Left) + !SubString(ListItem.FileNameAndPath,/,Left)</visible>
+				</control>
+				<control type="image">
+					<left>24</left>
+					<top>348</top>
+					<width>262</width>
+					<height>270</height>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<bordertexture border="9">picturepanel.png</bordertexture>
+					<bordersize>9</bordersize>
+					<fadetime>300</fadetime>
+					<visible>!SubString(ListItem.Icon,Default,Left) + !SubString(ListItem.FileNameAndPath,/,Left)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="630" width="642">
+				<control type="image">
+					<left>21</left>
+					<top>0</top>
+					<height>618</height>
+					<width>604</width>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<bordertexture border="9">picturepanel.png</bordertexture>
+					<bordersize>9</bordersize>
+					<fadetime>300</fadetime>
+					<visible>!SubString(ListItem.Icon,Default,Left) + !SubString(ListItem.FileNameAndPath,/,Left)</visible>
+				</control>
+				<control type="image">
+					<left>21</left>
+					<top>0</top>
+					<height>618</height>
+					<width>604</width>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<fadetime>300</fadetime>
+					<visible>SubString(ListItem.Icon,Default,Left) + !SubString(ListItem.FileNameAndPath,/,Left)</visible>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(54)</visible>
+			<include>transition-fade</include>
+			<include>SortLetterNotification</include>
+			<control type="scrollbar" id="1354">
+				<!-- Scroll Bar -->
+				<left>26</left>
+				<top>921</top>
+				<width>1858</width>
+				<height>27</height>
+				<onup>54</onup>
+				<ondown>9000</ondown>
+				<orientation>horizontal</orientation>
+				<animation condition="!Control.HasFocus(1354) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + SubString(Container.Viewmode,Wrap,Left)</visible>
+			</control>
+			<control type="label">
+				<!-- Go Back -->
+				<left>26</left>
+				<top>950</top>
+				<width>1858</width>
+				<height>56</height>
+				<font>font22</font>
+				<align>center</align>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$LOCALIZE[31688]</label>
+				<textoffsetx>0</textoffsetx>
+				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+			</control>
+			<control type="label">
+				<!-- Label -->
+				<left>26</left>
+				<top>950</top>
+				<width>1858</width>
+				<height>56</height>
+				<font>font22</font>
+				<align>center</align>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.Label]</label>
+				<textoffsetx>0</textoffsetx>
+				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+			</control>
+			<control type="label">
+				<!-- Resolution -->
+				<left>424</left>
+				<top>1024</top>
+				<width>1062</width>
+				<height>56</height>
+				<align>center</align>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.PictureResolution]</label>
+				<textoffsetx>0</textoffsetx>
+			</control>
+		</control>
+	</include>
+	<include name="PhotoWall">
+		<control type="panel" id="58">
+			<left>204</left>
+			<top>214</top>
+			<width>1512</width>
+			<height>648</height>
+			<onleft>9000</onleft>
+			<onright>1358</onright>
+			<onup>58</onup>
+			<ondown>58</ondown>
+			<viewtype label="31944">Wall</viewtype>
+			<animation effect="rotatey" start="-15" end="-15" time="0" condition="Skin.HasSetting(tiltmiscwallicon)">Conditional</animation>
+			<scrolltime>200</scrolltime>
+			<preloaditems>2</preloaditems>
+			<pagecontrol>1358</pagecontrol>
+			<itemlayout height="216" width="216">
+				<control type="image">
+					<left>12</left>
+					<top>12</top>
+					<width>192</width>
+					<height>192</height>
+					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<bordertexture border="15">picturepanel.png</bordertexture>
+					<bordersize>15</bordersize>
+					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+				</control>
+				<control type="image">
+					<left>12</left>
+					<top>12</top>
+					<width>192</width>
+					<height>192</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="216" width="216">
+				<control type="image">
+					<left>12</left>
+					<top>12</top>
+					<width>192</width>
+					<height>192</height>
+					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<bordertexture border="15">picturepanel.png</bordertexture>
+					<bordersize>15</bordersize>
+					<animation effect="zoom" start="90" end="150" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
+					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+				</control>
+				<control type="image">
+					<left>12</left>
+					<top>12</top>
+					<width>192</width>
+					<height>192</height>
+					<aspectratio>keep</aspectratio>
+					<animation effect="zoom" start="90" end="150" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(58)</visible>
+			<!-- Label -->
+			<control type="label">
+				<left>30</left>
+				<top>948</top>
+				<width>1860</width>
+				<height>56</height>
+				<font>font22</font>
+				<align>center</align>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.Label]</label>
+				<textoffsetx>0</textoffsetx>
+				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+			</control>
+			<!-- Go Back -->
+			<control type="label">
+				<left>360</left>
+				<top>948</top>
+				<width>1200</width>
+				<height>56</height>
+				<font>font22</font>
+				<align>center</align>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$LOCALIZE[31688]</label>
+				<textoffsetx>0</textoffsetx>
+				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+			</control>
+			<!-- Resolution -->
+			<control type="label">
+				<left>360</left>
+				<top>1023</top>
+				<width>1200</width>
+				<height>56</height>
+				<align>center</align>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.PictureResolution]</label>
+				<textoffsetx>0</textoffsetx>
+			</control>
+			<control type="scrollbar" id="1358">
+				<left>1866</left>
+				<top>153</top>
+				<width>27</width>
+				<height>790</height>
+				<onleft>58</onleft>
+				<onright>9000</onright>
+				<animation condition="!Control.HasFocus(1358) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			</control>
+		</control>
+	</include>
+</includes>

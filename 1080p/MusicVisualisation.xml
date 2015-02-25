@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<onload condition="Skin.HasSetting(background-slideshow)">RunScript(script.artistslideshow)</onload>
+	<allowoverlay>no</allowoverlay>
+	<visible>!Window.IsVisible(videooverlay) + !Window.IsVisible(fullscreenvideo)</visible>
+	<include>screen-fade</include>
+	<controls>
+		<control type="image">
+			<!-- Solid background -->
+			<include>fullscreenimage</include>
+			<texture>background.png</texture>
+			<visible>!Skin.String(background-custom)</visible>
+		</control>
+		<control type="image">
+			<!-- Custom background -->
+			<include>fullscreenimage</include>
+			<texture>$INFO[Skin.String(background-custom)]</texture>
+			<colordiffuse>osd-background</colordiffuse>
+			<visible>Skin.String(background-custom)</visible>
+		</control>
+		<control type="group">
+			<control type="image">
+				<!-- Backgroung fanart image -->
+				<include>fullscreenimage</include>
+				<texture background="true">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+				<aspectratio>scale</aspectratio>
+				<fadetime>1000</fadetime>
+				<visible>!Skin.HasSetting(background-slideshow)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(background-playingmedia)</visible>
+			<control type="visualisation" id="2">
+				<!-- Background visualisation image -->
+				<include>fullscreenimage</include>
+				<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(background-slideshow)</visible>
+			<control type="image">
+				<!-- Mask out any backgrounds showing around ArtistSlideshow Fanart -->
+				<include>fullscreenimage</include>
+				<texture>colours/black.png</texture>
+				<aspectratio>stretch</aspectratio>
+				<visible>SubString(Control.GetLabel(991),blank.png)</visible>
+			</control>
+			<control type="multiimage" id="991">
+				<!-- ArtistSlideshow Fanart -->
+				<include>fullscreenimage</include>
+				<imagepath fallback="blank.png" background="true">$INFO[Window.Property(ArtistSlideshow)]</imagepath>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>5000</timeperimage>
+				<fadetime>1000</fadetime>
+				<randomize>true</randomize>
+			</control>
+		</control>
+		<control type="group">
+			<!-- infos -->
+			<visible>Player.ShowInfo</visible>
+			<control type="image" id="992">
+				<!-- Music logo if available -->
+				<left>12</left>
+				<top>30</top>
+				<width>600</width>
+				<height>232</height>
+				<texture fallback="blank.png">$INFO[Player.FolderPath,,logo.png]</texture>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+			</control>
+			<control type="image" id="993">
+				<!-- Otherwise try parent directory of above -->
+				<left>12</left>
+				<top>30</top>
+				<width>600</width>
+				<height>232</height>
+				<texture fallback="blank.png">$INFO[Player.FolderPath,,../logo.png]</texture>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<visible>SubString(Control.GetLabel(992),blank.png)</visible>
+			</control>
+			<control type="image">
+				<!-- media info background image -->
+				<left>0</left>
+				<top>855</top>
+				<width>1920</width>
+				<height>232</height>
+				<texture>background.png</texture>
+				<colordiffuse>osd-background</colordiffuse>
+			</control>
+			<control type="image">
+				<!-- Cd overlay -->
+				<animation effect="slide" start="-177" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="-171" time="100" tween="cubic" easing="in" delay="0" />
+					<effect type="fade" start="100" end="0" time="200" />
+					<condition type="!Player.Playing" />
+				</animation>
+				<animation effect="rotate" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+				<width>322</width>
+				<height>322</height>
+				<left>198</left>
+				<top>720</top>
+				<texture fallback="DefaultDVDRom.png">$INFO[Player.FolderPath]/cdart.png</texture>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<visible>!SubString(Player.Art(thumb),Default,Left)</visible>
+			</control>
+			<control type="image">
+				<left>-8</left>
+				<top>682</top>
+				<height>398</height>
+				<width>398</width>
+				<texture>case-cd.png</texture>
+				<aspectratio>stretch</aspectratio>
+				<visible>Skin.HasSetting(media-case) + !SubString(Player.Art(thumb),Default,Left)</visible>
+			</control>
+			<control type="image">
+				<!-- Cover image -->
+				<left>30</left>
+				<top>712</top>
+				<width>338</width>
+				<height>338</height>
+				<texture fallback="DefaultAudio.png">$INFO[Player.Art(thumb)]</texture>
+				<aspectratio aligny="bottom">stretch</aspectratio>
+			</control>
+			<control type="label">
+				<!-- Title label -->
+				<left>555</left>
+				<top>858</top>
+				<width>984</width>
+				<height>68</height>
+				<font>font18</font>
+				<label>$INFO[MusicPlayer.Title]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			</control>
+			<control type="label">
+				<!-- Artist label -->
+				<left>555</left>
+				<top>912</top>
+				<width>1023</width>
+				<height>56</height>
+				<font>font12</font>
+				<label>$INFO[MusicPlayer.Artist]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			</control>
+			<control type="label">
+				<!-- Album label -->
+				<left>555</left>
+				<top>957</top>
+				<width>984</width>
+				<height>56</height>
+				<font>font12</font>
+				<label>$INFO[MusicPlayer.Album]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			</control>
+			<control type="label">
+				<!-- Time label -->
+				<left>555</left>
+				<top>1002</top>
+				<width>984</width>
+				<height>56</height>
+				<label>$INFO[musicplayer.Time]$INFO[musicplayer.Duration, / ]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Playlist label -->
+				<left>1461</left>
+				<top>870</top>
+				<width>398</width>
+				<height>56</height>
+				<align>right</align>
+				<label>$INFO[musicplayer.Playlistposition,Track ]$INFO[musicplayer.Playlistlength, / ]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<!-- Partymode enabled -->
+				<left>1485</left>
+				<top>1050</top>
+				<width>375</width>
+				<height>45</height>
+				<label>$LOCALIZE[589]</label>
+				<visible>MusicPartyMode.Enabled</visible>
+				<align>right</align>
+				<font>font12</font>
+			</control>
+			<control type="progress" id="1">
+				<left>837</left>
+				<top>1020</top>
+				<width>1028</width>
+				<height>24</height>
+				<info>Player.Progress</info>
+				<colordiffuse>ProgressBarColor</colordiffuse>
+				<visible>true</visible>
+			</control>
+			<control type="slider" id="402">
+				<!-- Seek slider -->
+				<left>837</left>
+				<top>1017</top>
+				<width>1028</width>
+				<height>30</height>
+				<action>seek</action>
+			</control>
+		</control>
+		<control type="group">
+			<!-- Codec -->
+			<visible>Player.ShowCodec</visible>
+			<control type="image">
+				<!-- Preset background image -->
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>135</height>
+				<texture>background.png</texture>
+				<colordiffuse>osd-background</colordiffuse>
+			</control>
+			<control type="label">
+				<!-- Codec info -->
+				<left>198</left>
+				<top>18</top>
+				<width>1593</width>
+				<height>56</height>
+				<label>$LOCALIZE[292] | $INFO[musicplayer.Codec,Codec:,]$INFO[musicplayer.Bitrate, - Bitrate:,kbps]$INFO[musicplayer.bitspersample, - Bits:,bit]$INFO[musicplayer.Samplerate, - Freq.: ,kHz]$INFO[musicplayer.Channels, - Channels: ]</label>
+				<font>font11</font>
+			</control>
+			<control type="label">
+				<!-- Presets labels -->
+				<left>198</left>
+				<top>64</top>
+				<width>330</width>
+				<height>56</height>
+				<label>Visual | fps: $INFO[System.FPS]</label>
+				<font>font11</font>
+			</control>
+			<control type="label">
+				<left>597</left>
+				<top>64</top>
+				<width>1114</width>
+				<height>56</height>
+				<label>$INFO[Visualisation.Name]$INFO[Visualisation.Preset, - ]</label>
+				<font>font11</font>
+			</control>
+			<control type="image">
+				<!-- Preset locked image -->
+				<left>546</left>
+				<top>63</top>
+				<width>48</width>
+				<height>48</height>
+				<texture>overlaylocked.png</texture>
+				<visible>Visualisation.Locked</visible>
+			</control>
+		</control>
+	</controls>
+</window>

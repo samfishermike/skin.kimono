@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>999</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<include>screen-fade</include>
+	<controls>
+		<include>background</include>
+		<control type="label">
+			<!-- Song Title -->
+			<left>994</left>
+			<top>56</top>
+			<width>849</width>
+			<height>108</height>
+			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			<font>font18</font>
+			<label>$INFO[ListItem.Title]</label>
+			<wrapmultiline>true</wrapmultiline>
+			<aligny>top</aligny>
+		</control>
+		<control type="image">
+			<!-- CD case -->
+			<left>207</left>
+			<top>57</top>
+			<width>579</width>
+			<height>579</height>
+			<texture>case-cd.png</texture>
+			<aspectratio>keep</aspectratio>
+			<visible>Skin.HasSetting(media-case) + [Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
+		</control>
+		<control type="image">
+			<!-- Album cover -->
+			<left>274</left>
+			<top>105</top>
+			<width>480</width>
+			<height>480</height>
+			<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Icon]</texture>
+			<aspectratio>stretch</aspectratio>
+			<align>center</align>
+		</control>
+		<control type="image">
+			<left>90</left>
+			<top>609</top>
+			<width>849</width>
+			<height>6</height>
+			<texture>separator.png</texture>
+		</control>
+		<control type="label">
+			<!-- Album title -->
+			<left>90</left>
+			<top>627</top>
+			<width>225</width>
+			<height>38</height>
+			<label>$LOCALIZE[558]:</label>
+			<font>font12</font>
+			<align>right</align>
+		</control>
+		<control type="label">
+			<left>345</left>
+			<top>627</top>
+			<width>600</width>
+			<height>38</height>
+			<label>$INFO[ListItem.Album]</label>
+			<font>font12</font>
+		</control>
+		<control type="label">
+			<!-- Artist title -->
+			<left>90</left>
+			<top>675</top>
+			<width>225</width>
+			<height>38</height>
+			<label>$LOCALIZE[557]:</label>
+			<font>font12</font>
+			<align>right</align>
+		</control>
+		<control type="label">
+			<left>345</left>
+			<top>675</top>
+			<width>600</width>
+			<height>38</height>
+			<label>$INFO[ListItem.Artist]</label>
+			<font>font12</font>
+		</control>
+		<control type="label">
+			<!-- Genre title -->
+			<left>90</left>
+			<top>723</top>
+			<width>225</width>
+			<height>38</height>
+			<label>$LOCALIZE[515]:</label>
+			<font>font12</font>
+			<align>right</align>
+		</control>
+		<control type="label">
+			<left>345</left>
+			<top>723</top>
+			<width>600</width>
+			<height>38</height>
+			<label>$INFO[ListItem.Genre]</label>
+			<font>font12</font>
+		</control>
+		<control type="label">
+			<!-- Year title -->
+			<left>90</left>
+			<top>768</top>
+			<width>225</width>
+			<height>38</height>
+			<label>$LOCALIZE[562]:</label>
+			<font>font12</font>
+			<align>right</align>
+		</control>
+		<control type="label">
+			<left>345</left>
+			<top>768</top>
+			<width>600</width>
+			<height>38</height>
+			<label>$INFO[ListItem.Year]</label>
+			<font>font12</font>
+		</control>
+		<control type="label">
+			<!-- Track number title -->
+			<left>90</left>
+			<top>816</top>
+			<width>225</width>
+			<height>38</height>
+			<label>$LOCALIZE[554]:</label>
+			<font>font12</font>
+			<align>right</align>
+		</control>
+		<control type="label">
+			<left>345</left>
+			<top>816</top>
+			<width>150</width>
+			<height>38</height>
+			<label>$INFO[ListItem.TrackNumber]</label>
+			<font>font12</font>
+			<visible>!StringCompare(ListItem.TrackNumber,0)</visible>
+		</control>
+		<control type="label">
+			<!-- Ratings title -->
+			<left>90</left>
+			<top>861</top>
+			<width>225</width>
+			<height>38</height>
+			<label>$LOCALIZE[563]:</label>
+			<font>font12</font>
+			<align>right</align>
+		</control>
+		<control type="image">
+			<left>345</left>
+			<top>861</top>
+			<width>225</width>
+			<height>38</height>
+			<texture>$VAR[MediaRating]</texture>
+			<aspectratio>keep</aspectratio>
+		</control>
+		<control type="image">
+			<left>90</left>
+			<top>912</top>
+			<width>849</width>
+			<height>6</height>
+			<texture>separator.png</texture>
+		</control>
+		<control type="textbox">
+			<left>1074</left>
+			<top>195</top>
+			<width>756</width>
+			<height>750</height>
+			<label>$INFO[ListItem.Comment]</label>
+		</control>
+		<control type="group" id="999">
+			<control type="button" id="13">
+				<!-- Get thumb button -->
+				<left>452</left>
+				<top>975</top>
+				<width>318</width>
+				<height>75</height>
+				<label>$LOCALIZE[13405]</label>
+				<align>center</align>
+				<onback>SendClick(10)</onback>
+				<onleft>15</onleft>
+				<onright>12</onright>
+			</control>
+			<control type="button" id="12">
+				<!-- Album info button -->
+				<left>770</left>
+				<top>975</top>
+				<width>318</width>
+				<height>75</height>
+				<label>$LOCALIZE[10523]</label>
+				<align>center</align>
+				<onback>SendClick(10)</onback>
+				<onleft>13</onleft>
+				<onright>14</onright>
+			</control>
+			<control type="image">
+				<!-- Fake rating button -->
+				<left>1089</left>
+				<top>975</top>
+				<width>318</width>
+				<height>75</height>
+				<texture border="12">button-default-focus.png</texture>
+				<visible>[Control.HasFocus(14) | Control.HasFocus(15)]</visible>
+			</control>
+			<control type="label">
+				<!-- Rating Button Label -->
+				<left>1107</left>
+				<top>975</top>
+				<width>184</width>
+				<height>75</height>
+				<label>$LOCALIZE[31229]</label>
+			</control>
+			<control type="button" id="14">
+				<!-- Decrease Rating -->
+				<left>1293</left>
+				<top>996</top>
+				<width>39</width>
+				<height>39</height>
+				<texturenofocus>scroll-down.png</texturenofocus>
+				<texturefocus>scroll-down-focus.png</texturefocus>
+				<onclick>DecreaseRating</onclick>
+				<onclick>SendClick(10)</onclick>
+				<onclick>ActivateWindow(songinformation)</onclick>
+				<onback>SendClick(10)</onback>
+				<onleft>12</onleft>
+				<onright>15</onright>
+			</control>
+			<control type="button" id="15">
+				<!-- Increase Rating -->
+				<left>1341</left>
+				<top>996</top>
+				<width>39</width>
+				<height>39</height>
+				<texturenofocus>scroll-up.png</texturenofocus>
+				<texturefocus>scroll-up-focus.png</texturefocus>
+				<onclick>IncreaseRating</onclick>
+				<onclick>SendClick(10)</onclick>
+				<onclick>ActivateWindow(songinformation)</onclick>
+				<onback>SendClick(10)</onback>
+				<onleft>14</onleft>
+				<onright>13</onright>
+			</control>
+		</control>
+	</controls>
+</window>

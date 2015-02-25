@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>3</defaultcontrol>
+	<zorder>1</zorder>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<include>screen-fade</include>
+	<controls>
+		<include>fadebackground</include>
+		<control type="image">
+			<!-- Dialog background image type 3 -->
+			<left>225</left>
+			<top>90</top>
+			<width>1557</width>
+			<height>810</height>
+			<texture border="12">button-menu-background.png</texture>
+			<visible>Control.IsVisible(3)</visible>
+		</control>
+		<control type="image">
+			<!-- Dialog background image type 6 -->
+			<left>210</left>
+			<top>90</top>
+			<width>1557</width>
+			<height>774</height>
+			<texture border="12">button-menu-background.png</texture>
+			<visible>Control.IsVisible(6)</visible>
+		</control>
+		<control type="label" id="1">
+			<!-- Dialog heading -->
+			<left>465</left>
+			<top>102</top>
+			<width>1104</width>
+			<height>56</height>
+			<align>center</align>
+		</control>
+		<control type="list" id="3">
+			<!-- Type 3 Select -->
+			<left>300</left>
+			<top>186</top>
+			<width>1050</width>
+			<height>672</height>
+			<onleft>23</onleft>
+			<onright>5</onright>
+			<pagecontrol>23</pagecontrol>
+			<itemlayout width="1050" height="84">
+				<control type="image">
+					<left>0</left>
+					<top>3</top>
+					<height>78</height>
+					<width>78</width>
+					<texture fallback="DefaultFile.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>105</left>
+					<top>-6</top>
+					<width>921</width>
+					<height>84</height>
+					<font>font11</font>
+					<selectedcolor>button-text</selectedcolor>
+					<label>$INFO[ListItem.Label] [I]$INFO[ListItem.Label2, - ] [/I]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="1050" height="84">
+				<control type="image">
+					<left>0</left>
+					<top>3</top>
+					<height>78</height>
+					<width>78</width>
+					<texture fallback="DefaultFile.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>81</left>
+					<top>0</top>
+					<width>969</width>
+					<height>84</height>
+					<texture border="12">button-default-focus.png</texture>
+					<animation condition="!Control.HasFocus(3)" effect="fade" start="100" end="60">Conditional</animation>
+				</control>
+				<control type="label">
+					<left>105</left>
+					<top>-6</top>
+					<width>921</width>
+					<height>84</height>
+					<font>font11</font>
+					<selectedcolor>button-text</selectedcolor>
+					<label>$INFO[ListItem.Label] [I]$INFO[ListItem.Label2, - ] [/I]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(3)</visible>
+			<control type="image">
+				<left>255</left>
+				<top>159</top>
+				<width>1494</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="scrollbar" id="23">
+				<left>255</left>
+				<top>186</top>
+				<width>27</width>
+				<height>672</height>
+				<onright>3</onright>
+				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			</control>
+			<control type="label">
+				<left>1050</left>
+				<top>840</top>
+				<width>600</width>
+				<height>36</height>
+				<label>$INFO[Container(3).NumItems] $LOCALIZE[127]</label>
+				<align>right</align>
+			</control>
+		</control>
+		<control type="list" id="6">
+			<!-- Type 6 Select -->
+			<left>252</left>
+			<top>186</top>
+			<width>1050</width>
+			<height>588</height>
+			<onright>26</onright>
+			<onup>6</onup>
+			<ondown>6</ondown>
+			<pagecontrol>26</pagecontrol>
+			<itemlayout width="1050" height="84">
+				<control type="image">
+					<left>0</left>
+					<top>3</top>
+					<height>78</height>
+					<width>78</width>
+					<texture fallback="DefaultFile.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>105</left>
+					<top>-6</top>
+					<width>921</width>
+					<height>84</height>
+					<font>font11</font>
+					<selectedcolor>button-text</selectedcolor>
+					<label>$INFO[ListItem.Label] [I]$INFO[ListItem.Label2, - ] [/I]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="1050" height="84">
+				<control type="image">
+					<left>0</left>
+					<top>3</top>
+					<height>78</height>
+					<width>78</width>
+					<texture fallback="DefaultFile.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>81</left>
+					<top>0</top>
+					<width>969</width>
+					<height>84</height>
+					<texture border="12">button-default-focus.png</texture>
+					<animation condition="!Control.HasFocus(6)" effect="fade" start="100" end="60">Conditional</animation>
+				</control>
+				<control type="label">
+					<left>105</left>
+					<top>-6</top>
+					<width>921</width>
+					<height>84</height>
+					<font>font11</font>
+					<selectedcolor>button-text</selectedcolor>
+					<label>$INFO[ListItem.Label] [I]$INFO[ListItem.Label2, - ] [/I]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(6)</visible>
+			<control type="image">
+				<left>243</left>
+				<top>159</top>
+				<width>1494</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="scrollbar" id="26">
+				<left>1323</left>
+				<top>186</top>
+				<width>27</width>
+				<height>588</height>
+				<onleft>6</onleft>
+				<onright>5</onright>
+				<animation condition="!Control.HasFocus(26) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			</control>
+			<control type="image">
+				<left>1356</left>
+				<top>285</top>
+				<height>384</height>
+				<width>384</width>
+				<texture fallback="DefaultFile.png">$INFO[Container(6).ListItem.Icon]</texture>
+				<aspectratio aligny="top">keep</aspectratio>
+			</control>
+			<control type="label">
+				<left>1050</left>
+				<top>798</top>
+				<width>600</width>
+				<height>56</height>
+				<label>$INFO[Container(6).NumItems] $LOCALIZE[127]</label>
+				<align>right</align>
+			</control>
+		</control>
+		<control type="button" id="5">
+			<!-- Manual -->
+			<left>1365</left>
+			<top>186</top>
+			<width>375</width>
+			<height>84</height>
+			<font>font12</font>
+			<label>$LOCALIZE[186]</label>
+			<align>center</align>
+			<onleft condition="Control.IsVisible(3)">3</onleft>
+			<onleft condition="Control.IsVisible(6)">26</onleft>
+		</control>
+	</controls>
+</window>
