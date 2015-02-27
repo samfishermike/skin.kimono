@@ -89,7 +89,7 @@
 			<animation effect="fade" start="0" end="100" time="2500" delay="500" tween="quadratic" easing="out">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
 			<control type="group">
-				<visible>![Skin.HasSetting(HomeViewToggle) + Player.HasVideo] + !IsEmpty(ListItem.Title)</visible>
+				<visible>![Skin.HasSetting(HomeViewToggle) + Player.HasVideo]</visible>
 				<control type="group">
 					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
 					<control type="image">
