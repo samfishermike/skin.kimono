@@ -61,7 +61,7 @@
 					<top>0</top>
 					<width>1012</width>
 					<height>68</height>
-					<texture border="12">button-default-focus.png</texture>
+					<texture border="12">default-button.png</texture>
 					<animation effect="fade" start="100" end="60" condition="ControlGroup(460).HasFocus() | Control.HasFocus(23)">Conditional</animation>
 				</control>
 				<control type="label">

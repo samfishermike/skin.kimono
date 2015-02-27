@@ -93,7 +93,7 @@
 					<top>0</top>
 					<width>900</width>
 					<height>69</height>
-					<texture border="12">button-default-focus.png</texture>
+					<texture border="12">default-button.png</texture>
 					<visible>Control.HasFocus(20)</visible>
 				</control>
 				<control type="label">
@@ -157,7 +157,7 @@
 					<top>0</top>
 					<width>900</width>
 					<height>69</height>
-					<texture border="12">button-default-focus.png</texture>
+					<texture border="12">default-button.png</texture>
 					<visible>Control.HasFocus(21)</visible>
 				</control>
 				<control type="label">

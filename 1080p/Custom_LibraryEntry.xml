@@ -78,7 +78,7 @@
 							<width>585</width>
 							<height>69</height>
 							<align>left</align>
-							<texture border="12">button-default-focus.png</texture>
+							<texture border="12">default-button.png</texture>
 						</control>
 						<control type="label">
 							<left>15</left>
@@ -237,7 +237,7 @@
 							<width>585</width>
 							<height>69</height>
 							<align>left</align>
-							<texture border="12">button-default-focus.png</texture>
+							<texture border="12">default-button.png</texture>
 						</control>
 						<control type="label">
 							<left>15</left>
@@ -368,7 +368,7 @@
 							<width>585</width>
 							<height>69</height>
 							<align>left</align>
-							<texture border="12">button-default-focus.png</texture>
+							<texture border="12">default-button.png</texture>
 						</control>
 						<control type="label">
 							<left>15</left>
@@ -506,7 +506,7 @@
 							<width>585</width>
 							<height>69</height>
 							<align>left</align>
-							<texture border="12">button-default-focus.png</texture>
+							<texture border="12">default-button.png</texture>
 						</control>
 						<control type="label">
 							<left>15</left>
@@ -672,7 +672,7 @@
 							<width>585</width>
 							<height>69</height>
 							<align>left</align>
-							<texture border="12">button-default-focus.png</texture>
+							<texture border="12">default-button.png</texture>
 						</control>
 						<control type="label">
 							<left>15</left>
@@ -789,7 +789,7 @@
 							<width>585</width>
 							<height>69</height>
 							<align>left</align>
-							<texture border="12">button-default-focus.png</texture>
+							<texture border="12">default-button.png</texture>
 						</control>
 						<control type="label">
 							<left>15</left>

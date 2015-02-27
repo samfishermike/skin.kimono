@@ -302,7 +302,7 @@
 						<posy>0</posy>
 						<width>828</width>
 						<height>105</height>
-						<texture border="12">button-default-focus.png</texture>
+						<texture border="12">default-button.png</texture>
 					</control>
 					<control type="label">
 						<posx>57</posx>
@@ -508,7 +508,7 @@
 						<posy>0</posy>
 						<width>828</width>
 						<height>105</height>
-						<texture border="12">button-default-focus.png</texture>
+						<texture border="12">default-button.png</texture>
 					</control>
 					<control type="label">
 						<posx>57</posx>
@@ -850,7 +850,7 @@
 						<posy>0</posy>
 						<width>1740</width>
 						<height>75</height>
-						<texture border="12">button-default-focus.png</texture>
+						<texture border="12">default-button.png</texture>
 					</control>
 					<control type="label">
 						<posx>22</posx>
@@ -1002,7 +1002,7 @@
 							<top>495</top>
 							<width>840</width>
 							<height>105</height>
-							<texture border="8">button-default-focus.png</texture>
+							<texture border="8">default-button.png</texture>
 							<aspectratio>stretch</aspectratio>
 						</control>
 						<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-420" time="0" easing="inout" reversible="true">Conditional</animation>
@@ -1222,7 +1222,7 @@
 						<posy>0</posy>
 						<width>1740</width>
 						<height>69</height>
-						<texture border="12">button-default-focus.png</texture>
+						<texture border="12">default-button.png</texture>
 					</control>
 					<control type="label">
 						<posx>78</posx>
@@ -1310,7 +1310,7 @@
 						<posy>0</posy>
 						<width>1140</width>
 						<height>60</height>
-						<texture border="12">button-default-focus.png</texture>
+						<texture border="12">default-button.png</texture>
 						<visible>Control.HasFocus(560)</visible>
 					</control>
 					<control type="label">

@@ -198,7 +198,7 @@
 				<top>975</top>
 				<width>318</width>
 				<height>75</height>
-				<texture border="12">button-default-focus.png</texture>
+				<texture border="12">default-button.png</texture>
 				<visible>[Control.HasFocus(14) | Control.HasFocus(15)]</visible>
 			</control>
 			<control type="label">

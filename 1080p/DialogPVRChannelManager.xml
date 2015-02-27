@@ -95,7 +95,7 @@
 						<posy>0</posy>
 						<width>816</width>
 						<height>114</height>
-						<texture border="12">button-default-focus.png</texture>
+						<texture border="12">default-button.png</texture>
 					</control>
 					<control type="image">
 						<posx>15</posx>

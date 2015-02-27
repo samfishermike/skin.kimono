@@ -497,7 +497,7 @@
 					<width>873</width>
 					<height>108</height>
 					<visible>Control.HasFocus(50)</visible>
-					<texture border="12">button-default-focus.png</texture>
+					<texture border="12">default-button.png</texture>
 				</control>
 				<control type="group">
 					<visible>Container.Content(artists)</visible>

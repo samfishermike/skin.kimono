@@ -68,7 +68,7 @@
 					<top>0</top>
 					<width>1032</width>
 					<height>68</height>
-					<texture border="12">button-default-focus.png</texture>
+					<texture border="12">default-button.png</texture>
 				</control>
 				<control type="label">
 					<left>15</left>

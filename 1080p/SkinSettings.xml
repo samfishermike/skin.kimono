@@ -148,7 +148,7 @@
 					<top>168</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">button-default-focus.png</texture>
+					<texture border="10">default-button.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
@@ -203,7 +203,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(102).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -376,7 +376,7 @@
 					<top>249</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">button-default-focus.png</texture>
+					<texture border="10">default-button.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
@@ -440,7 +440,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(202).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -645,7 +645,7 @@
 					<top>330</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">button-default-focus.png</texture>
+					<texture border="10">default-button.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
@@ -742,7 +742,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(306).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -873,7 +873,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(309).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -1015,7 +1015,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(312).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -1146,7 +1146,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(315).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -1277,7 +1277,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(318).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -1399,7 +1399,7 @@
 					<top>411</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">button-default-focus.png</texture>
+					<texture border="10">default-button.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
@@ -1453,7 +1453,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(402).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -1722,7 +1722,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(420).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -1877,7 +1877,7 @@
 					<top>492</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">button-default-focus.png</texture>
+					<texture border="10">default-button.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
@@ -2002,7 +2002,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">button-default-focus.png</texture>
+									<texture border="10">default-button.png</texture>
 									<visible>ControlGroup(510).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -2142,7 +2142,7 @@
 					<top>573</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">button-default-focus.png</texture>
+					<texture border="10">default-button.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
@@ -2266,7 +2266,7 @@
 					<top>735</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">button-default-focus.png</texture>
+					<texture border="10">default-button.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
