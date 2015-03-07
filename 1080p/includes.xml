@@ -877,15 +877,14 @@
 		<font>font12</font>
 	</include>
 	<include name="keyboard-key-common">
+		<width>96</width>
+		<height>96</height>
+		<texturenofocus border="6">key-standard-nofocus.png</texturenofocus>
+		<texturefocus border="6">key-standard-focus.png</texturefocus>
+		<shadowcolor></shadowcolor>
+		<font>font13</font>
 		<align>center</align>
-		<aligny>top</aligny>
-		<textoffsetx>0</textoffsetx>
-		<textoffsety>3</textoffsety>
-		<font>font18</font>
-		<textcolor>button-text</textcolor>
-		<shadowcolor>shadow-text</shadowcolor>
-		<texturenofocus border="6">key-nofocus.png</texturenofocus>
-		<texturefocus border="6">key-focus.png</texturefocus>
+		<aligny>center</aligny>
 	</include>
 	<include name="overlaylabel-dimension">
 		<width>1170</width>
