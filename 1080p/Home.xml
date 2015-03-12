@@ -175,16 +175,16 @@
 		<control type="image">
 			<!-- Main menu background -->
 			<left>0</left>
-			<top>96</top>
+			<top>85</top>
 			<width>478</width>
-			<height>888</height>
+			<height>912</height>
 			<texture>ButtonUnfocus.png</texture>
 		</control>
 		<control type="list" id="9000">
 			<!-- Home menu list -->
 			<left>0</left>
-			<top>96</top>
-			<height>880</height>
+			<top>85</top>
+			<height>912</height>
 			<width>478</width>
 			<focusposition>3</focusposition>
 			<movement>4</movement>
@@ -192,31 +192,31 @@
 			<onup>999</onup>
 			<ondown>noop</ondown>
 			<scrolltime>1</scrolltime>
-			<itemlayout width="478" height="80">
+			<itemlayout width="478" height="76">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
 					<width>478</width>
-					<height>80</height>
+					<height>76</height>
 					<texture>ButtonUnfocus.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
-					<top>24</top>
+					<top>22</top>
 					<width>32</width>
 					<height>32</height>
 					<texture>scroll-left.png</texture>
 				</control>
 				<control type="image">
 					<left>40</left>
-					<top>16</top>
+					<top>14</top>
 					<width>48</width>
 					<height>48</height>
 					<texture>$INFO[ListItem.Thumb]</texture>
 				</control>
 				<control type="label">
 					<left>112</left>
-					<top>26</top>
+					<top>24</top>
 					<width>286</width>
 					<height>28</height>
 					<label>$INFO[ListItem.Label]</label>
@@ -224,37 +224,37 @@
 				</control>
 				<control type="image">
 					<left>0</left>
-					<top>75</top>
+					<top>70</top>
 					<width>478</width>
-					<height>6</height>
+					<height>8</height>
 					<texture>separator.png</texture>
 				</control>
 			</itemlayout>
-			<focusedlayout width="478" height="80">
+			<focusedlayout width="478" height="76">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
 					<width>478</width>
-					<height>80</height>
+					<height>76</height>
 					<texture>ButtonFocus.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
-					<top>24</top>
+					<top>22</top>
 					<width>32</width>
 					<height>32</height>
 					<texture>scroll-left.png</texture>
 				</control>
 				<control type="image">
 					<left>40</left>
-					<top>16</top>
+					<top>14</top>
 					<width>48</width>
 					<height>48</height>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
 				</control>
 				<control type="label">
 					<left>112</left>
-					<top>26</top>
+					<top>24</top>
 					<width>286</width>
 					<height>28</height>
 					<textcolor>shadow-text</textcolor>
@@ -263,9 +263,9 @@
 				</control>
 				<control type="image">
 					<left>0</left>
-					<top>75</top>
+					<top>70</top>
 					<width>478</width>
-					<height>6</height>
+					<height>8</height>
 					<texture>separator.png</texture>
 				</control>
 			</focusedlayout>
@@ -330,14 +330,6 @@
 					<label>$LOCALIZE[1]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>ActivateWindow(MyPictures,,return)</onclick>
-				</item>
-				<item>
-					<thumb>HomeWeatherUnfocus.png</thumb>
-					<icon>HomeWeatherFocus.png</icon>
-					<label>$LOCALIZE[31032]</label>
-					<label2>$LOCALIZE[8]</label2>
-					<onclick>ActivateWindow(Weather,,return)</onclick>
-					<visible>!IsEmpty(Weather.plugin)</visible>
 				</item>
 				<item>
 					<thumb>HomeFavsUnfocus.png</thumb>

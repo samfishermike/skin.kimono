@@ -35,7 +35,6 @@
 	<include name="background">
 		<control type="group">
 			<animation effect="fade" start="0" end="100" time="500" delay="2500">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
 			<control type="image">
 				<include>fullscreenimage</include>
 				<texture background="true">$VAR[BackgroundImage]</texture>
@@ -87,7 +86,6 @@
 	<include name="backgroundvideo">
 		<control type="group">
 			<animation effect="fade" start="0" end="100" time="2500" delay="500" tween="quadratic" easing="out">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
 			<control type="group">
 				<visible>![Skin.HasSetting(HomeViewToggle) + Player.HasVideo]</visible>
 				<control type="group">
@@ -403,18 +401,6 @@
 			<texture flipx="true">mask-fadebackground.png</texture>
 		</control>
 	</include>
-	<include name="horizontalhome-time">
-		<control type="label">
-			<!-- Time and date -->
-			<left>1131</left>
-			<top>0</top>
-			<width>789</width>
-			<height>69</height>
-			<label>$INFO[system.Time(hh:mm xx)] $INFO[system.Date]</label>
-			<align>center</align>
-			<font>font18</font>
-		</control>
-	</include>
 	<include name="SortLetterNotification">
 		<control type="group">
 			<visible>Container.Scrolling + !Window.IsVisible(progressdialog)</visible>
@@ -531,19 +517,62 @@
 			</control>
 		</control>
 	</include>
-
+	<include name="kodimenu">
+	</include>
+	<include name="weathermenu">
+		<control type="group">
+			<!-- Weather Condition -->
+			<visible>!IsEmpty(Weather.plugin)</visible>
+			<control type="label">
+				<!-- Can't get current weather conditions -->
+				<left>1528</left>
+				<top>32</top>
+				<width>90</width>
+				<height>22</height>
+				<font>font10</font>
+				<align>center</align>
+				<label>$LOCALIZE[412]</label>
+				<visible>IsEmpty(Weather.Conditions)</visible>
+			</control>
+			<control type="group">
+				<visible>!IsEmpty(Weather.Conditions)</visible>
+				<control type="image">
+					<left>1464</left>
+					<top>18</top>
+					<width>64</width>
+					<height>64</height>
+					<texture>HomeWeather.png</texture>
+				</control>
+				<control type="label">
+					<!-- Current temperature -->
+					<left>1530</left>
+					<top>32</top>
+					<width>90</width>
+					<height>22</height>
+					<font>font10</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$INFO[Weather.Temperature]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="settingsmenu">
+	</include>
+	<include name="mediamenu">
+	</include>
 	<include name="topbar">
 		<!-- Top Bar -->
 		<control type="image">
 			<left>0</left>
 			<top>0</top>
 			<width>1920</width>
-			<height>96</height>
+			<height>84</height>
 			<texture>background.png</texture>
 		</control>
 		<control type="image">
 			<left>0</left>
-			<top>92</top>
+			<top>81</top>
 			<width>1920</width>
 			<height>6</height>
 			<texture>separator.png</texture>
@@ -559,14 +588,14 @@
 			<left>128</left>
 			<top>0</top>
 			<width>6</width>
-			<height>96</height>
+			<height>84</height>
 			<texture>separatorhorz.png</texture>
 		</control>
 		<control type="image">
 			<left>1442</left>
 			<top>0</top>
 			<width>6</width>
-			<height>96</height>
+			<height>84</height>
 			<texture>separatorhorz.png</texture>
 		</control>
 		<control type="group">
@@ -612,7 +641,7 @@
 				<top>14</top>
 				<width>160</width>
 				<height>30</height>
-				<label>$INFO[System.Time(hh:mm xx)]</label>
+				<label>$INFO[System.Time]</label>
 				<font>font12</font>
 				<align>center</align>
 			</control>
@@ -631,7 +660,7 @@
 			<left>1762</left>
 			<top>0</top>
 			<width>6</width>
-			<height>96</height>
+			<height>84</height>
 			<texture>separatorhorz.png</texture>
 		</control>
 		<control type="grouplist" id="999">
@@ -694,19 +723,18 @@
 			</control>
 		</control>
 	</include>
-
 	<include name="bottombar">
 		<!-- Bottom Bar -->
 		<control type="image">
 			<left>0</left>
-			<top>985</top>
+			<top>998</top>
 			<width>1920</width>
-			<height>96</height>
+			<height>84</height>
 			<texture>background.png</texture>
 		</control>
 		<control type="image">
 			<left>0</left>
-			<top>983</top>
+			<top>992</top>
 			<width>1920</width>
 			<height>6</height>
 			<texture>separator.png</texture>
@@ -715,9 +743,9 @@
 		<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include>
 		<control type="image">
 			<left>1442</left>
-			<top>985</top>
+			<top>996</top>
 			<width>6</width>
-			<height>96</height>
+			<height>84</height>
 			<texture>separatorhorz.png</texture>
 		</control>
 		<control type="group">
