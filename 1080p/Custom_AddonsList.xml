@@ -15,6 +15,27 @@
 			<label>$LOCALIZE[24001]</label>
 			<font>font18</font>
 		</control>
+		<control type="group">
+			<!-- Slider image for list items -->
+			<top>162</top>
+			<visible>Control.IsVisible(999) + [IntegerGreaterThan(Container(999).NumItems,0) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(50).NumItems,-1) + system.getbool(filelists.showparentdiritems)]</visible>
+			<control type="group">
+				<control type="image">
+					<left>1074</left>
+					<top>597</top>
+					<width>771</width>
+					<height>84</height>
+					<texture border="12">default-button.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<animation condition="Container(999).Position(0)" effect="slide" start="0,0" end="0,-588" time="0" easing="inout" reversible="true">Conditional</animation>
+				<animation condition="Container(999).Position(1)" effect="slide" start="0,0" end="0,-504" time="0" easing="inout" reversible="true">Conditional</animation>
+				<animation condition="Container(999).Position(2)" effect="slide" start="0,0" end="0,-420" time="0" easing="inout" reversible="true">Conditional</animation>
+				<animation condition="Container(999).Position(3)" effect="slide" start="0,0" end="0,-336" time="0" easing="inout" reversible="true">Conditional</animation>
+				<animation condition="Container(999).Position(4)" effect="slide" start="0,0" end="0,-252" time="0" easing="inout" reversible="true">Conditional</animation>
+				<animation condition="Container(999).Position(5)" effect="slide" start="0,0" end="0,-168" time="0" easing="inout" reversible="true">Conditional</animation>
+			</control>
+		</control>
 		<control type="list" id="999">
 			<viewtype label="31941">List</viewtype>
 			<left>1017</left>
@@ -103,27 +124,6 @@
 					<texture background="true" diffuse="mask-squ.png">$INFO[Container(999).Listitem.ActualIcon]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 				</control>
-			</control>
-		</control>
-		<control type="group">
-			<top>162</top>
-			<visible>Control.IsVisible(999) + [IntegerGreaterThan(Container(999).NumItems,0) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(50).NumItems,-1) + system.getbool(filelists.showparentdiritems)]</visible>
-			<control type="group">
-				<control type="image">
-					<!-- Slider -->
-					<left>1074</left>
-					<top>597</top>
-					<width>771</width>
-					<height>84</height>
-					<texture border="12">default-button.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<animation condition="Container(999).Position(0)" effect="slide" start="0,0" end="0,-588" time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(999).Position(1)" effect="slide" start="0,0" end="0,-504" time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(999).Position(2)" effect="slide" start="0,0" end="0,-420" time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(999).Position(3)" effect="slide" start="0,0" end="0,-336" time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(999).Position(4)" effect="slide" start="0,0" end="0,-252" time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(999).Position(5)" effect="slide" start="0,0" end="0,-168" time="0" easing="inout" reversible="true">Conditional</animation>
 			</control>
 		</control>
 	</controls>
