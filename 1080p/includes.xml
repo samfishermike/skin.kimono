@@ -385,18 +385,18 @@
 		<control type="image">
 			<!-- Feather edge of scrolling text -->
 			<left>76</left>
-			<top>987</top>
+			<top>996</top>
 			<width>64</width>
-			<height>94</height>
+			<height>88</height>
 			<aspectratio>stretch</aspectratio>
 			<texture>mask-fadebackground.png</texture>
 		</control>
 		<control type="image">
 			<!-- Feather edge of scrolling text -->
 			<left>1380</left>
-			<top>987</top>
+			<top>996</top>
 			<width>64</width>
-			<height>94</height>
+			<height>88</height>
 			<aspectratio>stretch</aspectratio>
 			<texture flipx="true">mask-fadebackground.png</texture>
 		</control>
@@ -518,6 +518,13 @@
 		</control>
 	</include>
 	<include name="kodimenu">
+		<control type="image">
+			<left>40</left>
+			<top>20</top>
+			<width>48</width>
+			<height>48</height>
+			<texture>SkinLogo.png</texture>
+		</control>
 	</include>
 	<include name="weathermenu">
 		<control type="group">
@@ -556,85 +563,8 @@
 				</control>
 			</control>
 		</control>
-	</include>
-	<include name="settingsmenu">
-	</include>
-	<include name="mediamenu">
-	</include>
-	<include name="topbar">
-		<!-- Top Bar -->
-		<control type="image">
-			<left>0</left>
-			<top>0</top>
-			<width>1920</width>
-			<height>84</height>
-			<texture>background.png</texture>
-		</control>
-		<control type="image">
-			<left>0</left>
-			<top>81</top>
-			<width>1920</width>
-			<height>6</height>
-			<texture>separator.png</texture>
-		</control>
-		<control type="image">
-			<left>40</left>
-			<top>20</top>
-			<width>48</width>
-			<height>48</height>
-			<texture>SkinLogo.png</texture>
-		</control>
-		<control type="image">
-			<left>128</left>
-			<top>0</top>
-			<width>6</width>
-			<height>84</height>
-			<texture>separatorhorz.png</texture>
-		</control>
-		<control type="image">
-			<left>1442</left>
-			<top>0</top>
-			<width>6</width>
-			<height>84</height>
-			<texture>separatorhorz.png</texture>
-		</control>
 		<control type="group">
-			<!-- Weather Condition -->
-			<visible>!IsEmpty(Weather.plugin)</visible>
-			<control type="label">
-				<!-- Can't get current weather conditions -->
-				<left>1528</left>
-				<top>32</top>
-				<width>90</width>
-				<height>22</height>
-				<font>font10</font>
-				<align>center</align>
-				<label>$LOCALIZE[412]</label>
-				<visible>IsEmpty(Weather.Conditions)</visible>
-			</control>
-			<control type="group">
-				<visible>!IsEmpty(Weather.Conditions)</visible>
-				<control type="image">
-					<left>1464</left>
-					<top>18</top>
-					<width>64</width>
-					<height>64</height>
-					<texture>HomeWeather.png</texture>
-				</control>
-				<control type="label">
-					<!-- Current temperature -->
-					<left>1530</left>
-					<top>32</top>
-					<width>90</width>
-					<height>22</height>
-					<font>font10</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<label>$INFO[Weather.Temperature]</label>
-				</control>
-			</control>
-		</control>
-		<control type="group">
+			<!-- Date and Time -->
 			<control type="label">
 				<!-- Time -->
 				<left>1606</left>
@@ -656,13 +586,8 @@
 				<align>center</align>
 			</control>
 		</control>
-		<control type="image">
-			<left>1762</left>
-			<top>0</top>
-			<width>6</width>
-			<height>84</height>
-			<texture>separatorhorz.png</texture>
-		</control>
+	</include>
+	<include name="settingsmenu">
 		<control type="grouplist" id="999">
 			<!-- Topbar Buttons -->
 			<left>1768</left>
@@ -722,6 +647,53 @@
 				<visible>Window.IsVisible(videolibrary)</visible>
 			</control>
 		</control>
+	</include>
+	<include name="mediamenu">
+	</include>
+	<include name="topbar">
+		<!-- Top Bar -->
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>84</height>
+			<texture>background.png</texture>
+		</control>
+		<control type="image">
+			<left>0</left>
+			<top>81</top>
+			<width>1920</width>
+			<height>6</height>
+			<texture>separator.png</texture>
+		</control>
+		<control type="image">
+			<left>128</left>
+			<top>0</top>
+			<width>6</width>
+			<height>84</height>
+			<texture>separatorhorz.png</texture>
+		</control>
+		<control type="image">
+			<left>1442</left>
+			<top>0</top>
+			<width>6</width>
+			<height>84</height>
+			<texture>separatorhorz.png</texture>
+		</control>
+		<control type="image">
+			<left>1762</left>
+			<top>0</top>
+			<width>6</width>
+			<height>84</height>
+			<texture>separatorhorz.png</texture>
+		</control>
+
+		<include>kodimenu</include>
+
+		<include>weathermenu</include>
+
+		<include>settingsmenu</include>
+
 	</include>
 	<include name="bottombar">
 		<!-- Bottom Bar -->
