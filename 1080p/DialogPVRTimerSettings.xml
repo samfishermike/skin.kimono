@@ -1,109 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>29</defaultcontrol>
-	<coordinates>
-		<system>1</system>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
-	<include>screen-fade</include>
-	<controls>
-		<include>fadebackground</include>
-		<control type="image">
-			<!-- Dialog background image -->
-			<left>412</left>
-			<top>45</top>
-			<width>1095</width>
-			<height>990</height>
-			<texture border="12">button-menu-background.png</texture>
-		</control>
-		<control type="label" id="2">
-			<!-- Dialog heading -->
-			<left>472</left>
-			<top>75</top>
-			<width>975</width>
-			<height>45</height>
-			<align>center</align>
-		</control>
-		<control type="image">
-			<left>472</left>
-			<top>120</top>
-			<width>975</width>
-			<height>6</height>
-			<texture>separator.png</texture>
-		</control>
-		<control type="grouplist" id="5">
-			<!-- Control area -->
-			<left>458</left>
-			<top>150</top>
-			<width>1005</width>
-			<height>765</height>
-			<itemgap>0</itemgap>
-			<onup>9001</onup>
-			<ondown>9001</ondown>
-			<onleft>9001</onleft>
-			<onright>9001</onright>
-		</control>
-		<control type="group" id="9001">
-			<left>652</left>
-			<top>930</top>
-			<control type="button" id="28">
-				<!-- OK -->
-				<left>0</left>
-				<top>0</top>
-				<width>300</width>
-				<height>69</height>
-				<align>center</align>
-				<font>font12</font>
-				<label>$LOCALIZE[186]</label>
-				<onleft>29</onleft>
-				<onright>29</onright>
-				<onup>5</onup>
-				<ondown>5</ondown>
-			</control>
-			<control type="button" id="29">
-				<!-- Cancel -->
-				<left>315</left>
-				<top>0</top>
-				<width>300</width>
-				<height>69</height>
-				<align>center</align>
-				<font>font12</font>
-				<label>$LOCALIZE[222]</label>
-				<onleft>28</onleft>
-				<onright>28</onright>
-				<onup>5</onup>
-				<ondown>5</ondown>
-			</control>
-		</control>
-		<control type="button" id="7">
-			<!-- Default button -->
-			<height>69</height>
-			<focusedcolor>button-text</focusedcolor>
-		</control>
-		<control type="radiobutton" id="8">
-			<!-- Default radiobutton -->
-			<height>69</height>
-			<radioposx>945</radioposx>
-		</control>
-		<control type="spincontrolex" id="9">
-			<!-- Default spincontrolex -->
-			<height>69</height>
-			<focusedcolor>button-text</focusedcolor>
-			<reverse>yes</reverse>
-		</control>
-		<control type="sliderex" id="13">
-			<!-- Default slider -->
-			<height>69</height>
-		</control>
-		<control type="image" id="11">
-			<height>6</height>
-			<texture>separator.png</texture>
-		</control>
-		<control type="edit" id="12">
-			<!-- Default edit -->
-			<height>69</height>
-			<focusedcolor>button-text</focusedcolor>
-		</control>
-	</controls>
+    <defaultcontrol>29</defaultcontrol>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <include>fadebackground</include>
+        <control type="image">
+            <!-- Dialog background image -->
+            <left>412</left>
+            <top>45</top>
+            <width>1095</width>
+            <height>990</height>
+            <texture border="8">button-menu-background.png</texture>
+        </control>
+        <control type="label" id="2">
+            <!-- Dialog heading -->
+            <left>472</left>
+            <top>69</top>
+            <width>975</width>
+            <height>45</height>
+            <label>-</label>
+            <align>center</align>
+        </control>
+        <control type="label">
+            <!-- Dialog heading -->
+            <left>472</left>
+            <top>69</top>
+            <width>975</width>
+            <height>45</height>
+            <align>center</align>
+            <label>$LOCALIZE[19026]</label>
+            <visible>IsEmpty(Control.GetLabel(2))</visible>
+        </control>
+        <control type="image">
+            <left>472</left>
+            <top>120</top>
+            <width>975</width>
+            <height>6</height>
+            <texture>separator.png</texture>
+        </control>
+        <control type="grouplist" id="5">
+            <!-- Control area -->
+            <left>458</left>
+            <top>150</top>
+            <width>1005</width>
+            <height>765</height>
+            <onup>9001</onup>
+            <ondown>9001</ondown>
+            <onleft>9001</onleft>
+            <onright>9001</onright>
+        </control>
+        <control type="group" id="9001">
+            <left>502</left>
+            <top>930</top>
+            <control type="button" id="28">
+                <!-- OK -->
+                <left>0</left>
+                <top>0</top>
+                <width>450</width>
+                <height>69</height>
+                <align>center</align>
+                <font>font12</font>
+                <label>$LOCALIZE[186]</label>
+                <onleft>29</onleft>
+                <onright>29</onright>
+                <onup>5</onup>
+                <ondown>5</ondown>
+            </control>
+            <control type="button" id="29">
+                <!-- Cancel -->
+                <left>465</left>
+                <top>0</top>
+                <width>450</width>
+                <height>69</height>
+                <align>center</align>
+                <font>font12</font>
+                <label>$LOCALIZE[222]</label>
+                <onleft>28</onleft>
+                <onright>28</onright>
+                <onup>5</onup>
+                <ondown>5</ondown>
+            </control>
+        </control>
+        <control type="button" id="7">
+            <!-- Default button -->
+            <height>69</height>
+            <focusedcolor>button-text</focusedcolor>
+        </control>
+        <control type="radiobutton" id="8">
+            <!-- Default radiobutton -->
+            <height>69</height>
+            <radioposx>945</radioposx>
+        </control>
+        <control type="spincontrolex" id="9">
+            <!-- Default spincontrolex -->
+            <height>69</height>
+            <focusedcolor>button-text</focusedcolor>
+            <reverse>yes</reverse>
+        </control>
+        <control type="image" id="11">
+            <height>6</height>
+            <texture>separator.png</texture>
+        </control>
+        <control type="edit" id="12">
+            <!-- Default edit -->
+            <height>69</height>
+            <focusedcolor>button-text</focusedcolor>
+        </control>
+        <control type="sliderex" id="13">
+            <!-- Default slider -->
+            <height>69</height>
+        </control>
+        <control type="label" id="14">
+            <!-- Default label -->
+            <height>69</height>
+        </control>
+    </controls>
 </window>

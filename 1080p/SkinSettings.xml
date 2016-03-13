@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">999</defaultcontrol>
-	<allowoverlay>yes</allowoverlay>
-	<include>screen-fade</include>
 	<controls>
 		<include>background</include>
 		<include>Fake-Overlay</include>
@@ -148,27 +146,25 @@
 					<top>168</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">default-button.png</texture>
+					<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group">
-					<!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					<!-- Don't show scrollbar -->
+					<!-- Markers for control area items -->
 					<control type="image">
 						<left>726</left>
-						<top>138</top>
-						<height>36</height>
-						<width>36</width>
+						<top>144</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-up.png</texture>
 						<visible>Container(101).HasPrevious</visible>
 					</control>
 					<control type="image">
 						<left>726</left>
-						<top>972</top>
-						<height>36</height>
-						<width>36</width>
+						<top>978</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-down.png</texture>
 						<visible>Container(101).HasNext</visible>
 					</control>
@@ -203,7 +199,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(102).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -376,27 +372,25 @@
 					<top>249</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">default-button.png</texture>
+					<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group">
-					<!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					<!-- Don't show scrollbar -->
+					<!-- Markers for control area items -->
 					<control type="image">
 						<left>726</left>
-						<top>138</top>
-						<height>36</height>
-						<width>36</width>
+						<top>144</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-up.png</texture>
 						<visible>Container(200).HasPrevious</visible>
 					</control>
 					<control type="image">
 						<left>726</left>
-						<top>972</top>
-						<height>36</height>
-						<width>36</width>
+						<top>978</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-down.png</texture>
 						<visible>Container(200).HasNext</visible>
 					</control>
@@ -440,7 +434,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(202).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -567,15 +561,6 @@
 						<selected>Skin.HasSetting(media-overlay)</selected>
 						<radioposx>1266</radioposx>
 					</control>
-					<control type="radiobutton" id="207">
-						<!-- Watched Overlay Toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31884]</label>
-						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(watched-overlay)</onclick>
-						<selected>Skin.HasSetting(watched-overlay)</selected>
-						<radioposx>1266</radioposx>
-					</control>
 					<control type="radiobutton" id="208">
 						<!-- Use Media case Toggle -->
 						<include>settings-submenu-common</include>
@@ -583,32 +568,6 @@
 						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(media-case)</onclick>
 						<selected>Skin.HasSetting(media-case)</selected>
-						<radioposx>1266</radioposx>
-					</control>
-					<control type="button" id="209">
-						<!-- Custom Weather Icons Button -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31873]</label>
-						<textwidth>1178</textwidth>
-						<onclick>Skin.SetPath(custom-weathericons)</onclick>
-						<visible>!Skin.String(custom-weathericons)</visible>
-					</control>
-					<control type="button" id="210">
-						<!-- Reset Custom Weather Icons Button -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31874]</label>
-						<textwidth>1178</textwidth>
-						<onclick>Skin.Reset(custom-weathericons)</onclick>
-						<visible>Skin.String(custom-weathericons)</visible>
-					</control>
-					<control type="radiobutton" id="211">
-						<!-- Use TV Tunes -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31892]</label>
-						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(media-themetune)</onclick>
-						<selected>Skin.HasSetting(media-themetune)</selected>
-						<enable>System.HasAddon(script.tvtunes)</enable>
 						<radioposx>1266</radioposx>
 					</control>
 					<control type="button" id="212">
@@ -629,9 +588,7 @@
 						<onclick>Skin.Reset(sbar)</onclick>
 						<onclick>Skin.Reset(text-autoscroll)</onclick>
 						<onclick>Skin.Reset(media-overlay)</onclick>
-						<onclick>Skin.Reset(watched-overlay)</onclick>
 						<onclick>Skin.Reset(media-case)</onclick>
-						<onclick>Skin.Reset(custom-weathericons)</onclick>
 						<onclick>Skin.Reset(media-themetune)</onclick>
 					</control>
 				</control>
@@ -645,27 +602,25 @@
 					<top>330</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">default-button.png</texture>
+					<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group">
-					<!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					<!-- Don't show scrollbar -->
+					<!-- Markers for control area items -->
 					<control type="image">
 						<left>726</left>
-						<top>138</top>
-						<height>36</height>
-						<width>36</width>
+						<top>144</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-up.png</texture>
 						<visible>Container(301).HasPrevious</visible>
 					</control>
 					<control type="image">
 						<left>726</left>
-						<top>972</top>
-						<height>36</height>
-						<width>36</width>
+						<top>978</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-down.png</texture>
 						<visible>Container(301).HasNext</visible>
 					</control>
@@ -704,6 +659,7 @@
 						<label>$LOCALIZE[31871]</label>
 						<textwidth>1178</textwidth>
 						<onclick>Skin.SetImage(custom-watermark)</onclick>
+						<enable>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-vertical) + !Skin.HasSetting(homemenu-horizontal) + !Skin.HasSetting(homemenu-icon)]</enable>
 						<visible>!Skin.String(custom-watermark)</visible>
 					</control>
 					<control type="button" id="305">
@@ -712,6 +668,7 @@
 						<label>$LOCALIZE[31872]</label>
 						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(custom-watermark)</onclick>
+						<enable>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-vertical) + !Skin.HasSetting(homemenu-horizontal) + !Skin.HasSetting(homemenu-icon)]</enable>
 						<visible>Skin.String(custom-watermark)</visible>
 					</control>
 					<control type="label" id="328">
@@ -742,7 +699,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(306).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -873,7 +830,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(309).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -920,14 +877,8 @@
 								<item>
 									<!-- Recent -->
 									<label>$LOCALIZE[31954]</label>
-									<onclick>Skin.SetString(shelf-tvshowimages,$LOCALIZE[31956])</onclick>
-									<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</visible>
-								</item>
-								<item>
-									<!-- Next Aired -->
-									<label>$LOCALIZE[31956]</label>
 									<onclick>Skin.SetString(shelf-tvshowimages,$LOCALIZE[31955])</onclick>
-									<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31956])</visible>
+									<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</visible>
 								</item>
 								<item>
 									<!-- Recommended -->
@@ -976,14 +927,8 @@
 								<item>
 									<!-- Recommended -->
 									<label>$LOCALIZE[31955]</label>
-									<onclick>Skin.SetString(shelf-tvshowimages,$LOCALIZE[31956])</onclick>
+									<onclick>Skin.SetString(shelf-tvshowimages,$LOCALIZE[31953])</onclick>
 									<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])</visible>
-								</item>
-								<item>
-									<!-- Next Aired -->
-									<label>$LOCALIZE[31956]</label>
-									<onclick>Skin.SetString(shelf-tvshowimages,$LOCALIZE[31954])</onclick>
-									<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31956])</visible>
 								</item>
 								<item>
 									<!-- Recent -->
@@ -1008,6 +953,7 @@
 							<onleft>1223</onleft>
 							<onright>314</onright>
 							<scrolltime>0</scrolltime>
+							<enable>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</enable>
 							<itemlayout width="1328" height="84" />
 							<focusedlayout width="1328" height="84">
 								<control type="image">
@@ -1015,25 +961,50 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(312).HasFocus()</visible>
 								</control>
-								<control type="label">
-									<left>27</left>
-									<top>15</top>
-									<height>45</height>
-									<width>1200</width>
-									<font>font12</font>
-									<label> - $LOCALIZE[31940]</label>
+								<control type="group">
+									<visible>IsEmpty(Skin.String(shelf-tvshowimages)) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[593])</visible>
+									<control type="label">
+										<left>27</left>
+										<top>15</top>
+										<height>45</height>
+										<width>1200</width>
+										<textcolor>disabled-text</textcolor>
+										<font>font12</font>
+										<label> - $LOCALIZE[31940]</label>
+									</control>
+									<control type="label">
+										<left>0</left>
+										<top>15</top>
+										<height>45</height>
+										<width>1185</width>
+										<align>right</align>
+										<textcolor>disabled-text</textcolor>
+										<font>font12</font>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
 								</control>
-								<control type="label">
-									<left>0</left>
-									<top>15</top>
-									<height>45</height>
-									<width>1185</width>
-									<align>right</align>
-									<font>font12</font>
-									<label>$INFO[ListItem.Label]</label>
+								<control type="group">
+									<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</visible>
+									<control type="label">
+										<left>27</left>
+										<top>15</top>
+										<height>45</height>
+										<width>1200</width>
+										<font>font12</font>
+										<label> - $LOCALIZE[31940]</label>
+									</control>
+									<control type="label">
+										<left>0</left>
+										<top>15</top>
+										<height>45</height>
+										<width>1185</width>
+										<align>right</align>
+										<font>font12</font>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
 								</control>
 								<control type="image">
 									<left>1206</left>
@@ -1083,6 +1054,7 @@
 							<onleft>313</onleft>
 							<onright>999</onright>
 							<scrolltime>0</scrolltime>
+							<enable>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</enable>
 							<itemlayout width="48" height="84" />
 							<focusedlayout width="48" height="84">
 								<control type="image">
@@ -1146,7 +1118,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(315).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -1277,7 +1249,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(318).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -1399,27 +1371,25 @@
 					<top>411</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">default-button.png</texture>
+					<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group">
-					<!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					<!-- Don't show scrollbar -->
+					<!-- Markers for control area items -->
 					<control type="image">
 						<left>726</left>
-						<top>138</top>
-						<height>36</height>
-						<width>36</width>
+						<top>144</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-up.png</texture>
 						<visible>Container(401).HasPrevious</visible>
 					</control>
 					<control type="image">
 						<left>726</left>
-						<top>972</top>
-						<height>36</height>
-						<width>36</width>
+						<top>978</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-down.png</texture>
 						<visible>Container(401).HasNext</visible>
 					</control>
@@ -1434,139 +1404,6 @@
 					<onleft>1223</onleft>
 					<onright>999</onright>
 					<pagecontrol>1223</pagecontrol>
-					<control type="group" id="402">
-						<height>84</height>
-						<width>1328</width>
-						<control type="list" id="403">
-							<left>0</left>
-							<top>0</top>
-							<height>84</height>
-							<width>1328</width>
-							<ondown>405</ondown>
-							<onleft>1223</onleft>
-							<onright>404</onright>
-							<scrolltime>0</scrolltime>
-							<itemlayout width="1328" height="84" />
-							<focusedlayout width="1328" height="84">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>1328</width>
-									<height>84</height>
-									<texture border="10">default-button.png</texture>
-									<visible>ControlGroup(402).HasFocus()</visible>
-								</control>
-								<control type="label">
-									<left>27</left>
-									<top>15</top>
-									<height>45</height>
-									<width>1200</width>
-									<font>font12</font>
-									<label>$LOCALIZE[31900]</label>
-								</control>
-								<control type="label">
-									<left>0</left>
-									<top>15</top>
-									<height>45</height>
-									<width>1185</width>
-									<align>right</align>
-									<font>font12</font>
-									<label>$INFO[ListItem.Label]</label>
-								</control>
-								<control type="image">
-									<left>1206</left>
-									<top>15</top>
-									<width>48</width>
-									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
-									<visible>Control.HasFocus(403)</visible>
-								</control>
-								<control type="image">
-									<left>1206</left>
-									<top>15</top>
-									<width>48</width>
-									<height>48</height>
-									<texture>scroll-down.png</texture>
-									<visible>!Control.HasFocus(403)</visible>
-								</control>
-							</focusedlayout>
-							<content>
-								<item>
-									<!-- Horizontal Home Menu -->
-									<label>$LOCALIZE[31952]</label>
-									<onclick>Skin.Reset(homemenu-horizontal)</onclick>
-									<onclick>Skin.SetBool(homemenu-vertical)</onclick>
-									<visible>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-vertical) + !Skin.HasSetting(homemenu-horizontal) + !Skin.HasSetting(homemenu-icon)]</visible>
-								</item>
-								<item>
-									<!-- Vertical Home Menu -->
-									<label>$LOCALIZE[31951]</label>
-									<onclick>Skin.Reset(homemenu-vertical)</onclick>
-									<onclick>Skin.SetBool(homemenu-icon)</onclick>
-									<visible>Skin.HasSetting(homemenu-vertical)</visible>
-								</item>
-								<item>
-									<!-- Icon Home Menu -->
-									<label>$LOCALIZE[31953]</label>
-									<onclick>Skin.Reset(homemenu-icon)</onclick>
-									<onclick>Skin.SetBool(homemenu-horizontal)</onclick>
-									<visible>Skin.HasSetting(homemenu-icon)</visible>
-								</item>
-							</content>
-						</control>
-						<control type="list" id="404">
-							<left>1252</left>
-							<top>0</top>
-							<height>84</height>
-							<width>48</width>
-							<ondown>405</ondown>
-							<onleft>403</onleft>
-							<onright>999</onright>
-							<scrolltime>0</scrolltime>
-							<itemlayout width="48" height="84" />
-							<focusedlayout width="48" height="84">
-								<control type="image">
-									<left>0</left>
-									<top>15</top>
-									<width>48</width>
-									<height>48</height>
-									<texture>scroll-up.png</texture>
-									<visible>!Control.HasFocus(404)</visible>
-								</control>
-								<control type="image">
-									<left>0</left>
-									<top>15</top>
-									<width>48</width>
-									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
-									<visible>Control.HasFocus(404)</visible>
-								</control>
-							</focusedlayout>
-							<content>
-								<item>
-									<!-- Horizontal Home Menu -->
-									<label>$LOCALIZE[31952]</label>
-									<onclick>Skin.Reset(homemenu-horizontal)</onclick>
-									<onclick>Skin.SetBool(homemenu-icon)</onclick>
-									<visible>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-vertical) + !Skin.HasSetting(homemenu-horizontal) + !Skin.HasSetting(homemenu-icon)]</visible>
-								</item>
-								<item>
-									<!-- Icon Home Menu -->
-									<label>$LOCALIZE[31953]</label>
-									<onclick>Skin.Reset(homemenu-icon)</onclick>
-									<onclick>Skin.SetBool(homemenu-vertical)</onclick>
-									<visible>Skin.HasSetting(homemenu-icon)</visible>
-								</item>
-								<item>
-									<!-- Vertical Home Menu -->
-									<label>$LOCALIZE[31951]</label>
-									<onclick>Skin.Reset(homemenu-vertical)</onclick>
-									<onclick>Skin.SetBool(homemenu-horizontal)</onclick>
-									<visible>Skin.HasSetting(homemenu-vertical)</visible>
-								</item>
-							</content>
-						</control>
-					</control>
 					<control type="radiobutton" id="405">
 						<!-- Video On Home toggle -->
 						<include>settings-submenu-common</include>
@@ -1601,24 +1438,6 @@
 						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(home-musicvideo)</onclick>
 						<selected>Skin.HasSetting(home-musicvideo)</selected>
-						<radioposx>1266</radioposx>
-					</control>
-					<control type="radiobutton" id="409">
-						<!-- Broadcast TV On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31915]</label>
-						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(home-tv)</onclick>
-						<selected>Skin.HasSetting(home-tv)</selected>
-						<radioposx>1266</radioposx>
-					</control>
-					<control type="radiobutton" id="410">
-						<!-- Broardcast Radio On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31916]</label>
-						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(home-radio)</onclick>
-						<selected>Skin.HasSetting(home-radio)</selected>
 						<radioposx>1266</radioposx>
 					</control>
 					<control type="radiobutton" id="411">
@@ -1693,6 +1512,7 @@
 						<onclick>Skin.ToggleSetting(home-playdisc)</onclick>
 						<selected>Skin.HasSetting(home-playdisc)</selected>
 						<radioposx>1266</radioposx>
+						<visible>![System.Platform.IOS | System.Platform.ATV2]</visible>
 					</control>
 					<control type="radiobutton" id="419">
 						<!-- Shutdown From Home toggle -->
@@ -1711,10 +1531,12 @@
 							<top>0</top>
 							<height>84</height>
 							<width>1328</width>
+							<ondown>423</ondown>
 							<onup>419</onup>
 							<onleft>1223</onleft>
 							<onright>422</onright>
 							<scrolltime>0</scrolltime>
+							<enable>!Skin.HasSetting(home-shutdown)</enable>
 							<itemlayout width="1328" height="84" />
 							<focusedlayout width="1328" height="84">
 								<control type="image">
@@ -1722,25 +1544,50 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(420).HasFocus()</visible>
 								</control>
-								<control type="label">
-									<left>27</left>
-									<top>15</top>
-									<height>45</height>
-									<width>1200</width>
-									<font>font12</font>
-									<label>- $LOCALIZE[31914]:</label>
+								<control type="group">
+									<visible>Skin.HasSetting(home-shutdown)</visible>
+									<control type="label">
+										<left>27</left>
+										<top>15</top>
+										<height>45</height>
+										<width>1200</width>
+										<textcolor>disabled-text</textcolor>
+										<font>font12</font>
+										<label>- $LOCALIZE[31914]:</label>
+									</control>
+									<control type="label">
+										<left>0</left>
+										<top>15</top>
+										<height>45</height>
+										<width>1185</width>
+										<align>right</align>
+										<textcolor>disabled-text</textcolor>
+										<font>font12</font>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
 								</control>
-								<control type="label">
-									<left>0</left>
-									<top>15</top>
-									<height>45</height>
-									<width>1185</width>
-									<align>right</align>
-									<font>font12</font>
-									<label>$INFO[ListItem.Label]</label>
+								<control type="group">
+									<visible>!Skin.HasSetting(home-shutdown)</visible>
+									<control type="label">
+										<left>27</left>
+										<top>15</top>
+										<height>45</height>
+										<width>1200</width>
+										<font>font12</font>
+										<label>- $LOCALIZE[31914]:</label>
+									</control>
+									<control type="label">
+										<left>0</left>
+										<top>15</top>
+										<height>45</height>
+										<width>1185</width>
+										<align>right</align>
+										<font>font12</font>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
 								</control>
 								<control type="image">
 									<left>1206</left>
@@ -1803,10 +1650,12 @@
 							<top>0</top>
 							<height>84</height>
 							<width>48</width>
+							<ondown>423</ondown>
 							<onup>419</onup>
 							<onleft>421</onleft>
 							<onright>999</onright>
 							<scrolltime>0</scrolltime>
+							<enable>!Skin.HasSetting(home-shutdown)</enable>
 							<itemlayout width="48" height="84" />
 							<focusedlayout width="48" height="84">
 								<control type="image">
@@ -1866,6 +1715,26 @@
 							</content>
 						</control>
 					</control>
+					<control type="button" id="423">
+						<!-- Reset Above Settings button -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[10041]</label>
+						<textwidth>1178</textwidth>
+						<onclick>Skin.Reset(home-video)</onclick>
+						<onclick>Skin.Reset(home-movie)</onclick>
+						<onclick>Skin.Reset(home-tvshows)</onclick>
+						<onclick>Skin.Reset(home-musicvideo)</onclick>
+						<onclick>Skin.Reset(home-music)</onclick>
+						<onclick>Skin.Reset(home-programs)</onclick>
+						<onclick>Skin.Reset(home-photos)</onclick>
+						<onclick>Skin.Reset(home-profile)</onclick>
+						<onclick>Skin.Reset(home-weather)</onclick>
+						<onclick>Skin.Reset(home-favorites)</onclick>
+						<onclick>Skin.Reset(home-search)</onclick>
+						<onclick>Skin.Reset(home-playdisc)</onclick>
+						<onclick>Skin.Reset(home-shutdown)</onclick>
+						<onclick>Skin.Reset(home-quitaction)</onclick>
+					</control>
 				</control>
 			</control>
 			<control type="group" id="500">
@@ -1877,27 +1746,25 @@
 					<top>492</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">default-button.png</texture>
+					<texture border="7" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group">
-					<!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					<!-- Don't show scrollbar -->
+					<!-- Markers for control area items -->
 					<control type="image">
 						<left>726</left>
-						<top>138</top>
-						<height>36</height>
-						<width>36</width>
+						<top>144</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-up.png</texture>
 						<visible>Container(501).HasPrevious</visible>
 					</control>
 					<control type="image">
 						<left>726</left>
-						<top>972</top>
-						<height>36</height>
-						<width>36</width>
+						<top>978</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-down.png</texture>
 						<visible>Container(501).HasNext</visible>
 					</control>
@@ -1932,8 +1799,8 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31863]</label>
 						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(background-fanart)</onclick>
-						<selected>Skin.HasSetting(background-fanart)</selected>
+						<onclick>Skin.ToggleSetting(background-fanarts)</onclick>
+						<selected>!Skin.HasSetting(background-fanarts)</selected>
 						<radioposx>1266</radioposx>
 					</control>
 					<control type="radiobutton" id="505">
@@ -1941,9 +1808,9 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31864]</label>
 						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(background-extrafanart)</onclick>
-						<selected>Skin.HasSetting(background-extrafanart)</selected>
-						<enable>Skin.HasSetting(background-fanart)</enable>
+						<onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
+						<selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
+						<enable>!Skin.HasSetting(background-fanarts)</enable>
 						<radioposx>1266</radioposx>
 					</control>
 					<control type="radiobutton" id="506">
@@ -1964,22 +1831,6 @@
 						<selected>Skin.HasSetting(background-slideshow)</selected>
 						<enable>System.HasAddon(script.artistslideshow)</enable>
 						<radioposx>1266</radioposx>
-					</control>
-					<control type="button" id="508">
-						<!-- Custom Weather Background Button -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31866]</label>
-						<textwidth>1178</textwidth>
-						<onclick>Skin.SetPath(background-customweather)</onclick>
-						<visible>!Skin.String(background-customweather)</visible>
-					</control>
-					<control type="button" id="509">
-						<!-- Reset Custom Weather Background Button -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31867]</label>
-						<textwidth>1178</textwidth>
-						<onclick>Skin.Reset(background-customweather)</onclick>
-						<visible>Skin.String(background-customweather)</visible>
 					</control>
 					<control type="group" id="510">
 						<!-- Background Visibilty -->
@@ -2002,7 +1853,7 @@
 									<top>0</top>
 									<width>1328</width>
 									<height>84</height>
-									<texture border="10">default-button.png</texture>
+									<texture border="7" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 									<visible>ControlGroup(510).HasFocus()</visible>
 								</control>
 								<control type="label">
@@ -2123,11 +1974,10 @@
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(background-custom)</onclick>
-						<onclick>Skin.Reset(background-fanart)</onclick>
+						<onclick>Skin.Reset(background-fanarts)</onclick>
 						<onclick>Skin.Reset(background-extrafanart)</onclick>
 						<onclick>Skin.Reset(background-playingmedia)</onclick>
 						<onclick>Skin.Reset(background-slideshow)</onclick>
-						<onclick>Skin.Reset(background-customweather)</onclick>
 						<onclick>Skin.Reset(background-visibiltymed)</onclick>
 						<onclick>Skin.Reset(background-visibiltyhigh)</onclick>
 					</control>
@@ -2142,29 +1992,27 @@
 					<top>573</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">default-button.png</texture>
+					<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group">
-					<!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					<!-- Don't show scrollbar -->
+					<!-- Markers for control area items -->
 					<control type="image">
 						<left>726</left>
-						<top>138</top>
-						<height>36</height>
-						<width>36</width>
+						<top>144</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-up.png</texture>
 						<visible>Container(601).HasPrevious</visible>
 					</control>
 					<control type="image">
 						<left>726</left>
-						<top>972</top>
-						<height>36</height>
-						<width>36</width>
+						<top>978</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-down.png</texture>
-						<visible>Container(501).HasNext</visible>
+						<visible>Container(601).HasNext</visible>
 					</control>
 				</control>
 				<control type="grouplist" id="601">
@@ -2220,6 +2068,7 @@
 						<onclick>Skin.SetBool(select-tventry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
 						<onclick>Skin.Reset(select-tventry)</onclick>
+						<enable>[System.GetBool(pvrmanager.enabled) + Pvr.HasTVChannels]</enable>
 					</control>
 					<control type="button" id="607">
 						<!-- Set Radio library entry point -->
@@ -2229,6 +2078,7 @@
 						<onclick>Skin.SetBool(select-radioentry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
 						<onclick>Skin.Reset(select-radioentry)</onclick>
+						<enable>[System.GetBool(pvrmanager.enabled) + Pvr.HasRadioChannels]</enable>
 					</control>
 					<control type="button" id="608">
 						<!-- Reset Above Settings button -->
@@ -2254,7 +2104,7 @@
 					<width>768</width>
 					<height>384</height>
 					<aspectratio>keep</aspectratio>
-					<texture>skin-logo-big.png</texture>
+					<texture>SkinLogo-Big.png</texture>
 				</control>
 			</control>
 			<control type="group" id="800">
@@ -2266,27 +2116,25 @@
 					<top>735</top>
 					<width>480</width>
 					<height>84</height>
-					<texture border="10">default-button.png</texture>
+					<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 					<include>settingbutton-fade</include>
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group">
-					<!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					<!-- Don't show scrollbar -->
+					<!-- Markers for control area items -->
 					<control type="image">
 						<left>726</left>
-						<top>138</top>
-						<height>36</height>
-						<width>36</width>
+						<top>144</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-up.png</texture>
 						<visible>Container(801).HasPrevious</visible>
 					</control>
 					<control type="image">
 						<left>726</left>
-						<top>972</top>
-						<height>36</height>
-						<width>36</width>
+						<top>978</top>
+						<height>24</height>
+						<width>24</width>
 						<texture>scroll-down.png</texture>
 						<visible>Container(801).HasNext</visible>
 					</control>
@@ -2306,7 +2154,7 @@
 						<label>$LOCALIZE[31930]</label>
 						<textwidth>1125</textwidth>
 						<onclick>RunScript(script.xbmc.debug.log)</onclick>
-						<enable>System.HasAddon(script.xbmc.debug.log) + system.getbool(debug.showloginfo)</enable>
+						<enable>System.HasAddon(script.xbmc.debug.log) + System.GetBool(debug.extralogging)</enable>
 					</control>
 					<control type="radiobutton" id="803">
 						<!-- System Debug toggle -->
@@ -2314,7 +2162,7 @@
 						<label>$LOCALIZE[20191]</label>
 						<textwidth>1125</textwidth>
 						<onclick>ToggleDebug</onclick>
-						<selected>system.getbool(debug.showloginfo)</selected>
+						<selected>System.GetBool(debug.showloginfo)</selected>
 						<radioposx>1266</radioposx>
 					</control>
 					<control type="image" id="804">
@@ -2355,6 +2203,16 @@
 					</control>
 				</control>
 			</control>
+		</control>
+		<control type="textbox">
+			<!-- Settings description area -->
+			<left>15</left>
+			<top>999</top>
+			<width>1890</width>
+			<height>75</height>
+			<font>font10</font>
+			<align>center</align>
+			<label>$VAR[SkinSettingHelp]</label>
 		</control>
 	</controls>
 </window>

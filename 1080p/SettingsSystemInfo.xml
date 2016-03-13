@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
-	<allowoverlay>yes</allowoverlay>
-	<include>screen-fade</include>
 	<controls>
 		<include>background</include>
 		<include>Fake-Overlay</include>
@@ -27,36 +25,42 @@
 				<width>458</width>
 				<height>75</height>
 				<label>$LOCALIZE[128]</label>
+				<font>font11</font>
 			</control>
 			<control type="button" id="94">
 				<!-- Storage info -->
 				<width>458</width>
 				<height>75</height>
 				<label>$LOCALIZE[13277]</label>
+				<font>font11</font>
 			</control>
 			<control type="button" id="96">
 				<!-- Network info -->
 				<width>458</width>
 				<height>75</height>
 				<label>$LOCALIZE[13279]</label>
+				<font>font11</font>
 			</control>
 			<control type="button" id="97">
 				<!-- Video info -->
 				<width>458</width>
 				<height>75</height>
 				<label>$LOCALIZE[13280]</label>
+				<font>font11</font>
 			</control>
 			<control type="button" id="98">
 				<!-- Hardware info -->
 				<width>458</width>
 				<height>75</height>
 				<label>$LOCALIZE[13281]</label>
+				<font>font11</font>
 			</control>
 			<control type="button" id="99">
 				<!-- PVR info -->
 				<width>458</width>
 				<height>75</height>
 				<label>$LOCALIZE[19191]</label>
+				<font>font11</font>
 				<visible>System.HasPVR</visible>
 			</control>
 			<control type="button" id="100">
@@ -64,6 +68,7 @@
 				<width>458</width>
 				<height>75</height>
 				<label>$LOCALIZE[166]</label>
+				<font>font11</font>
 			</control>
 		</control>
 		<control type="grouplist">
@@ -138,33 +143,32 @@
 			<top>168</top>
 			<width>1335</width>
 			<height>338</height>
-			<itemgap>8</itemgap>
 			<visible>Control.HasFocus(100)</visible>
 			<control type="label">
 				<!-- Skin version -->
 				<width>1335</width>
-				<height>68</height>
-				<label>$LOCALIZE[31563] $INFO[System.AddonTitle(skin.apptv)] $INFO[System.AddonVersion(skin.apptv)]</label>
+				<height>75</height>
+				<label>$LOCALIZE[31563] $INFO[System.AddonTitle(skin.kimono)] $INFO[System.AddonVersion(skin.kimono)]</label>
 				<font>font11</font>
 			</control>
 			<control type="label">
 				<!-- Current theme -->
 				<width>1335</width>
-				<height>68</height>
+				<height>75</height>
 				<label>$LOCALIZE[31564] $INFO[Skin.CurrentTheme]</label>
 				<font>font11</font>
 			</control>
 			<control type="label">
 				<!-- Screen mode -->
 				<width>1335</width>
-				<height>68</height>
+				<height>75</height>
 				<label>$LOCALIZE[31565] $INFO[System.ScreenMode]</label>
 				<font>font11</font>
 			</control>
 			<control type="label">
 				<!-- Platform system is running on -->
 				<width>1335</width>
-				<height>68</height>
+				<height>75</height>
 				<label>$VAR[SystemPlatform]</label>
 				<font>font11</font>
 			</control>
@@ -174,6 +178,7 @@
 			<left>51</left>
 			<top>1020</top>
 			<width>1818</width>
+			<height>33</height>
 			<label>$INFO[System.BuildVersion,$LOCALIZE[144] ,] $INFO[System.BuildDate,(,)]</label>
 			<font>font11</font>
 		</control>

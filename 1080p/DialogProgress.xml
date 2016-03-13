@@ -1,59 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>10</defaultcontrol>
-	<coordinates>
-		<system>1</system>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
-	<include>screen-fade</include>
-	<controls>
-		<include>fadebackground</include>
-		<control type="group">
-			<visible>!Window.IsVisible(selectdialog)</visible>
-			<control type="image">
-				<!-- Dialog background image -->
-				<left>438</left>
-				<top>384</top>
-				<width>1035</width>
-				<height>330</height>
-				<texture border="12">button-menu-background.png</texture>
-			</control>
-			<control type="label" id="1">
-				<!-- Dialog heading -->
-				<left>477</left>
-				<top>408</top>
-				<width>956</width>
-				<height>38</height>
-				<align>center</align>
-			</control>
-			<control type="textbox" id="9">
-				<!-- Dialog info prompt -->
-				<left>477</left>
-				<top>453</top>
-				<width>956</width>
-				<height>129</height>
-				<align>center</align>
-				<font>font11</font>
-				<autoscroll time="2000" delay="8000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
-			</control>
-			<control type="progress">
-				<left>477</left>
-				<top>588</top>
-				<width>956</width>
-				<height>24</height>
-				<info>System.Progressbar</info>
-			</control>
-			<control type="button" id="10">
-				<!-- Cancel -->
-				<left>834</left>
-				<top>618</top>
-				<width>240</width>
-				<height>75</height>
-				<label>$LOCALIZE[222]</label>
-				<font>font12</font>
-				<align>center</align>
-			</control>
-		</control>
-	</controls>
+    <defaultcontrol always="true">10</defaultcontrol>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <include>fadebackground</include>
+        <control type="group">
+            <visible>!Window.IsVisible(selectdialog)</visible>
+            <control type="image">
+                <!-- Dialog background image -->
+                <left>438</left>
+                <top>384</top>
+                <width>1035</width>
+                <height>330</height>
+                <texture border="8">button-menu-background.png</texture>
+            </control>
+            <control type="label" id="1">
+                <!-- Dialog heading -->
+                <left>477</left>
+                <top>408</top>
+                <width>956</width>
+                <height>38</height>
+                <align>center</align>
+            </control>
+            <control type="textbox" id="9">
+                <!-- Dialog info prompt -->
+                <left>477</left>
+                <top>453</top>
+                <width>956</width>
+                <height>129</height>
+                <align>center</align>
+                <font>font11</font>
+                <autoscroll time="2000" delay="8000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+            </control>
+            <control type="progress" id="20">
+                <left>477</left>
+                <top>588</top>
+                <width>956</width>
+                <height>24</height>
+                <info>System.Progressbar</info>
+            </control>
+            <control type="button" id="10">
+                <!-- Cancel -->
+                <left>774</left>
+                <top>618</top>
+                <width>360</width>
+                <height>75</height>
+                <label>$LOCALIZE[222]</label>
+                <font>font12</font>
+                <align>center</align>
+            </control>
+        </control>
+    </controls>
 </window>

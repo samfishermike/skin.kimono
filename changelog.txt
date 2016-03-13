@@ -1,3 +1,3 @@
+[B]0.8.2[/B]
 
-[B]0.8.0[/B]Initial Beta release
-
+Jarvis reboot of Kimono project

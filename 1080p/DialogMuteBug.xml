@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-	<controls>
-		<control type="group">
-			<visible>![Window.IsVisible(seekbar) | Window.IsVisible(karaokeselector) | Window.IsVisible(karaokelargeselector) | Window.IsVisible(infodialog) | Window.IsVisible(busydialog) | Window.IsVisible(sliderdialog) | Window.IsVisible(extendedprogressdialog)]</visible>
-			<left>1353</left>
-			<top>9</top>
-			<control type="image">
-				<!-- Dialog background -->
-				<left>0</left>
-				<top>0</top>
-				<width>531</width>
-				<height>243</height>
-				<texture border="12">button-menu-background.png</texture>
-			</control>
-			<control type="group">
-				<control type="image">
-					<!-- Speaker image -->
-					<left>0</left>
-					<top>30</top>
-					<width>170</width>
-					<height>120</height>
-					<aspectratio>keep</aspectratio>
-					<texture>volume-thingy-mute.png</texture>
-				</control>
-				<control type="label">
-					<left>184</left>
-					<top>30</top>
-					<width>318</width>
-					<height>120</height>
-					<align>center</align>
-					<font>font22</font>
-					<label>[B]$LOCALIZE[31651][/B]</label>
-				</control>
-			</control>
-		</control>
-	</controls>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <control type="group">
+            <visible>![Window.IsVisible(startup) | Window.IsVisible(seekbar) | Window.IsVisible(infodialog) | Window.IsVisible(busydialog) | Window.IsVisible(sliderdialog) | Window.IsVisible(extendedprogressdialog)]</visible>
+            <control type="image">
+                <!-- Dialog background -->
+                <left>1353</left>
+                <top>18</top>
+                <width>531</width>
+                <height>186</height>
+                <texture border="8">button-menu-background.png</texture>
+            </control>
+            <control type="image">
+                <!-- Speaker image -->
+                <left>1380</left>
+                <top>30</top>
+                <width>144</width>
+                <height>144</height>
+                <aspectratio>keep</aspectratio>
+                <texture>volume-thingy-mute.png</texture>
+            </control>
+            <control type="label">
+                <!-- Muted label -->
+                <left>1527</left>
+                <top>33</top>
+                <width>336</width>
+                <height>60</height>
+                <font>font22</font>
+                <align>center</align>
+                <label>[B]$LOCALIZE[31651][/B]</label>
+            </control>
+        </control>
+    </controls>
 </window>

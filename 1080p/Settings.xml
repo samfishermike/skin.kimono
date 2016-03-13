@@ -1,11 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>8999</defaultcontrol>
-	<allowoverlay>yes</allowoverlay>
-	<include>screen-fade</include>
-	<previouswindow>Home</previouswindow>
 	<controls>
 		<include>background</include>
-		<include>xtv-box</include>
+		<control type="image">
+			<!-- skin logo image -->
+			<left>225</left>
+			<top>225</top>
+			<width>768</width>
+			<height>384</height>
+			<aspectratio>keep</aspectratio>
+			<texture>SkinLogo-Big.png</texture>
+		</control>
 		<include>Fake-Overlay</include>
 		<control type="label">
 			<!-- Screen heading -->
@@ -13,25 +19,27 @@
 			<top>75</top>
 			<width>465</width>
 			<height>48</height>
-			<label>$LOCALIZE[31035]</label>
+			<label>$LOCALIZE[13000]</label>
 			<font>font18</font>
 		</control>
-		<!-- Markers for control area items -->
-		<control type="image">
-			<left>1512</left>
-			<top>138</top>
-			<width>36</width>
-			<height>36</height>
-			<texture>scroll-up.png</texture>
-			<visible>Container(8999).HasPrevious</visible>
-		</control>
-		<control type="image">
-			<left>1512</left>
-			<top>987</top>
-			<width>36</width>
-			<height>36</height>
-			<texture>scroll-down.png</texture>
-			<visible>Container(8999).HasNext</visible>
+		<control type="group">
+			<!-- Markers for control area items -->
+			<control type="image">
+				<left>1512</left>
+				<top>135</top>
+				<height>36</height>
+				<width>36</width>
+				<texture>scroll-up.png</texture>
+				<visible>Container(8999).HasPrevious</visible>
+			</control>
+			<control type="image">
+				<left>1512</left>
+				<top>990</top>
+				<height>36</height>
+				<width>36</width>
+				<texture>scroll-down.png</texture>
+				<visible>Container(8999).HasNext</visible>
+			</control>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(8999)</visible>
@@ -42,25 +50,18 @@
 				<top>0</top>
 				<width>720</width>
 				<height>825</height>
-				<scrolltime>100</scrolltime>
-				<viewtype label="List">list</viewtype>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<viewtype label="31941">list</viewtype>
 				<itemlayout width="720" height="75">
 					<control type="label">
 						<left>27</left>
 						<top>12</top>
 						<width>660</width>
 						<height>45</height>
-						<font>font12</font>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<font>font11</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="image">
-						<left>657</left>
-						<top>15</top>
-						<width>45</width>
-						<height>45</height>
-						<texture>scroll-right.png</texture>
-						<aspectratio>keep</aspectratio>
 					</control>
 				</itemlayout>
 				<focusedlayout width="720" height="75">
@@ -69,62 +70,53 @@
 						<top>0</top>
 						<width>720</width>
 						<height>75</height>
-						<texture border="8">default-button.png</texture>
+						<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 					</control>
 					<control type="label">
 						<left>27</left>
 						<top>12</top>
 						<width>660</width>
 						<height>45</height>
-						<font>font12</font>
-						<textcolor>shadow-text</textcolor>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<font>font11</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="image">
-						<left>657</left>
-						<top>15</top>
-						<width>45</width>
-						<height>45</height>
-						<texture>scroll-right-focus.png</texture>
-						<aspectratio>keep</aspectratio>
 					</control>
 				</focusedlayout>
 				<content>
 					<item>
 						<!-- Appearance -->
 						<label>$LOCALIZE[480]</label>
-						<onclick>Activatewindow(AppearanceSettings)</onclick>
+						<onclick>Activatewindow(appearancesettings)</onclick>
 					</item>
 					<item>
 						<!-- Videos -->
 						<label>$LOCALIZE[3]</label>
-						<onclick>Activatewindow(VideosSettings)</onclick>
+						<onclick>Activatewindow(videossettings)</onclick>
 					</item>
 					<item>
 						<!-- TV -->
 						<label>$LOCALIZE[19020]</label>
-						<onclick>Activatewindow(PVRSettings)</onclick>
+						<onclick>Activatewindow(pvrsettings)</onclick>
 					</item>
 					<item>
 						<!-- Music -->
 						<label>$LOCALIZE[2]</label>
-						<onclick>Activatewindow(MusicSettings)</onclick>
+						<onclick>Activatewindow(musicsettings)</onclick>
 					</item>
 					<item>
 						<!-- Pictures -->
 						<label>$LOCALIZE[1]</label>
-						<onclick>Activatewindow(PicturesSettings)</onclick>
+						<onclick>Activatewindow(picturessettings)</onclick>
 					</item>
 					<item>
 						<!-- Addons -->
-						<label>$LOCALIZE[24001]</label>
-						<onclick>Activatewindow(AddonBrowser)</onclick>
+						<label>$LOCALIZE[24000]</label>
+						<onclick>Activatewindow(addonbrowser)</onclick>
 					</item>
 					<item>
 						<!-- Weather -->
 						<label>$LOCALIZE[8]</label>
-						<onclick>Activatewindow(WeatherSettings)</onclick>
+						<onclick>Activatewindow(weathersettings)</onclick>
 					</item>
 					<item>
 						<!-- Services -->
@@ -134,12 +126,12 @@
 					<item>
 						<!-- System -->
 						<label>$LOCALIZE[13000]</label>
-						<onclick>Activatewindow(SystemSettings)</onclick>
+						<onclick>Activatewindow(systemsettings)</onclick>
 					</item>
 					<item>
 						<!-- Profiles -->
 						<label>$LOCALIZE[13200]</label>
-						<onclick>ActivateWindow(Profiles)</onclick>
+						<onclick>ActivateWindow(profiles)</onclick>
 					</item>
 					<item>
 						<!-- File Manager -->

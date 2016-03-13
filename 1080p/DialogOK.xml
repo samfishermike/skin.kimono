@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>10</defaultcontrol>
-	<coordinates>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
-	<include>screen-fade</include>
-	<controls>
-		<include>fadebackground</include>
-		<control type="image">
-			<!-- Dialog background image -->
-			<left>442</left>
-			<top>357</top>
-			<width>1035</width>
-			<height>366</height>
-			<texture border="12">button-menu-background.png</texture>
-		</control>
-		<control type="label" id="1">
-			<!-- Dialog heading -->
-			<left>472</left>
-			<top>375</top>
-			<width>975</width>
-			<height>56</height>
-			<align>center</align>
-		</control>
-		<control type="image">
-			<left>472</left>
-			<top>432</top>
-			<width>975</width>
-			<height>6</height>
-			<texture>separator.png</texture>
-		</control>
-		<control type="textbox" id="9">
-			<!-- Dialog info prompt -->
-			<left>472</left>
-			<top>453</top>
-			<width>975</width>
-			<height>165</height>
-			<align>center</align>
-			<font>font11</font>
-			<autoscroll time="2000" delay="8000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
-		</control>
-		<control type="button" id="10">
-			<!-- OK -->
-			<left>760</left>
-			<top>621</top>
-			<width>398</width>
-			<height>75</height>
-			<label>$LOCALIZE[186]</label>
-			<font>font12</font>
-			<align>center</align>
-		</control>
-	</controls>
+    <defaultcontrol>10</defaultcontrol>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <include>fadebackground</include>
+        <control type="image">
+            <!-- Dialog background image -->
+            <left>442</left>
+            <top>357</top>
+            <width>1035</width>
+            <height>366</height>
+            <texture border="8">button-menu-background.png</texture>
+        </control>
+        <control type="label" id="1">
+            <!-- Dialog heading -->
+            <left>472</left>
+            <top>375</top>
+            <width>975</width>
+            <height>56</height>
+            <align>center</align>
+        </control>
+        <control type="image">
+            <left>472</left>
+            <top>432</top>
+            <width>975</width>
+            <height>6</height>
+            <texture>separator.png</texture>
+        </control>
+        <control type="textbox" id="9">
+            <!-- Dialog info prompt -->
+            <left>472</left>
+            <top>453</top>
+            <width>975</width>
+            <height>165</height>
+            <align>center</align>
+            <font>font11</font>
+            <autoscroll time="2000" delay="8000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+        </control>
+        <control type="button" id="10">
+            <!-- OK -->
+            <left>760</left>
+            <top>621</top>
+            <width>398</width>
+            <height>75</height>
+            <label>$LOCALIZE[186]</label>
+            <font>font12</font>
+            <align>center</align>
+        </control>
+    </controls>
 </window>

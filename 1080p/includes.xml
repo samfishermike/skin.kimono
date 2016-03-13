@@ -6,16 +6,14 @@
 		_3DDialogSelect 1151
 		_SkinSettings 1152
 		_HomeSettings 1153
-		_GetArtwork.xml 1154
+		_DialogSelect 1154
 		_AddonsList 1155
 		_LibraryEntry 1156
 		_DummyDialog 1157
 
 	-->
-	<include file="Defaults.xml" />
 	<include file="Includes_Variables.xml" />
-	<include file="View-MusicList.xml" />
-
+	<include file="Defaults.xml" />
 	<include name="fullscreenimage">
 		<!-- Postion and size of fullscreen image -->
 		<left>0</left>
@@ -27,209 +25,85 @@
 		<!-- Background shadow -->
 		<control type="image">
 			<include>fullscreenimage</include>
-			<texture>colours/black.png</texture>
+			<texture>background-mask.png</texture>
 			<aspectratio>scale</aspectratio>
 			<colordiffuse>mask-background</colordiffuse>
+			<visible>!Window.IsVisible(fullscreenvideo)</visible>
+			<!-- Don't fade background if on Fullscreen video screen -->
 		</control>
 	</include>
 	<include name="background">
 		<control type="group">
-			<animation effect="fade" start="0" end="100" time="500" delay="2500">Visible</animation>
+			<visible>!Window.IsVisible(fullscreenvideo)</visible>
+			<!-- Don't try to show background if Video screen is showing -->
 			<control type="image">
+				<!-- Use skin default background as base layer for backdrops -->
 				<include>fullscreenimage</include>
-				<texture background="true">$VAR[BackgroundImage]</texture>
+				<texture>background.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="multiimage">
+				<include>fullscreenimage</include>
+				<randomize>true</randomize>
+				<timeperimage>6000</timeperimage>
 				<fadetime>200</fadetime>
-				<visible>![Skin.HasSetting(HomeViewToggle) + Player.HasVideo]</visible>
+				<imagepath background="false">$VAR[BackgndImage]</imagepath>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
+				<animation effect="fade" start="0" end="100" time="200" delay="2800">Visible</animation>
+				<visible>!Container().Scrolling + !System.ScreenSaverActive + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 			</control>
 			<control type="group">
-				<visible>Skin.HasSetting(HomeViewToggle)</visible>
+				<visible>Skin.HasSetting(background-playingmedia) + [[Skin.HasSetting(homemenu-vertical) + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
 				<control type="videowindow">
 					<include>fullscreenimage</include>
-					<aspectratio>stretch</aspectratio>
+					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="visualisation">
 					<include>fullscreenimage</include>
-					<aspectratio>stretch</aspectratio>
-					<visible>Player.HasAudio</visible>
+					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
+					<animation effect="fade" time="200">VisibleChange</animation>
+					<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 				</control>
 			</control>
-			<control type="group">
-				<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
-				<control type="image">
-					<!-- Mask out any backgrounds showing around ArtistSlideshow Fanart -->
-					<include>fullscreenimage</include>
-					<texture>background.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<control type="multiimage">
-					<!-- Backgroung ArtistSlideshow fanart image -->
-					<include>fullscreenimage</include>
-					<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>5000</timeperimage>
-					<fadetime>400</fadetime>
-					<randomize>true</randomize>
-				</control>
-			</control>
-		</control>
-		<control type="image">
-			<!-- mask to fade backgrounds -->
-			<include>fullscreenimage</include>
-			<texture>colours/black.png</texture>
-			<colordiffuse>mask-background</colordiffuse>
-			<include>background-fade</include>
-			<aspectratio>stretch</aspectratio>
-			<visible>!IsEmpty(Skin.String(custom-weatherbackgrounds)) | Skin.HasSetting(background-fanart) | Skin.HasSetting(HomeViewToggle) | Skin.HasSetting(background-slideshow)</visible>
-		</control>
-	</include>
-	<include name="backgroundvideo">
-		<control type="group">
-			<animation effect="fade" start="0" end="100" time="2500" delay="500" tween="quadratic" easing="out">Visible</animation>
-			<control type="group">
-				<visible>![Skin.HasSetting(HomeViewToggle) + Player.HasVideo]</visible>
-				<control type="group">
-					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
-					<control type="image">
-						<!-- Fallback background image -->
-						<include>fullscreenimage</include>
-						<aspectratio>stretch</aspectratio>
-						<fadetime>300</fadetime>
-						<texture background="true">$VAR[VideoBackgndImage]</texture>
-					</control>
-				</control>
-				<control type="group">
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)] + Skin.HasSetting(background-fanart)</visible>
-					<control type="multiimage" id="6300">
-						<include>fullscreenimage</include>
-						<randomize>true</randomize>
-						<timeperimage>5000</timeperimage>
-						<fadetime>300</fadetime>
-						<imagepath background="true">$INFO[ListItem.Path,,extrafanart/]</imagepath>
-						<aspectratio>stretch</aspectratio>
-						<visible>Skin.HasSetting(background-extrafanart) + Skin.HasSetting(background-fanart)</visible>
-					</control>
-					<control type="image">
-						<!-- Fallback background image -->
-						<include>fullscreenimage</include>
-						<aspectratio>stretch</aspectratio>
-						<fadetime>300</fadetime>
-						<texture background="true">$VAR[VideoBackgndImage]</texture>
-						<visible>!Skin.HasSetting(background-extrafanart) | IsEmpty(Control.GetLabel(6300))</visible>
-					</control>
-				</control>
-				<control type="group">
-					<visible>Container.Content(episodes)</visible>
-					<control type="multiimage" id="6340">
-						<include>fullscreenimage</include>
-						<randomize>true</randomize>
-						<timeperimage>5000</timeperimage>
-						<fadetime>300</fadetime>
-						<imagepath background="true">$INFO[ListItem.Path,,../extrafanart/]</imagepath>
-						<aspectratio>stretch</aspectratio>
-						<visible>Skin.HasSetting(background-extrafanart) + !Window.IsVisible(InfoDialog) + !IsEmpty(ListItem.Path)</visible>
-					</control>
-					<control type="image" id="6342">
-						<include>fullscreenimage</include>
-						<texture background="true">$VAR[VideoBackgndImage]</texture>
-						<aspectratio>stretch</aspectratio>
-						<fadetime>300</fadetime>
-						<visible>IsEmpty(Control.GetLabel(6340)) | !Skin.HasSetting(background-extrafanart)</visible>
-					</control>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<visible>Skin.HasSetting(HomeViewToggle)</visible>
-			<control type="videowindow">
-				<include>fullscreenimage</include>
-				<aspectratio>stretch</aspectratio>
-				<visible>Player.HasVideo</visible>
-			</control>
-			<control type="visualisation">
-				<include>fullscreenimage</include>
-				<aspectratio>stretch</aspectratio>
-				<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
-				<animation effect="fade" time="300">VisibleChange</animation>
-			</control>
-		</control>
-		<control type="group">
-			<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
-			<control type="image">
-				<!-- Mask out any backgrounds showing around ArtistSlideshow Fanart -->
-				<include>fullscreenimage</include>
-				<texture>background.png</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
-			<control type="multiimage">
-				<!-- Backgroung ArtistSlideshow fanart image -->
-				<include>fullscreenimage</include>
-				<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-				<aspectratio>keep</aspectratio>
-				<timeperimage>5000</timeperimage>
-				<fadetime>300</fadetime>
-				<randomize>true</randomize>
-			</control>
-		</control>
-		<control type="image">
-			<!-- mask to fade backgrounds -->
-			<include>fullscreenimage</include>
-			<texture>colours/black.png</texture>
-			<colordiffuse>mask-background</colordiffuse>
-			<include>background-fade</include>
-			<aspectratio>stretch</aspectratio>
-			<visible>Skin.HasSetting(background-fanart) | Skin.HasSetting(HomeViewToggle) | Skin.HasSetting(background-slideshow)</visible>
 		</control>
 	</include>
 	<include name="player-mediaicon">
-		<control type="group">
+		<control type="group" id="1">
 			<!-- Player Media Icon -->
-			<visible>Window.IsVisible(FullscreenVideo)</visible>
-			<control type="group">
-				<control type="group">
-					<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)</visible>
-					<!-- Movies or Tv Episodes -->
-					<animation effect="fade" time="200">VisibleChange</animation>
-					<control type="image" id="890">
-						<!-- Use Clearart if available -->
-						<left>12</left>
-						<top>744</top>
-						<width>412</width>
-						<height>218</height>
-						<texture>$VAR[PlayerVideoClearart]</texture>
-						<aligny>bottom</aligny>
-						<aspectratio>keep</aspectratio>
-					</control>
-					<control type="group">
-						<visible>StringCompare(Control.GetLabel(890),blank.png)</visible>
-						<control type="image" id="891">
-							<!-- Use Logo if available -->
-							<left>12</left>
-							<top>848</top>
-							<width>414</width>
-							<height>112</height>
-							<texture>$VAR[PlayerVideoLogo]</texture>
-							<aspectratio align="left" aligny="bottom">keep</aspectratio>
-						</control>
-						<control type="image">
-							<!-- Fallback to video cover image if no clearart or logo -->
-							<left>84</left>
-							<top>690</top>
-							<width>270</width>
-							<height>270</height>
-							<aligny>bottom</aligny>
-							<texture diffuse="mask-rect.png">$VAR[PlayerVideoCover]</texture>
-							<aspectratio scalediffuse="false">keep</aspectratio>
-							<visible>StringCompare(Control.GetLabel(891),blank.png)</visible>
-						</control>
-					</control>
+			<visible>[Window.IsActive(fullscreenvideo)] + ![Window.IsActive(musicosd)]</visible>
+			<control type="group" id="1">
+				<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)</visible>
+				<!-- Movies or Tv Episodes -->
+				<animation effect="fade" time="200">VisibleChange</animation>
+				<control type="image" id="1">
+					<left>75</left>
+					<top>675</top>
+					<width>288</width>
+					<height>288</height>
+					<texture>$VAR[PlayerVideoArt]</texture>
+					<aligny>bottom</aligny>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="button" id="1">
+					<!-- Touch button to get out of Fullscreen -->
+					<left>75</left>
+					<top>675</top>
+					<width>288</width>
+					<height>288</height>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<onclick>Close</onclick>
+					<onclick>PreviousMenu</onclick>
+					<visible>System.GetBool(input.enablemouse)</visible>
 				</control>
 			</control>
-			<control type="group">
+			<control type="group" id="1">
 				<!-- Any video other than Movies and TV Episodes -->
 				<visible>![VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)]</visible>
 				<animation effect="fade" time="200">VisibleChange</animation>
-				<control type="image">
+				<control type="image" id="1">
 					<!-- Fallback to Thumb image if not TV Episode or Movie playing -->
 					<left>84</left>
 					<top>690</top>
@@ -239,126 +113,19 @@
 					<texture diffuse="mask-rect.png">$INFO[Player.Art(thumb)]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 				</control>
-			</control>
-		</control>
-		<control type="image">
-			<!-- Music cover image-->
-			<left>12</left>
-			<top>576</top>
-			<width>375</width>
-			<height>375</height>
-			<texture diffuse="mask-squ.png">$INFO[MusicPlayer.Cover]</texture>
-			<aspectratio scalediffuse="false" align="left" aligny="bottom">keep</aspectratio>
-			<animation effect="fade" time="200">VisibleChange</animation>
-			<visible>Player.HasAudio + Window.IsVisible(Visualisation) + !Window.IsVisible(MusicOSD) + !Player.ShowInfo</visible>
-		</control>
-	</include>
-	<include name="home-mediaoverlay">
-		<control type="group" id="9950">
-			<visible>Skin.HasSetting(overlay) + !Window.IsActive(PlayerControls)</visible>
-			<control type="group" id="9960">
-				<!-- media infos (music) -->
-				<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
-				<control type="image">
-					<left>45</left>
-					<top>924</top>
-					<width>144</width>
-					<height>144</height>
-					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$INFO[MusicPlayer.Cover]</texture>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-				</control>
-				<control type="label">
-					<!-- Artist -->
-					<left>243</left>
-					<top>924</top>
-					<width>780</width>
-					<height>33</height>
-					<label>$INFO[MusicPlayer.Artist]</label>
-					<font>font11</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<!-- Album -->
-					<left>243</left>
-					<top>960</top>
-					<width>780</width>
-					<height>33</height>
-					<label>$INFO[MusicPlayer.Album]</label>
-					<font>font11</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<!-- Song Title -->
-					<left>243</left>
-					<top>996</top>
-					<width>780</width>
-					<height>33</height>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<font>font11</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<!-- Time and duration -->
-					<left>243</left>
-					<top>1032</top>
-					<width>780</width>
-					<height>33</height>
-					<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-					<font>font11</font>
+				<control type="button" id="1">
+					<!-- Touch button to get out of Fullscreen -->
+					<left>84</left>
+					<top>690</top>
+					<width>270</width>
+					<height>270</height>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<onclick>Close</onclick>
+					<onclick>PreviousMenu</onclick>
+					<visible>System.GetBool(input.enablemouse)</visible>
 				</control>
 			</control>
-			<control type="group" id="9970">
-				<!-- media infos (video) -->
-				<visible>Player.HasVideo</visible>
-				<control type="videowindow">
-					<left>50</left>
-					<top>924</top>
-					<width>252</width>
-					<height>150</height>
-				</control>
-				<control type="label">
-					<!-- Now playing -->
-					<left>351</left>
-					<top>936</top>
-					<width>420</width>
-					<height>34</height>
-					<label>$LOCALIZE[13350]</label>
-					<font>font12</font>
-					<textcolor>listselected-text</textcolor>
-				</control>
-				<control type="label">
-					<!-- Video title -->
-					<left>351</left>
-					<top>984</top>
-					<width>780</width>
-					<height>34</height>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<font>font12</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<!-- Time and duration -->
-					<left>351</left>
-					<top>1032</top>
-					<width>420</width>
-					<height>34</height>
-					<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ]</label>
-					<font>font12</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-				</control>
-			</control>
-		</control>
-	</include>
-	<include name="xtv-box">
-		<control type="image">
-			<left>225</left>
-			<top>225</top>
-			<width>768</width>
-			<height>384</height>
-			<aspectratio>keep</aspectratio>
-			<texture>xtv-logo-big.png</texture>
-			<animation effect="fade" start="0" delay="150" time="50" condition="Window.Previous(Home) + !Window.Previous(Settings)">WindowOpen</animation>
-			<animation effect="fade" start="10" time="0" condition="Window.Next(Home)">WindowClose</animation>
 		</control>
 	</include>
 	<include name="page-info">
@@ -403,11 +170,11 @@
 	</include>
 	<include name="SortLetterNotification">
 		<control type="group">
-			<visible>Container.Scrolling + !Window.IsVisible(progressdialog)</visible>
+			<visible>Container.Scrolling + !Window.IsVisible(progressdialog) + [Container.Content(TVshows) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Container.Content(Movies)]</visible>
 			<animation effect="fade" time="200">Visible</animation>
 			<animation effect="fade" time="200" delay="500">Hidden</animation>
 			<left>897</left>
-			<top>6</top>
+			<top>36</top>
 			<width>123</width>
 			<height>105</height>
 			<control type="image">
@@ -431,167 +198,360 @@
 	</include>
 	<include name="Fake-Overlay">
 		<control type="group">
-			<!-- Video Stuff -->
-			<visible>Skin.HasSetting(overlay) + Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(HomeViewToggle) + !Window.IsActive(PlayerControls)</visible>
-			<control type="videowindow">
-				<left>52</left>
-				<top>8</top>
-				<width>250</width>
-				<height>150</height>
-				<aspectratio>keep</aspectratio>
+			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
+			<control type="group">
+				<!-- Video Stuff -->
+				<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
+				<control type="videowindow">
+					<left>52</left>
+					<top>8</top>
+					<width>250</width>
+					<height>150</height>
+				</control>
+				<control type="label">
+					<!-- Now playing -->
+					<left>318</left>
+					<top>21</top>
+					<width>645</width>
+					<height>38</height>
+					<label>$LOCALIZE[31037]</label>
+					<font>font12</font>
+					<textcolor>listselected-text</textcolor>
+				</control>
+				<control type="label">
+					<left>318</left>
+					<top>58</top>
+					<width>645</width>
+					<height>38</height>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<font>font12</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<visible>!Pvr.IsPlayingTv</visible>
+				</control>
+				<control type="label">
+					<left>318</left>
+					<top>58</top>
+					<width>645</width>
+					<height>38</height>
+					<label>$INFO[VideoPlayer.ChannelNumberLabel] - $INFO[VideoPlayer.ChannelName]</label>
+					<font>font12</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<visible>Pvr.IsPlayingTv</visible>
+				</control>
+				<control type="label">
+					<!-- Time and duration -->
+					<left>318</left>
+					<top>96</top>
+					<width>645</width>
+					<height>38</height>
+					<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+					<font>font12</font>
+				</control>
 			</control>
-			<control type="label">
-				<!-- Now playing -->
-				<left>318</left>
-				<top>21</top>
-				<width>645</width>
-				<height>38</height>
-				<label>$LOCALIZE[13350]</label>
-				<font>font12</font>
-				<textcolor>listselected-text</textcolor>
-			</control>
-			<control type="label">
-				<left>318</left>
-				<top>58</top>
-				<width>645</width>
-				<height>38</height>
-				<label>$INFO[VideoPlayer.Title]</label>
-				<font>font12</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-			</control>
-			<control type="label">
-				<!-- Time and duration -->
-				<left>318</left>
-				<top>96</top>
-				<width>645</width>
-				<height>38</height>
-				<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
-				<font>font12</font>
+			<control type="group">
+				<!-- Audio Stuff -->
+				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
+				<control type="image">
+					<left>36</left>
+					<top>3</top>
+					<width>150</width>
+					<height>150</height>
+					<texture background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>218</left>
+					<top>3</top>
+					<width>712</width>
+					<height>38</height>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<font>font11</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label">
+					<left>218</left>
+					<top>40</top>
+					<width>712</width>
+					<height>38</height>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<font>font11</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label">
+					<!-- Radio channel name -->
+					<left>218</left>
+					<top>22</top>
+					<width>712</width>
+					<height>38</height>
+					<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName]</label>
+					<font>font13</font>
+					<visible>Pvr.IsPlayingRadio</visible>
+				</control>
+				<control type="label">
+					<left>218</left>
+					<top>78</top>
+					<width>712</width>
+					<height>38</height>
+					<label>$INFO[MusicPlayer.Album]</label>
+					<font>font11</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label">
+					<left>218</left>
+					<top>116</top>
+					<width>712</width>
+					<height>38</height>
+					<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
+					<font>font12</font>
+					<visible>!Pvr.IsPlayingRadio</visible>
+				</control>
 			</control>
 		</control>
-		<control type="group">
-			<!-- Audio Stuff -->
-			<visible>Player.HasAudio + Skin.HasSetting(overlay) + !SubString(Window(videolibrary).Property(TvTunesIsAlive),True) + !Window.IsActive(PlayerControls)</visible>
+	</include>
+	<include name="touch-controls">
+		<control type="grouplist" id="8000">
+			<visible>System.GetBool(input.enablemouse)</visible>
+			<left>30</left>
+			<top>1026</top>
+			<width>564</width>
+			<height>48</height>
+			<orientation>horizontal</orientation>
+			<control type="button">
+				<!-- Back -->
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-back.png</texturefocus>
+				<texturenofocus>touch-back.png</texturenofocus>
+				<onclick>Back</onclick>
+			</control>
 			<control type="image">
-				<left>36</left>
-				<top>3</top>
-				<width>165</width>
-				<height>165</height>
-				<texture background="true" fallback="DefaultAudio.png">$INFO[MusicPlayer.Cover]</texture>
-				<aspectratio>keep</aspectratio>
+				<width>24</width>
+				<height>48</height>
+				<texture>blank.png</texture>
 			</control>
-			<control type="label">
-				<left>218</left>
-				<top>3</top>
-				<width>712</width>
-				<height>38</height>
-				<label>$INFO[MusicPlayer.Artist]</label>
-				<font>font11</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+			<control type="togglebutton">
+				<!-- OSD Play/Pause -->
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-play.png</texturefocus>
+				<texturenofocus>touch-play.png</texturenofocus>
+				<alttexturefocus>touch-pause.png</alttexturefocus>
+				<alttexturenofocus>touch-pause.png</alttexturenofocus>
+				<usealttexture>Player.Paused</usealttexture>
+				<onclick>ActivateWindow(playercontrols)</onclick>
+				<visible>Player.HasAudio | Player.HasVideo</visible>
 			</control>
-			<control type="label">
-				<left>218</left>
-				<top>40</top>
-				<width>712</width>
-				<height>38</height>
-				<label>$INFO[MusicPlayer.Album]</label>
-				<font>font11</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+			<control type="image">
+				<width>24</width>
+				<height>48</height>
+				<texture>blank.png</texture>
+				<visible>Player.HasAudio | Player.HasVideo</visible>
 			</control>
-			<control type="label">
-				<left>218</left>
-				<top>78</top>
-				<width>712</width>
-				<height>38</height>
-				<label>$INFO[MusicPlayer.Title]</label>
-				<font>font11</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+			<control type="button">
+				<!-- Search -->
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-search.png</texturefocus>
+				<texturenofocus>touch-search.png</texturenofocus>
+				<onclick condition="!System.HasAddon(script.globalsearch)">VideoLibrary.Search</onclick>
+				<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 			</control>
-			<control type="label">
-				<left>218</left>
-				<top>116</top>
-				<width>712</width>
-				<height>38</height>
-				<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-				<font>font12</font>
+			<control type="image">
+				<width>24</width>
+				<height>48</height>
+				<texture>blank.png</texture>
+			</control>
+			<control type="button">
+				<!-- Favourite -->
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-fav.png</texturefocus>
+				<texturenofocus>touch-fav.png</texturenofocus>
+				<onclick>ActivateWindow(favourites)</onclick>
+			</control>
+			<control type="image">
+				<width>24</width>
+				<height>48</height>
+				<texture>blank.png</texture>
+			</control>
+			<control type="button">
+				<!-- Screen Settings -->
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-settings.png</texturefocus>
+				<texturenofocus>touch-settings.png</texturenofocus>
+				<onclick condition="!StringCompare(Window(Home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,Home)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,Home)</onclick>
+				<visible>!Skin.HasSetting(lock-screensettings)</visible>
+			</control>
+		</control>
+	</include>
+	<include name="group-focusvert">
+		<control type="grouplist">
+			<left>888</left>
+			<top>0</top>
+			<width>144</width>
+			<height>48</height>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<aligny>center</aligny>
+			<align>center</align>
+			<visible>[[Window.IsVisible(MyPVRChannels.xml) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(12)]] | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | SubString(Control.GetLabel(2),$LOCALIZE[31941],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31943],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31944],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31946],Right) | Control.IsVisible(560)] + [!Skin.HasSetting(lock-screensettings) | [!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)]]</visible>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupfocused.png</texture>
+				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupunfocused.png</texture>
+				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupfocused.png</texture>
+				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupunfocused.png</texture>
+				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupfocused.png</texture>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)] + [Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupunfocused.png</texture>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)] + ![Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
+			</control>
+		</control>
+	</include>
+	<include name="group-focushorz">
+		<control type="grouplist">
+			<left>0</left>
+			<top>150</top>
+			<width>48</width>
+			<height>144</height>
+			<itemgap>0</itemgap>
+			<aligny>center</aligny>
+			<align>center</align>
+			<visible>[SubString(Control.GetLabel(2),$LOCALIZE[31942],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31945],Right)] + [!Skin.HasSetting(lock-screensettings) | [!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)]]</visible>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupfocused.png</texture>
+				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupunfocused.png</texture>
+				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupfocused.png</texture>
+				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + ![Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupunfocused.png</texture>
+				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupfocused.png</texture>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [IntegerGreaterThan(Container(54).NumItems,6) | IntegerGreaterThan(Container(57).NumItems,9)]] + [Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>48</height>
+				<texture>groupunfocused.png</texture>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [IntegerGreaterThan(Container(54).NumItems,6) | IntegerGreaterThan(Container(57).NumItems,9)]] + ![Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
 			</control>
 		</control>
 	</include>
 	<include name="kodimenu">
 		<control type="image">
-			<left>40</left>
-			<top>20</top>
-			<width>48</width>
-			<height>48</height>
+			<left>12</left>
+			<top>12</top>
+			<width>64</width>
+			<height>64</height>
 			<texture>SkinLogo.png</texture>
 		</control>
 	</include>
 	<include name="weathermenu">
 		<control type="group">
-			<!-- Weather Condition -->
-			<visible>!IsEmpty(Weather.plugin)</visible>
-			<control type="label">
-				<!-- Can't get current weather conditions -->
-				<left>1528</left>
-				<top>32</top>
-				<width>90</width>
-				<height>22</height>
-				<font>font10</font>
-				<align>center</align>
-				<label>$LOCALIZE[412]</label>
-				<visible>IsEmpty(Weather.Conditions)</visible>
-			</control>
-			<control type="group">
-				<visible>!IsEmpty(Weather.Conditions)</visible>
-				<control type="image">
-					<left>1464</left>
-					<top>18</top>
-					<width>64</width>
-					<height>64</height>
-					<texture>HomeWeather.png</texture>
-				</control>
-				<control type="label">
-					<!-- Current temperature -->
-					<left>1530</left>
-					<top>32</top>
-					<width>90</width>
-					<height>22</height>
-					<font>font10</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<label>$INFO[Weather.Temperature]</label>
-				</control>
+			<control type="image"><!-- Weather Condition -->
+				<left>1464</left>
+				<top>12</top>
+				<width>64</width>
+				<height>64</height>
+				<texture>$INFO[Current.ConditionIcon]</texture>
+				<visible>!IsEmpty(Weather.plugin) + !IsEmpty(Weather.Conditions)</visible>
 			</control>
 		</control>
 		<control type="group">
 			<!-- Date and Time -->
 			<control type="label">
-				<!-- Time -->
-				<left>1606</left>
-				<top>14</top>
+				<!-- Day -->
+				<left>1506</left>
+				<top>18</top>
 				<width>160</width>
-				<height>30</height>
-				<label>$INFO[System.Time]</label>
-				<font>font12</font>
+				<height>22</height>
+				<textcolor>light-text</textcolor>
+				<label>$INFO[System.Date(DDD)]</label>
+				<font>font10</font>
 				<align>center</align>
 			</control>
 			<control type="label">
 				<!-- Date -->
-				<left>1606</left>
-				<top>54</top>
+				<left>1506</left>
+				<top>44</top>
 				<width>160</width>
 				<height>22</height>
-				<label>$INFO[System.Date(dd/mm/yyyy)]</label>
+				<textcolor>light-text</textcolor>
+				<label>$INFO[System.Date(MMM dd)]</label>
 				<font>font10</font>
+				<align>center</align>
+			</control>
+			<control type="image">
+				<left>1672</left>
+				<top>0</top>
+				<width>6</width>
+				<height>84</height>
+				<texture>separatorhorz.png</texture>
+			</control>
+			<control type="label">
+				<!-- Time -->
+				<left>1680</left>
+				<top>26</top>
+				<width>240</width>
+				<height>30</height>
+				<textcolor>light-text</textcolor>
+				<label>$INFO[System.Time]</label>
+				<font>font18</font>
 				<align>center</align>
 			</control>
 		</control>
 	</include>
 	<include name="settingsmenu">
 		<control type="grouplist" id="999">
-			<!-- Topbar Buttons -->
+			<!-- Touch Buttons -->
 			<left>1768</left>
-			<top>16</top>
+			<top>1010</top>
 			<width>150</width>
 			<height>48</height>
 			<itemgap>2</itemgap>
@@ -601,14 +561,14 @@
 			<onleft condition="Window.IsVisible(MyVideoNav.xml)">50</onleft>
 			<onleft condition="Window.IsVisible(home)">9000</onleft>
 			<onright>999</onright>
-			<ondown condition="Window.IsVisible(MyVideoNav.xml)">50</ondown>
-			<ondown condition="Window.IsVisible(home)">9000</ondown>
+			<onup condition="Window.IsVisible(MyVideoNav.xml)">50</onup>
+			<onup condition="Window.IsVisible(home)">9000</onup>
 			<control type="button" id="990">
 				<!-- Player button -->
 				<width>48</width>
 				<height>48</height>
-				<texturefocus>PlayerFocus.png</texturefocus>
-				<texturenofocus>PlayerUnfocus.png</texturenofocus>
+				<texturefocus>PlayerUnfocus.png</texturefocus>
+				<texturenofocus>Playerfocus.png</texturenofocus>
 				<onclick>ActivateWindow(PlayerControls)</onclick>
 				<onclick>Control.SetFocus(9000)</onclick>
 				<visible>Player.HasMedia + !Window.IsActive(FullscreenVideo) + !Window.IsActive(Visualisation) + !Window.IsActive(karaoke) + !Window.IsActive(visualisationpresetlist)</visible>
@@ -617,8 +577,9 @@
 				<!-- Quit button -->
 				<width>48</width>
 				<height>48</height>
-				<texturefocus>HomeQuitFocus.png</texturefocus>
-				<texturenofocus>HomeQuitUnfocus.png</texturenofocus>
+				<texturefocus>HomeQuitUnFocus.png</texturefocus>
+				<texturenofocus>HomeQuitfocus.png</texturenofocus>
+				<onclick condition="!StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,Home)</onclick>
 				<onclick>$VAR[QuitAction]</onclick>
 				<visible>Window.IsVisible(home)</visible>
 			</control>
@@ -626,8 +587,8 @@
 				<!-- Return to Home menu -->
 				<width>48</width>
 				<height>48</height>
-				<texturefocus>HomeFocus.png</texturefocus>
-				<texturenofocus>HomeUnfocus.png</texturenofocus>
+				<texturefocus>HomeUnFocus.png</texturefocus>
+				<texturenofocus>HomeUnFocus.png</texturenofocus>
 				<onclick>ReplaceWindow(Home)</onclick>
 				<visible>Window.IsVisible(videolibrary)</visible>
 			</control>
@@ -635,10 +596,10 @@
 				<!-- Screen Settings Menu -->
 				<width>48</width>
 				<height>48</height>
-				<texturenofocus>HomeSettingsUnfocus.png</texturenofocus>
-				<texturefocus>HomeSettingsFocus.png</texturefocus>
-				<alttexturenofocus>HomeSettingsUnfocus.png</alttexturenofocus>
-				<alttexturefocus>HomeSettingsFocus.png</alttexturefocus>
+				<texturenofocus>HomeSettingsfocus.png</texturenofocus>
+				<texturefocus>HomeSettingsUnFocus.png</texturefocus>
+				<alttexturenofocus>HomeSettingsfocus.png</alttexturenofocus>
+				<alttexturefocus>HomeSettingsUnFocus.png</alttexturefocus>
 				<onclick>Skin.ToggleSetting(ScreenSettingVisible)</onclick>
 				<onclick>SetFocus(50)</onclick>
 				<altclick>Skin.ToggleSetting(ScreenSettingVisible)</altclick>
@@ -657,7 +618,7 @@
 			<top>0</top>
 			<width>1920</width>
 			<height>84</height>
-			<texture>background.png</texture>
+			<texture colordiffuse="BarBorders">colours/white.png</texture>
 		</control>
 		<control type="image">
 			<left>0</left>
@@ -666,33 +627,23 @@
 			<height>6</height>
 			<texture>separator.png</texture>
 		</control>
-		<control type="image">
-			<left>128</left>
-			<top>0</top>
-			<width>6</width>
-			<height>84</height>
-			<texture>separatorhorz.png</texture>
-		</control>
-		<control type="image">
-			<left>1442</left>
-			<top>0</top>
-			<width>6</width>
-			<height>84</height>
-			<texture>separatorhorz.png</texture>
-		</control>
-		<control type="image">
-			<left>1762</left>
-			<top>0</top>
-			<width>6</width>
-			<height>84</height>
-			<texture>separatorhorz.png</texture>
-		</control>
 
 		<include>kodimenu</include>
+		
+		<control type="label">
+			<!-- Date -->
+			<left>560</left>
+			<top>26</top>
+			<width>800</width>
+			<height>30</height>
+			<textcolor>light-text</textcolor>
+			<selectedcolor>light-text</selectedcolor>
+			<label>$INFO[Container(9000).ListItem.Label]</label>
+			<font>font13</font>
+			<align>center</align>
+		</control>
 
 		<include>weathermenu</include>
-
-		<include>settingsmenu</include>
 
 	</include>
 	<include name="bottombar">
@@ -702,17 +653,8 @@
 			<top>998</top>
 			<width>1920</width>
 			<height>84</height>
-			<texture>background.png</texture>
+			<texture colordiffuse="BarBorders">colours/white.png</texture>
 		</control>
-		<control type="image">
-			<left>0</left>
-			<top>992</top>
-			<width>1920</width>
-			<height>6</height>
-			<texture>separator.png</texture>
-		</control>
-		<!-- RSS info -->
-		<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include>
 		<control type="image">
 			<left>1442</left>
 			<top>996</top>
@@ -720,167 +662,36 @@
 			<height>84</height>
 			<texture>separatorhorz.png</texture>
 		</control>
-		<control type="group">
-			<!-- Stats info -->
-			<visible>![Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)] + !Player.HasVideo</visible>
-			<control type="image">
-				<left>1467</left>
-				<top>1002</top>
-				<width>64</width>
-				<height>64</height>
-				<texture>HomeStats.png</texture>
-			</control>
-			<control type="label">
-				<left>1550</left>
-				<top>1000</top>
-				<width>200</width>
-				<height>22</height>
-				<label>$LOCALIZE[342]:</label>
-				<font>font10</font>
-			</control>
-			<control type="label">
-				<left>1760</left>
-				<top>1000</top>
-				<width>150</width>
-				<height>22</height>
-				<label>$INFO[Window(Home).Property(Movies.UnWatched),, / ]$INFO[Window(Home).Property(Movies.Count)]</label>
-				<align>right</align>
-				<font>font10</font>
-			</control>
-			<control type="label">
-				<left>1550</left>
-				<top>1024</top>
-				<width>190</width>
-				<height>22</height>
-				<label>$LOCALIZE[19020] $LOCALIZE[20360]:</label>
-				<font>font10</font>
-			</control>
-			<control type="label">
-				<left>1760</left>
-				<top>1024</top>
-				<width>150</width>
-				<height>22</height>
-				<label>$INFO[Window(Home).Property(Episodes.UnWatched),, / ]$INFO[Window(Home).Property(Episodes.Count)]</label>
-				<align>right</align>
-				<font>font10</font>
-			</control>
-			<control type="label">
-				<left>1550</left>
-				<top>1048</top>
-				<width>190</width>
-				<height>22</height>
-				<label>$LOCALIZE[132]:</label>
-				<font>font10</font>
-			</control>
-			<control type="label">
-				<left>1760</left>
-				<top>1048</top>
-				<width>150</width>
-				<height>22</height>
-				<label>$INFO[Window(Home).Property(Music.AlbumsCount)]</label>
-				<align>right</align>
-				<font>font10</font>
-			</control>
-		</control>
-		<!-- media infos (music) -->
-		<control type="group">
-			<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
-			<control type="image">
-				<left>1452</left>
-				<top>995</top>
-				<width>80</width>
-				<height>80</height>
-				<texture>$INFO[MusicPlayer.Cover]</texture>
-				<aspectratio align="center">keep</aspectratio>
-			</control>
-			<control type="label">
-				<left>1544</left>
-				<top>990</top>
-				<width>370</width>
-				<height>22</height>
-				<label>$INFO[MusicPlayer.Artist]</label>
-				<font>font10</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-			</control>
-			<control type="label">
-				<left>1544</left>
-				<top>1012</top>
-				<width>370</width>
-				<height>22</height>
-				<label>$INFO[MusicPlayer.Album]</label>
-				<font>font10</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-			</control>
-			<control type="label">
-				<left>1544</left>
-				<top>1034</top>
-				<width>370</width>
-				<height>22</height>
-				<label>$INFO[MusicPlayer.Title]</label>
-				<font>font10</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-			</control>
-			<control type="label">
-				<left>1544</left>
-				<top>1056</top>
-				<width>370</width>
-				<height>22</height>
-				<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-				<font>font10</font>
-			</control>
-		</control>
-		<!-- media infos (video) -->
-		<control type="group">
-			<visible>Player.HasVideo</visible>
-			<control type="videowindow">
-				<!-- video preview window -->
-				<left>1452</left>
-				<top>990</top>
-				<width>120</width>
-				<height>90</height>
-				<aspectratio align="center">keep</aspectratio>
-			</control>
-			<control type="label">
-				<!-- Now playing -->
-				<left>1576</left>
-				<top>1000</top>
-				<width>340</width>
-				<height>20</height>
-				<label>$LOCALIZE[10522]</label>
-				<font>font10</font>
-				<textcolor>listselected-text</textcolor>
-			</control>
-			<control type="label">
-				<left>1576</left>
-				<top>1026</top>
-				<width>340</width>
-				<height>20</height>
-				<label>$INFO[VideoPlayer.Title]</label>
-				<font>font10</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-			</control>
-			<control type="label">
-				<left>1576</left>
-				<top>1052</top>
-				<width>340</width>
-				<height>20</height>
-				<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ]</label>
-				<font>font10</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-			</control>
-		</control>
+
+		<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include><!-- RSS info -->
+
+		<include>settingsmenu</include>
+
 	</include>
 
 	<include name="settings-submenu-common">
 		<width>1328</width>
 		<height>84</height>
-		<font>font12</font>
+		<font>font11</font>
+	</include>
+	<include name="videoinfo-options-common">
+		<height>144</height>
+		<width>144</width>
+		<font>font10</font>
+		<textcolor>disabled-text</textcolor>
+		<focusedcolor>button-text</focusedcolor>
+		<align>center</align>
+		<aligny>top</aligny>
+		<textoffsetx>15</textoffsetx>
+		<textoffsety>90</textoffsety>
 	</include>
 	<include name="keyboard-key-common">
 		<width>96</width>
 		<height>96</height>
 		<texturenofocus border="6">key-standard-nofocus.png</texturenofocus>
 		<texturefocus border="6">key-standard-focus.png</texturefocus>
+		<textcolor>keyboard-focus-text</textcolor>
+		<focusedcolor>keyboard-focus-text</focusedcolor>
 		<shadowcolor></shadowcolor>
 		<font>font13</font>
 		<align>center</align>
@@ -892,27 +703,16 @@
 	</include>
 	<include name="scrolltext">
 		<scroll>true</scroll>
-	</include>
-	<include name="background-fade">
-		<animation effect="fade" start="100" end="80" condition="Skin.HasSetting(background-visibiltyhigh)">Conditional</animation>
-		<animation effect="fade" start="100" end="90" condition="Skin.HasSetting(background-visibiltymed)">Conditional</animation>
+		<visible>![System.ScreenSaverActive]</visible>
 	</include>
 	<include name="settingbutton-fade">
 		<animation effect="fade" start="100" end="60">Visible</animation>
 	</include>
-	<include name="transition-fade">
-		<animation effect="fade" time="100">Visible</animation>
-		<animation effect="fade" time="100">Hidden</animation>
-	</include>
-	<include name="screen-fade">
-		<animation effect="fade" time="100">WindowOpen</animation>
-		<animation effect="fade" time="100">WindowClose</animation>
-	</include>
 	<include name="busy-spin">
 		<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="true">conditional</animation>
 	</include>
-	<include name="View-as">
+	<include name="screen-settings">
 		<animation effect="slide" time="0" start="0,0" end="0,-1080">Visible</animation>
-		<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus() + !Skin.HasSetting(view-as-lock)</visible>
+		<visible allowhiddenfocus="true">[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
 	</include>
 </includes>

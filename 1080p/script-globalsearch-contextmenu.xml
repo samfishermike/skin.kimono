@@ -1,59 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>1001</defaultcontrol>
-	<coordinates>
-		<system>1</system>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
-	<controls>
-		<include>fadebackground</include>
-		<control type="image" id="999">
-			<!-- Dialog background image -->
-			<left>717</left>
-			<top>456</top>
-			<width>516</width>
-			<height>249</height>
-			<texture border="12">button-menu-background.png</texture>
-		</control>
-		<control type="button" id="1001">
-			<left>735</left>
-			<top>480</top>
-			<width>480</width>
-			<height>72</height>
-			<align>center</align>
-			<aligny>top</aligny>
-			<textoffsety>9</textoffsety>
-			<onleft>1001</onleft>
-			<onright>1001</onright>
-			<onup>1003</onup>
-			<ondown>1002</ondown>
-		</control>
-		<control type="button" id="1002">
-			<left>735</left>
-			<top>480</top>
-			<width>480</width>
-			<height>72</height>
-			<align>center</align>
-			<aligny>top</aligny>
-			<textoffsety>9</textoffsety>
-			<onleft>1002</onleft>
-			<onright>1002</onright>
-			<onup>1001</onup>
-			<ondown>1003</ondown>
-		</control>
-		<control type="button" id="1003">
-			<left>735</left>
-			<top>480</top>
-			<width>480</width>
-			<height>72</height>
-			<align>center</align>
-			<aligny>top</aligny>
-			<textoffsety>9</textoffsety>
-			<onleft>1003</onleft>
-			<onright>1003</onright>
-			<onup>1002</onup>
-			<ondown>1001</ondown>
-		</control>
-	</controls>
+    <defaultcontrol>1001</defaultcontrol>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <include>fadebackground</include>
+        <control type="image" id="999">
+            <!-- Dialog background image -->
+            <left>717</left>
+            <top>456</top>
+            <width>516</width>
+            <height>249</height>
+            <texture border="8">button-menu-background.png</texture>
+        </control>
+        <control type="label">
+            <!-- Dialog heading (Item Settings) -->
+            <left>735</left>
+            <top>432</top>
+            <width>480</width>
+            <height>51</height>
+            <font>font12</font>
+            <label>$LOCALIZE[31560]</label>
+            <align>center</align>
+        </control>
+        <control type="button">
+            <left>1200</left>
+            <top>405</top>
+            <width>48</width>
+            <height>48</height>
+            <texturefocus>touch-close.png</texturefocus>
+            <texturenofocus>touch-close.png</texturenofocus>
+            <onclick>Close</onclick>
+            <visible>System.GetBool(input.enablemouse)</visible>
+        </control>
+        <control type="image">
+            <left>735</left>
+            <top>483</top>
+            <width>480</width>
+            <height>6</height>
+            <texture>separator.png</texture>
+        </control>
+        <control type="button" id="1001">
+            <left>735</left>
+            <top>531</top>
+            <width>480</width>
+            <height>72</height>
+            <align>center</align>
+            <aligny>top</aligny>
+            <textoffsety>9</textoffsety>
+            <onleft>1001</onleft>
+            <onright>1001</onright>
+            <onup>1003</onup>
+            <ondown>1002</ondown>
+        </control>
+        <control type="button" id="1002">
+            <left>735</left>
+            <top>531</top>
+            <width>480</width>
+            <height>72</height>
+            <align>center</align>
+            <aligny>top</aligny>
+            <textoffsety>9</textoffsety>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <onup>1001</onup>
+            <ondown>1003</ondown>
+        </control>
+        <control type="button" id="1003">
+            <left>735</left>
+            <top>531</top>
+            <width>480</width>
+            <height>72</height>
+            <align>center</align>
+            <aligny>top</aligny>
+            <textoffsety>9</textoffsety>
+            <onleft>1003</onleft>
+            <onright>1003</onright>
+            <onup>1002</onup>
+            <ondown>1001</ondown>
+        </control>
+    </controls>
 </window>

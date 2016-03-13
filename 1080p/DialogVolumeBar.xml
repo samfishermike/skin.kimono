@@ -1,67 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-	<coordinates>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
-	<include>screen-fade</include>
-	<controls>
-		<visible>![Window.IsVisible(infodialog) | Window.IsVisible(mutebug)]</visible>
-		<control type="image">
-			<!-- Dialog background -->
-			<left>1353</left>
-			<top>18</top>
-			<width>531</width>
-			<height>243</height>
-			<texture border="12">button-menu-background.png</texture>
-		</control>
-		<control type="progress">
-			<left>1448</left>
-			<top>130</top>
-			<width>339</width>
-			<height>60</height>
-			<info>Player.Volume</info>
-			<colordiffuse>ProgressBarColor</colordiffuse>
-			<texturebg>blank.png</texturebg>
-			<midtexture>colours/blue.png</midtexture>
-			<animation effect="fade" start="50" end="50" time="0" condition="Player.Passthrough">Conditional</animation>
-			<visible>IntegerGreaterThan(Player.Volume,-60)</visible>
-		</control>
-		<control type="image">
-			<!-- Volume bar overlay -->
-			<left>1448</left>
-			<top>130</top>
-			<width>339</width>
-			<height>60</height>
-			<texture>volume-overlay.png</texture>
-		</control>
-		<control type="label" id="0">
-			<!-- Volume -->
-			<left>1538</left>
-			<top>33</top>
-			<width>318</width>
-			<height>120</height>
-			<font>font22</font>
-			<align>center</align>
-			<info>Player.Volume</info>
-		</control>
-		<control type="image">
-			<left>1378</left>
-			<top>48</top>
-			<width>170</width>
-			<height>120</height>
-			<texture>volume-thingy.png</texture>
-		</control>
-		<control type="label">
-			<!-- Passthrough -->
-			<left>1365</left>
-			<top>206</top>
-			<width>510</width>
-			<height>30</height>
-			<label>$LOCALIZE[29802]</label>
-			<font>font12</font>
-			<align>center</align>
-			<visible>Player.Passthrough</visible>
-		</control>
-	</controls>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <visible>![Window.IsVisible(infodialog) | Window.IsVisible(mutebug)]</visible>
+        <control type="image">
+            <!-- Dialog background -->
+            <left>1353</left>
+            <top>18</top>
+            <width>531</width>
+            <height>186</height>
+            <texture border="8">button-menu-background.png</texture>
+        </control>
+        <control type="label" id="0">
+            <!-- Volume -->
+            <left>1527</left>
+            <top>33</top>
+            <width>336</width>
+            <height>60</height>
+            <font>font22</font>
+            <align>center</align>
+            <label>$INFO[Player.Volume]</label>
+            <visible>IntegerGreaterThan(Player.Volume,0)</visible>
+        </control>
+        <control type="image">
+            <left>1377</left>
+            <top>33</top>
+            <width>144</width>
+            <height>144</height>
+            <texture>volume-thingy.png</texture>
+        </control>
+        <control type="progress">
+            <left>1527</left>
+            <top>108</top>
+            <width>336</width>
+            <height>24</height>
+            <info>Player.Volume</info>
+            <texturebg>blank.png</texturebg>
+            <midtexture>colours/blue.png</midtexture>
+            <animation effect="fade" start="50" end="50" time="0" condition="Player.Passthrough">Conditional</animation>
+            <visible>IntegerGreaterThan(Player.Volume,0)</visible>
+        </control>
+        <control type="image">
+            <!-- Volume bar overlay -->
+            <left>1527</left>
+            <top>108</top>
+            <width>336</width>
+            <height>24</height>
+            <texture>volume-overlay.png</texture>
+        </control>
+        <control type="label">
+            <!-- Passthrough -->
+            <left>1377</left>
+            <top>150</top>
+            <width>483</width>
+            <height>36</height>
+            <label>$LOCALIZE[29802]</label>
+            <font>font12</font>
+            <align>center</align>
+            <visible>Player.Passthrough</visible>
+        </control>
+    </controls>
 </window>
