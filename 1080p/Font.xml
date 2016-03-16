@@ -48,5 +48,11 @@
 			<size>72</size>
 			<style>uppercase</style>
 		</font>
+		<font>
+			<name>Clock</name>
+			<filename>arial.ttf</filename>
+			<size>104</size>
+			<style>uppercase</style>
+		</font>
 	</fontset>
 </fonts>

@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<onload>ClearProperty(ShowScreenSettings,Home)</onload>
+	<onload>RunScript(script.skin.helper.service,action=ratio,total=$INFO[Window(Home).Property(Movies.Count)],count=$INFO[Window(Home).Property(Movies.Watched)],skinstring=$INFO[Skin.String(movieswatched.percent)])</onload>
 	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
 	<controls>
 		<include>background</include>
@@ -289,7 +290,7 @@
 					<icon>HomeLiveTVFocus.png</icon>
 					<label>$LOCALIZE[19020]</label>
 					<label2>$LOCALIZE[20343]</label2>
-					<onclick>$VAR[PVRLibEntry]</onclick>
+					<onclick>$VAR[TVEntry]</onclick>
 					<visible>System.GetBool(pvrmanager.enabled)</visible>
 				</item>
 				<item>
@@ -444,7 +445,7 @@
 					<icon>HomeLiveTVFocus.png</icon>
 					<label>$LOCALIZE[19020]</label>
 					<label2>$LOCALIZE[20343]</label2>
-					<onclick>$VAR[PVRLibEntry]</onclick>
+					<onclick>$VAR[TVEntry]</onclick>
 					<visible>System.GetBool(pvrmanager.enabled)</visible>
 				</item>
 				<item>

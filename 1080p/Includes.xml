@@ -504,6 +504,17 @@
 			</control>
 		</control>
 		<control type="group">
+			<!-- Test -->
+			<control type="label">
+				<left>100</left>
+				<top>18</top>
+				<width>400</width>
+				<height>22</height>
+				<textcolor>light-text</textcolor>
+				<label>$INFO[Window(Home).Property(Movies.Watched)]/ $INFO[Window(Home).Property(Movies.Count)]- $INFO[Skin.String(movieswatched.percent)]</label>
+				<font>font10</font>
+				<align>left</align>
+			</control>
 			<!-- Date and Time -->
 			<control type="label">
 				<!-- Day -->
@@ -571,7 +582,7 @@
 				<texturenofocus>Playerfocus.png</texturenofocus>
 				<onclick>ActivateWindow(PlayerControls)</onclick>
 				<onclick>Control.SetFocus(9000)</onclick>
-				<visible>Player.HasMedia + !Window.IsActive(FullscreenVideo) + !Window.IsActive(Visualisation) + !Window.IsActive(karaoke) + !Window.IsActive(visualisationpresetlist)</visible>
+				<visible>Player.HasMedia + !Window.IsActive(FullscreenVideo) + !Window.IsActive(Visualisation) + !Window.IsActive(visualisationpresetlist)</visible>
 			</control>
 			<control type="button" id="991">
 				<!-- Quit button -->
