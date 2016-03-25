@@ -207,10 +207,10 @@
 			<scrolltime>1</scrolltime>
 			<itemlayout width="478" height="76">
 				<control type="image">
-					<left>8</left>
-					<top>14</top>
-					<width>48</width>
-					<height>48</height>
+					<left>6</left>
+					<top>6</top>
+					<width>64</width>
+					<height>64</height>
 					<texture>$INFO[ListItem.Thumb]</texture>
 				</control>
 				<control type="label">
@@ -238,10 +238,10 @@
 					<texture colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 				</control>
 				<control type="image">
-					<left>8</left>
-					<top>14</top>
-					<width>48</width>
-					<height>48</height>
+					<left>6</left>
+					<top>6</top>
+					<width>64</width>
+					<height>64</height>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
 				</control>
 				<control type="label">
@@ -270,12 +270,11 @@
 					<onclick>ActivateWindow(Settings,,return)</onclick>
 				</item>
 				<item>
-					<thumb>HomeVideoUnfocus.png</thumb>
-					<icon>HomeVideoFocus.png</icon>
-					<label>$LOCALIZE[3]</label>
+					<thumb>HomeFavsUnfocus.png</thumb>
+					<icon>HomeFavsFocus.png</icon>
+					<label>$LOCALIZE[31652]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(Videos,Files,return)</onclick>
-					<visible>!Skin.HasSetting(home-video)</visible>
+					<onclick>ActivateWindow(Favourites)</onclick>
 				</item>
 				<item>
 					<thumb>HomeMovieUnfocus.png</thumb>
@@ -283,7 +282,13 @@
 					<label>$LOCALIZE[31026]</label>
 					<label2>$LOCALIZE[31026]</label2>
 					<onclick>$VAR[MovieLibEntry]</onclick>
-					<visible>!Skin.HasSetting(home-movie)</visible>
+				</item>
+				<item>
+					<thumb>HomeTVShowsUnfocus.png</thumb>
+					<icon>HomeTVShowsFocus.png</icon>
+					<label>$LOCALIZE[31027]</label>
+					<label2>$LOCALIZE[20343]</label2>
+					<onclick>$VAR[TVLibEntry]</onclick>
 				</item>
 				<item>
 					<thumb>HomeLiveTVUnfocus.png</thumb>
@@ -294,19 +299,11 @@
 					<visible>System.GetBool(pvrmanager.enabled)</visible>
 				</item>
 				<item>
-					<thumb>HomeTVShowsUnfocus.png</thumb>
-					<icon>HomeTVShowsFocus.png</icon>
-					<label>$LOCALIZE[31027]</label>
-					<label2>$LOCALIZE[20343]</label2>
-					<onclick>$VAR[TVLibEntry]</onclick>
-				</item>
-				<item>
-					<thumb>DefaultMusicVideos.png</thumb>
-					<icon>DefaultMusicVideos.png</icon>
-					<label>$LOCALIZE[31028]</label>
+					<thumb>HomeVideoUnfocus.png</thumb>
+					<icon>HomeVideoFocus.png</icon>
+					<label>$LOCALIZE[3]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>$VAR[MusicVideoLibEntry]</onclick>
-					<visible>Skin.HasSetting(home-musicvideo)</visible>
+					<onclick>ActivateWindow(Videos,Files,return)</onclick>
 				</item>
 				<item>
 					<thumb>HomeMusicUnfocus.png</thumb>
@@ -316,14 +313,6 @@
 					<onclick>$VAR[MusicLibEntry]</onclick>
 				</item>
 				<item>
-					<thumb>HomeAddonsUnfocus.png</thumb>
-					<icon>HomeAddonsFocus.png</icon>
-					<label>$LOCALIZE[24001]</label>
-					<label2>$LOCALIZE[24001]</label2>
-					<onclick>ActivateWindow(1155,,return)</onclick>
-					<visible>!Skin.HasSetting(home-programs)</visible>
-				</item>
-				<item>
 					<thumb>HomePicUnfocus.png</thumb>
 					<icon>HomePicFocus.png</icon>
 					<label>$LOCALIZE[1]</label>
@@ -331,35 +320,18 @@
 					<onclick>ActivateWindow(MyPictures,,return)</onclick>
 				</item>
 				<item>
-					<thumb>HomeFavsUnfocus.png</thumb>
-					<icon>HomeFavsFocus.png</icon>
-					<label>$LOCALIZE[31652]</label>
-					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(Favourites)</onclick>
+					<thumb>HomeAddonsUnfocus.png</thumb>
+					<icon>HomeAddonsFocus.png</icon>
+					<label>$LOCALIZE[24001]</label>
+					<label2>$LOCALIZE[24001]</label2>
+					<onclick>ActivateWindow(1155,,return)</onclick>
 				</item>
 				<item>
-					<thumb>DefaultMusicSearch.png</thumb>
-					<icon>DefaultMusicSearch.png</icon>
-					<label>$LOCALIZE[137]</label>
-					<label2>$LOCALIZE[571]</label2>
-					<onclick>RunScript(script.globalsearch)</onclick>
-					<visible>Skin.HasSetting(home-search)</visible>
-				</item>
-				<item>
-					<thumb>shut-profile.png</thumb>
-					<icon>shut-profile.png</icon>
-					<label>$LOCALIZE[20092]</label>
-					<label2>$LOCALIZE[571]</label2>
-					<onclick>System.LogOff</onclick>
-					<visible>Skin.HasSetting(home-profile)</visible>
-				</item>
-				<item>
-					<thumb>DefaultDVDRom.png</thumb>
-					<icon>DefaultDVDRom.png</icon>
-					<label>$LOCALIZE[31036]</label>
-					<label2>$LOCALIZE[571]</label2>
-					<onclick>PlayDVD</onclick>
-					<visible>System.HasMediadvd + Skin.HasSetting(home-playdisc)</visible>
+					<thumb>HomeWeatherUnfocus.png</thumb>
+					<icon>HomeWeatherFocus.png</icon>
+					<label>$LOCALIZE[8]</label>
+					<label2>$LOCALIZE[8]</label2>
+					<onclick>ActivateWindow(weather,,return)</onclick>
 				</item>
 			</content>
 		</control>
@@ -379,10 +351,10 @@
 			<scrolltime>1</scrolltime>
 			<itemlayout width="76" height="76">
 				<control type="image">
-					<left>14</left>
-					<top>14</top>
-					<width>48</width>
-					<height>48</height>
+					<left>6</left>
+					<top>6</top>
+					<width>64</width>
+					<height>64</height>
 					<texture>$INFO[ListItem.Thumb]</texture>
 				</control>
 				<control type="image">
@@ -402,10 +374,10 @@
 					<texture colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
 				</control>
 				<control type="image">
-					<left>14</left>
-					<top>14</top>
-					<width>48</width>
-					<height>48</height>
+					<left>6</left>
+					<top>6</top>
+					<width>64</width>
+					<height>64</height>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
 				</control>
 				<control type="image">
@@ -425,12 +397,11 @@
 					<onclick>ActivateWindow(Settings,,return)</onclick>
 				</item>
 				<item>
-					<thumb>HomeVideoUnfocus.png</thumb>
-					<icon>HomeVideoFocus.png</icon>
-					<label>$LOCALIZE[3]</label>
+					<thumb>HomeFavsUnfocus.png</thumb>
+					<icon>HomeFavsFocus.png</icon>
+					<label>$LOCALIZE[31652]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(Videos,Files,return)</onclick>
-					<visible>!Skin.HasSetting(home-video)</visible>
+					<onclick>ActivateWindow(Favourites)</onclick>
 				</item>
 				<item>
 					<thumb>HomeMovieUnfocus.png</thumb>
@@ -438,7 +409,13 @@
 					<label>$LOCALIZE[31026]</label>
 					<label2>$LOCALIZE[31026]</label2>
 					<onclick>$VAR[MovieLibEntry]</onclick>
-					<visible>!Skin.HasSetting(home-movie)</visible>
+				</item>
+				<item>
+					<thumb>HomeTVShowsUnfocus.png</thumb>
+					<icon>HomeTVShowsFocus.png</icon>
+					<label>$LOCALIZE[31027]</label>
+					<label2>$LOCALIZE[20343]</label2>
+					<onclick>$VAR[TVLibEntry]</onclick>
 				</item>
 				<item>
 					<thumb>HomeLiveTVUnfocus.png</thumb>
@@ -449,19 +426,11 @@
 					<visible>System.GetBool(pvrmanager.enabled)</visible>
 				</item>
 				<item>
-					<thumb>HomeTVShowsUnfocus.png</thumb>
-					<icon>HomeTVShowsFocus.png</icon>
-					<label>$LOCALIZE[31027]</label>
-					<label2>$LOCALIZE[20343]</label2>
-					<onclick>$VAR[TVLibEntry]</onclick>
-				</item>
-				<item>
-					<thumb>DefaultMusicVideos.png</thumb>
-					<icon>DefaultMusicVideos.png</icon>
-					<label>$LOCALIZE[31028]</label>
+					<thumb>HomeVideoUnfocus.png</thumb>
+					<icon>HomeVideoFocus.png</icon>
+					<label>$LOCALIZE[3]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>$VAR[MusicVideoLibEntry]</onclick>
-					<visible>Skin.HasSetting(home-musicvideo)</visible>
+					<onclick>ActivateWindow(Videos,Files,return)</onclick>
 				</item>
 				<item>
 					<thumb>HomeMusicUnfocus.png</thumb>
@@ -471,14 +440,6 @@
 					<onclick>$VAR[MusicLibEntry]</onclick>
 				</item>
 				<item>
-					<thumb>HomeAddonsUnfocus.png</thumb>
-					<icon>HomeAddonsFocus.png</icon>
-					<label>$LOCALIZE[24001]</label>
-					<label2>$LOCALIZE[24001]</label2>
-					<onclick>ActivateWindow(1155,,return)</onclick>
-					<visible>!Skin.HasSetting(home-programs)</visible>
-				</item>
-				<item>
 					<thumb>HomePicUnfocus.png</thumb>
 					<icon>HomePicFocus.png</icon>
 					<label>$LOCALIZE[1]</label>
@@ -486,35 +447,18 @@
 					<onclick>ActivateWindow(MyPictures,,return)</onclick>
 				</item>
 				<item>
-					<thumb>HomeFavsUnfocus.png</thumb>
-					<icon>HomeFavsFocus.png</icon>
-					<label>$LOCALIZE[31652]</label>
-					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(Favourites)</onclick>
+					<thumb>HomeAddonsUnfocus.png</thumb>
+					<icon>HomeAddonsFocus.png</icon>
+					<label>$LOCALIZE[24001]</label>
+					<label2>$LOCALIZE[24001]</label2>
+					<onclick>ActivateWindow(1155,,return)</onclick>
 				</item>
 				<item>
-					<thumb>DefaultMusicSearch.png</thumb>
-					<icon>DefaultMusicSearch.png</icon>
-					<label>$LOCALIZE[137]</label>
-					<label2>$LOCALIZE[571]</label2>
-					<onclick>RunScript(script.globalsearch)</onclick>
-					<visible>Skin.HasSetting(home-search)</visible>
-				</item>
-				<item>
-					<thumb>shut-profile.png</thumb>
-					<icon>shut-profile.png</icon>
-					<label>$LOCALIZE[20092]</label>
-					<label2>$LOCALIZE[571]</label2>
-					<onclick>System.LogOff</onclick>
-					<visible>Skin.HasSetting(home-profile)</visible>
-				</item>
-				<item>
-					<thumb>DefaultDVDRom.png</thumb>
-					<icon>DefaultDVDRom.png</icon>
-					<label>$LOCALIZE[31036]</label>
-					<label2>$LOCALIZE[571]</label2>
-					<onclick>PlayDVD</onclick>
-					<visible>System.HasMediadvd + Skin.HasSetting(home-playdisc)</visible>
+					<thumb>HomeWeatherUnfocus.png</thumb>
+					<icon>HomeWeatherFocus.png</icon>
+					<label>$LOCALIZE[8]</label>
+					<label2>$LOCALIZE[8]</label2>
+					<onclick>ActivateWindow(weather,,return)</onclick>
 				</item>
 			</content>
 		</control>
