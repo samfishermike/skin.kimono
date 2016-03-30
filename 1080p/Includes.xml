@@ -10,6 +10,7 @@
 		_AddonsList 1155
 		_LibraryEntry 1156
 		_DummyDialog 1157
+		_CustomiseSubMenu 1158
 
 	-->
 	<include file="Includes_Variables.xml" />
