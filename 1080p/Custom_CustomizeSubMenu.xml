@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1158">
+	<onunload>ClearProperty(CustomizeSubMenuDialogType,Home)</onunload>
+	<defaultcontrol always="true">999</defaultcontrol>
+	<coordinates>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<controls>
+		<include>fadebackground</include>
+		<control type="group">
+			<left>506</left>
+			<top>330</top>
+			<control type="image">
+				<!-- Dialog background -->
+				<left>0</left>
+				<top>0</top>
+				<width>906</width>
+				<height>495</height>
+				<texture border="8">button-menu-background.png</texture>
+			</control>
+			<control type="label">
+				<!-- Dialog heading -->
+				<left>38</left>
+				<top>18</top>
+				<width>831</width>
+				<height>45</height>
+				<align>center</align>
+				<label>$VAR[CustomDialogSelectHeading]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			</control>
+			<control type="button">
+				<!-- Touch Close button -->
+				<left>873</left>
+				<top>-15</top>
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick>Dialog.Close(1158)</onclick>
+				<visible>System.GetBool(input.enablemouse)</visible>
+			</control>
+			<control type="image">
+				<left>38</left>
+				<top>72</top>
+				<width>831</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="list" id="999">
+				<left>38</left>
+				<top>90</top>
+				<width>831</width>
+				<height>375</height>
+				<viewtype label="536">list</viewtype>
+				<onright>998</onright>
+				<onleft>998</onleft>
+				<itemlayout height="75">
+					<control type="label">
+						<left>30</left>
+						<top>0</top>
+						<width>771</width>
+						<height>75</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font11</font>
+					</control>
+				</itemlayout>
+				<focusedlayout height="75">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>831</width>
+						<height>75</height>
+						<texture border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texture>
+						<visible>Control.HasFocus(999)</visible>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<top>0</top>
+						<width>771</width>
+						<height>75</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font11</font>
+					</control>
+				</focusedlayout>
+				<content>
+					<!-- More Video Info options -->
+					<item>
+						<label>$LOCALIZE[31680]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>SendClick(movieinformation,10)</onclick>
+						<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31681]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick condition="Container.Content(TVShows)">RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID])</onclick>
+						<onclick condition="Container.Content(Movies)">RunScript(script.artwork.downloader,mode=gui,mediatype=movie,dbid=$INFO[ListItem.DBID])</onclick>
+						<onclick condition="Container.Content(MusicVideos)">RunScript(script.artwork.downloader,mode=gui,mediatype=musicvideo,dbid=$INFO[ListItem.DBID])</onclick>
+						<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.artwork.downloader) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)] + !IsEmpty(ListItem.DBID)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31892]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
+						<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.tvtunes) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[38023]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>SendClick(movieinformation,7)</onclick>
+						<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31689]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
+						<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.libraryeditor) + !IsEmpty(ListItem.DBID)</visible>
+					</item>
+				</content>
+			</control>
+			<control type="button" id="410">
+				<!-- OK button -->
+				<left>0</left>
+				<top>795</top>
+				<width>300</width>
+				<height>50</height>
+				<align>center</align>
+				<label>$LOCALIZE[186]</label>
+				<font>font11</font>
+				<onleft>noop</onleft>
+				<onright>411</onright>
+			</control>
+			<control type="button" id="411">
+				<!-- Cancel button -->
+				<left>301</left>
+				<top>795</top>
+				<width>300</width>
+				<height>50</height>
+				<align>center</align>
+				<label>$LOCALIZE[222]</label>
+				<font>font11</font>
+				<onleft>410</onleft>
+				<onright>noop</onright>
+			</control>
+		</control>
+	</controls>
+</window>
