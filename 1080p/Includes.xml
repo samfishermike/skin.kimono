@@ -130,19 +130,10 @@
 		</control>
 	</include>
 	<include name="page-info">
-		<control type="image">
-			<!-- RSS Logo -->
-			<left>8</left>
-			<top>1002</top>
-			<width>64</width>
-			<height>64</height>
-			<aspectratio>keep</aspectratio>
-			<texture>HomeRSS.png</texture>
-		</control>
 		<control type="rss">
-			<left>82</left>
+			<left>316</left>
 			<top>1020</top>
-			<width>1350</width>
+			<width>1604</width>
 			<height>30</height>
 			<font>font12</font>
 			<urlset>1</urlset>
@@ -152,7 +143,7 @@
 		</control>
 		<control type="image">
 			<!-- Feather edge of scrolling text -->
-			<left>76</left>
+			<left>316</left>
 			<top>996</top>
 			<width>64</width>
 			<height>88</height>
@@ -161,7 +152,7 @@
 		</control>
 		<control type="image">
 			<!-- Feather edge of scrolling text -->
-			<left>1380</left>
+			<left>1856</left>
 			<top>996</top>
 			<width>64</width>
 			<height>88</height>
@@ -550,15 +541,16 @@
 	</include>
 	<include name="settingsmenu">
 		<control type="grouplist" id="999">
+			<visible>Skin.HasSetting(enablebottombaricons)</visible>
 			<!-- Touch Buttons -->
-			<left>1650</left>
+			<left>50</left>
 			<top>1004</top>
 			<width>256</width>
 			<height>64</height>
 			<itemgap>2</itemgap>
 			<scrolltime>200</scrolltime>
 			<orientation>horizontal</orientation>
-			<align>center</align>
+			<align>left</align>
 			<onleft condition="Window.IsVisible(MyVideoNav.xml)">50</onleft>
 			<onleft condition="Window.IsVisible(home)">9000</onleft>
 			<onright>999</onright>
@@ -591,21 +583,6 @@
 				<texturefocus>HomeUnFocus.png</texturefocus>
 				<texturenofocus>HomeUnFocus.png</texturenofocus>
 				<onclick>ReplaceWindow(Home)</onclick>
-				<visible>Window.IsVisible(videolibrary)</visible>
-			</control>
-			<control type="button" id="993">
-				<!-- Screen Settings Menu -->
-				<width>64</width>
-				<height>64</height>
-				<texturenofocus>HomeSettingsfocus.png</texturenofocus>
-				<texturefocus>HomeSettingsUnFocus.png</texturefocus>
-				<alttexturenofocus>HomeSettingsfocus.png</alttexturenofocus>
-				<alttexturefocus>HomeSettingsUnFocus.png</alttexturefocus>
-				<onclick>Skin.ToggleSetting(ScreenSettingVisible)</onclick>
-				<onclick>SetFocus(50)</onclick>
-				<altclick>Skin.ToggleSetting(ScreenSettingVisible)</altclick>
-				<altclick>SetFocus(9000)</altclick>
-				<usealttexture>Skin.HasSetting(ScreenSettingVisible)</usealttexture>
 				<visible>Window.IsVisible(videolibrary)</visible>
 			</control>
 		</control>
@@ -655,13 +632,6 @@
 			<width>1920</width>
 			<height>84</height>
 			<texture colordiffuse="BarBorders">colours/white.png</texture>
-		</control>
-		<control type="image">
-			<left>1442</left>
-			<top>996</top>
-			<width>6</width>
-			<height>84</height>
-			<texture>separatorhorz.png</texture>
 		</control>
 
 		<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include><!-- RSS info -->

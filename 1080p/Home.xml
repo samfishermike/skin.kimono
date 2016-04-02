@@ -371,8 +371,36 @@
 					<label>$LOCALIZE[8]</label>
 					<label2>$LOCALIZE[8]</label2>
 					<onclick>ActivateWindow(weather,,return)</onclick>
+					<visible>Skin.HasSetting(enableweathericon)</visible>
 				</item>
 			</content>
+		</control>
+		<control type="group">
+			<animation effect="slide" end="-171,0" condition="Control.HasFocus(800)">Conditional</animation>
+			<control type="button" id="800">
+				<!-- Customize Tab button -->
+				<left>1856</left>
+				<top>150</top>
+				<width>300</width>
+				<height>128</height>
+				<label>Customize</label>
+				<font>font10</font>
+				<textcolor>light-text</textcolor>
+				<textoffsetx>64</textoffsetx>
+				<texturefocus border="64,0,0,0" colordiffuse="ButtonFocusColour">SidePanelCustomize.png</texturefocus>
+				<texturenofocus border="64,0,0,0" colordiffuse="ButtonFocusColour">SidePanelCustomize.png</texturenofocus>
+				<onclick>ActivateWindow(1158)</onclick>
+				<onleft>8000</onleft>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+			</control>
+			<control type="image">
+				<left>1856</left>
+				<top>182</top>
+				<width>64</width>
+				<height>64</height>
+				<texture>icon-add-item-light.png</texture>
+			</control>
 		</control>
 
 		<include>bottombar</include>
