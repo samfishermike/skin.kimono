@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">3110</defaultcontrol>
+	<controls>
+		<include>fadebackground</include>
+		<control type="group">
+			<left>506</left>
+			<top>240</top>
+			<control type="image">
+				<!-- Dialog background -->
+				<left>0</left>
+				<top>0</top>
+				<width>904</width>
+				<height>694</height>
+				<texture border="8">button-menu-background.png</texture>
+			</control>
+			<control type="image">
+				<!-- Dialog titlebar -->
+				<left>0</left>
+				<top>0</top>
+				<width>904</width>
+				<height>64</height>
+				<texture border="8" colordiffuse="$VAR[HilightColour]">button-menu-titlebar.png</texture>
+			</control>
+			<control type="label" id="1">
+				<!-- Dialog heading -->
+				<left>38</left>
+				<top>12</top>
+				<width>831</width>
+				<height>45</height>
+				<textcolor>light-text</textcolor>
+				<align>center</align>
+				<label>$ADDON[script.skin.helper.service 32011]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			</control>
+			<control type="button">
+				<!-- Touch Close button -->
+				<left>840</left>
+				<top>0</top>
+				<width>64</width>
+				<height>64</height>
+				<texturefocus>icon-close-light.png</texturefocus>
+				<texturenofocus>icon-close-light.png</texturenofocus>
+				<onclick>Close</onclick>
+			</control>
+		</control>
+		
+		<!-- Color picker panel -->
+		<control type="panel" id="3110">
+			<viewtype label="31438">icons</viewtype>
+			<posx>644</posx>
+			<posy>370</posy>
+			<width>672</width>
+			<height>444</height>
+			<orientation>vertical</orientation>
+			<onleft>3110</onleft>
+			<onright>60</onright>
+			<onup>3030</onup>
+			<ondown>3010</ondown>
+			<preloaditems>4</preloaditems>
+			<pagecontrol>60</pagecontrol>
+			<itemlayout height="128" width="128" condition="StringCompare(Window.Property(palettename),basic)">
+				<control type="image">
+					<width>92%</width>
+					<height>92%</height>
+					<texture border="5">$INFO[ListItem.Icon]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="128" width="128" condition="StringCompare(Window.Property(palettename),basic)">
+				<control type="group">
+					<animation effect="zoom" time="200" tween="sine" easing="inout" start="100" end="164" center="auto">Focus</animation>
+					<control type="image">
+						<width>92%</width>
+						<height>92%</height>
+						<texture border="5">$INFO[ListItem.Icon]</texture>
+					</control>
+				</control>
+			</focusedlayout>
+		</control>
+		
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
+			<itemgap>30</itemgap>
+			<left>644</left>
+			<top>820</top>
+			<width>672</width>
+			
+			<!-- Save button -->
+			<control type="button" id="3012">
+				<width>300</width>
+				<height>60</height>
+				<font>font11</font>
+				<onup>3110</onup>
+				<onleft>3010</onleft>
+				<label>190</label>
+				<textcolor>white</textcolor>
+				<align>center</align>
+				<texturenofocus diffuse="mask-button.png" colordiffuse="black" border="5">ButtonFocus.png</texturenofocus>
+			</control>
+			
+			<!-- None -->
+			<control type="button" id="3011">
+				<width>300</width>
+				<height>60</height>
+				<font>font11</font>
+				<onup>3110</onup>
+				<onleft>3010</onleft>
+				<label>$ADDON[script.skin.helper.service 32013]</label>
+				<textcolor>white</textcolor>
+				<align>center</align>
+				<texturenofocus diffuse="mask-button.png" colordiffuse="black" border="5">ButtonFocus.png</texturenofocus>
+			</control>
+		</control>
+
+	</controls>
+</window>

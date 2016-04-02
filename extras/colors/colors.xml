@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<colors>
+	<palette name="basic">
+		<color name="Blue Grey">ff607c89</color>
+		<color name="Red">fff34236</color>
+		<color name="Blue">ff2095f1</color>
+		<color name="Light Blue">ff02a7f3</color>
+		<color name="Teal">ff009587</color>
+		<color name="Green">ff4cad50</color>
+		<color name="Light Green">ff89c14a</color>
+		<color name="Orange">ffff9700</color>
+		<color name="Pink">ffe71e62</color>
+		<color name="Purple">ff9b26af</color>
+		<color name="Deep Purple">ff663ab5</color>
+		<color name="Deep Blue">ff3e50b3</color>
+		<color name="Cyan">ff00bbd3</color>
+		<color name="Lime">ffadb32a</color>
+		<color name="Brown">ff785448</color>
+	</palette>
+</colors>
