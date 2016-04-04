@@ -144,19 +144,21 @@
 		<control type="image">
 			<!-- Feather edge of scrolling text -->
 			<left>316</left>
-			<top>996</top>
+			<top>997</top>
 			<width>64</width>
 			<height>88</height>
 			<aspectratio>stretch</aspectratio>
+			<colordiffuse>BarBorders</colordiffuse>
 			<texture>mask-fadebackground.png</texture>
 		</control>
 		<control type="image">
 			<!-- Feather edge of scrolling text -->
 			<left>1856</left>
-			<top>996</top>
+			<top>997</top>
 			<width>64</width>
 			<height>88</height>
 			<aspectratio>stretch</aspectratio>
+			<colordiffuse>BarBorders</colordiffuse>
 			<texture flipx="true">mask-fadebackground.png</texture>
 		</control>
 	</include>
