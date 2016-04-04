@@ -376,7 +376,7 @@
 			</content>
 		</control>
 		<control type="group">
-			<animation effect="slide" end="-171,0" condition="Control.HasFocus(800)">Conditional</animation>
+			<animation effect="slide" end="-171,0" condition="Control.HasFocus(800)" reversible="true">Conditional</animation>
 			<control type="button" id="800">
 				<!-- Customize Tab button -->
 				<left>1856</left>
