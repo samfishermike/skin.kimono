@@ -17,7 +17,7 @@
 				<top>0</top>
 				<width>904</width>
 				<height>694</height>
-				<texture border="8">button-menu-background.png</texture>
+				<texture border="8">button-menu-background2.png</texture>
 			</control>
 			<control type="image">
 				<!-- Dialog titlebar -->
@@ -121,10 +121,11 @@
 				<!-- OK button -->
 				<left>10</left>
 				<top>625</top>
-				<width>435</width>
+				<width>434</width>
 				<height>64</height>
 				<align>center</align>
-				<texturenofocus diffuse="mask-button.png" colordiffuse="black" border="5">ButtonFocus.png</texturenofocus>
+				<texturefocus colordiffuse="ButtonFocusColour" border="8">Button2.png</texturefocus>
+				<texturenofocus colordiffuse="black" border="8">Button2.png</texturenofocus>
 				<label>$LOCALIZE[186]</label>
 				<font>font11</font>
 				<textcolor>white</textcolor>
@@ -137,10 +138,11 @@
 				<!-- Cancel button -->
 				<left>460</left>
 				<top>625</top>
-				<width>435</width>
+				<width>434</width>
 				<height>64</height>
 				<align>center</align>
-				<texturenofocus diffuse="mask-button.png" colordiffuse="black" border="5">ButtonFocus.png</texturenofocus>
+				<texturefocus colordiffuse="ButtonFocusColour" border="8">Button2.png</texturefocus>
+				<texturenofocus colordiffuse="black" border="8">Button2.png</texturenofocus>
 				<label>$LOCALIZE[222]</label>
 				<font>font11</font>
 				<textcolor>white</textcolor>

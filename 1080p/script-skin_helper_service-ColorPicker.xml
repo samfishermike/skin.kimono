@@ -11,8 +11,8 @@
 				<left>0</left>
 				<top>0</top>
 				<width>904</width>
-				<height>694</height>
-				<texture border="8">button-menu-background.png</texture>
+				<height>640</height>
+				<texture border="8">button-menu-background2.png</texture>
 			</control>
 			<control type="image">
 				<!-- Dialog titlebar -->
@@ -81,13 +81,13 @@
 		<control type="grouplist">
 			<orientation>horizontal</orientation>
 			<itemgap>30</itemgap>
-			<left>644</left>
-			<top>820</top>
-			<width>672</width>
+			<left>544</left>
+			<top>800</top>
+			<width>830</width>
 			
 			<!-- Save button -->
 			<control type="button" id="3012">
-				<width>300</width>
+				<width>400</width>
 				<height>60</height>
 				<font>font11</font>
 				<onup>3110</onup>
@@ -95,12 +95,13 @@
 				<label>190</label>
 				<textcolor>white</textcolor>
 				<align>center</align>
-				<texturenofocus diffuse="mask-button.png" colordiffuse="black" border="5">ButtonFocus.png</texturenofocus>
+				<texturefocus colordiffuse="ButtonFocusColour" border="8">Button2.png</texturefocus>
+				<texturenofocus colordiffuse="black" border="8">Button2.png</texturenofocus>
 			</control>
 			
 			<!-- None -->
 			<control type="button" id="3011">
-				<width>300</width>
+				<width>400</width>
 				<height>60</height>
 				<font>font11</font>
 				<onup>3110</onup>
@@ -108,7 +109,8 @@
 				<label>$ADDON[script.skin.helper.service 32013]</label>
 				<textcolor>white</textcolor>
 				<align>center</align>
-				<texturenofocus diffuse="mask-button.png" colordiffuse="black" border="5">ButtonFocus.png</texturenofocus>
+				<texturefocus colordiffuse="ButtonFocusColour" border="8">Button2.png</texturefocus>
+				<texturenofocus colordiffuse="black" border="8">Button2.png</texturenofocus>
 			</control>
 		</control>
 
