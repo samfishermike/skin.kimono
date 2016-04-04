@@ -2,55 +2,55 @@
 	<fontset id="Default" idloc="31577">
 		<font>
 			<name>font10</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>20</size>
 			<style>uppercase</style>
 		</font>
 		<font>
 			<name>font11</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>24</size>
 			<style>uppercase</style>
 		</font>
 		<font>
 			<name>font12</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>28</size>
 			<style>uppercase</style>
 		</font>
 		<font>
 			<name>font13</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>32</size>
 			<style>uppercase</style>
 		</font>
 		<font>
 			<name>font18</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>46</size>
 			<style>uppercase</style>
 		</font>
 		<font>
 			<name>font20</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>54</size>
 			<style>uppercase</style>
 		</font>
 		<font>
 			<name>font22</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>56</size>
 			<style>uppercase</style>
 		</font>
 		<font>
 			<name>font28</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>72</size>
 			<style>uppercase</style>
 		</font>
 		<font>
 			<name>Clock</name>
-			<filename>Condensed-Light.ttf</filename>
+			<filename>Condensed-Regular.ttf</filename>
 			<size>104</size>
 			<style>uppercase</style>
 		</font>
