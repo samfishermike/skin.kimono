@@ -417,7 +417,7 @@
                     <top>138</top>
                     <height>24</height>
                     <width>24</width>
-                    <texture>scroll-up.png</texture>
+                    <texture>ArrowUpBlack.png</texture>
                     <visible>Container(4).HasPrevious</visible>
                 </control>
                 <control type="image">
@@ -425,7 +425,7 @@
                     <top>945</top>
                     <height>24</height>
                     <width>24</width>
-                    <texture>scroll-down.png</texture>
+                    <texture>ArrowDownBlack.png</texture>
                     <visible>Container(4).HasNext</visible>
                 </control>
             </control>
@@ -451,7 +451,7 @@
                 <top>128</top>
                 <height>24</height>
                 <width>24</width>
-                <texture>scroll-up.png</texture>
+                <texture>ArrowUpBlack.png</texture>
                 <visible>Container(50).HasPrevious</visible>
             </control>
             <control type="image">
@@ -459,7 +459,7 @@
                 <top>908</top>
                 <height>24</height>
                 <width>24</width>
-                <texture>scroll-down.png</texture>
+                <texture>ArrowDownBlack.png</texture>
                 <visible>Container(50).HasNext</visible>
             </control>
         </control>

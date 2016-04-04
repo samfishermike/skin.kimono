@@ -157,7 +157,7 @@
 						<top>144</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-up.png</texture>
+						<texture>ArrowUpBlack.png</texture>
 						<visible>Container(101).HasPrevious</visible>
 					</control>
 					<control type="image">
@@ -165,7 +165,7 @@
 						<top>978</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-down.png</texture>
+						<texture>ArrowDownBlack.png</texture>
 						<visible>Container(101).HasNext</visible>
 					</control>
 				</control>
@@ -224,7 +224,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(103)</visible>
 								</control>
 								<control type="image">
@@ -232,7 +232,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(103)</visible>
 								</control>
 							</focusedlayout>
@@ -282,7 +282,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(104)</visible>
 								</control>
 								<control type="image">
@@ -290,7 +290,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(104)</visible>
 								</control>
 							</focusedlayout>
@@ -383,7 +383,7 @@
 						<top>144</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-up.png</texture>
+						<texture>ArrowUpBlack.png</texture>
 						<visible>Container(200).HasPrevious</visible>
 					</control>
 					<control type="image">
@@ -391,7 +391,7 @@
 						<top>978</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-down.png</texture>
+						<texture>ArrowDownBlack.png</texture>
 						<visible>Container(200).HasNext</visible>
 					</control>
 				</control>
@@ -459,7 +459,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(203)</visible>
 								</control>
 								<control type="image">
@@ -467,7 +467,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(203)</visible>
 								</control>
 							</focusedlayout>
@@ -509,7 +509,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(204)</visible>
 								</control>
 								<control type="image">
@@ -517,7 +517,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(204)</visible>
 								</control>
 							</focusedlayout>
@@ -613,7 +613,7 @@
 						<top>144</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-up.png</texture>
+						<texture>ArrowUpBlack.png</texture>
 						<visible>Container(301).HasPrevious</visible>
 					</control>
 					<control type="image">
@@ -621,7 +621,7 @@
 						<top>978</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-down.png</texture>
+						<texture>ArrowDownBlack.png</texture>
 						<visible>Container(301).HasNext</visible>
 					</control>
 				</control>
@@ -724,7 +724,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(307)</visible>
 								</control>
 								<control type="image">
@@ -732,7 +732,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(307)</visible>
 								</control>
 							</focusedlayout>
@@ -774,7 +774,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(308)</visible>
 								</control>
 								<control type="image">
@@ -782,7 +782,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(308)</visible>
 								</control>
 							</focusedlayout>
@@ -855,7 +855,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(310)</visible>
 								</control>
 								<control type="image">
@@ -863,7 +863,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(310)</visible>
 								</control>
 							</focusedlayout>
@@ -905,7 +905,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(311)</visible>
 								</control>
 								<control type="image">
@@ -913,7 +913,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(311)</visible>
 								</control>
 							</focusedlayout>
@@ -1011,7 +1011,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(313)</visible>
 								</control>
 								<control type="image">
@@ -1019,7 +1019,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(313)</visible>
 								</control>
 							</focusedlayout>
@@ -1062,7 +1062,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(314)</visible>
 								</control>
 								<control type="image">
@@ -1070,7 +1070,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(314)</visible>
 								</control>
 							</focusedlayout>
@@ -1143,7 +1143,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(316)</visible>
 								</control>
 								<control type="image">
@@ -1151,7 +1151,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(316)</visible>
 								</control>
 							</focusedlayout>
@@ -1193,7 +1193,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(317)</visible>
 								</control>
 								<control type="image">
@@ -1201,7 +1201,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(317)</visible>
 								</control>
 							</focusedlayout>
@@ -1274,7 +1274,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(319)</visible>
 								</control>
 								<control type="image">
@@ -1282,7 +1282,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(319)</visible>
 								</control>
 							</focusedlayout>
@@ -1318,7 +1318,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(320)</visible>
 								</control>
 								<control type="image">
@@ -1326,7 +1326,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(320)</visible>
 								</control>
 							</focusedlayout>
@@ -1382,7 +1382,7 @@
 						<top>144</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-up.png</texture>
+						<texture>ArrowUpBlack.png</texture>
 						<visible>Container(401).HasPrevious</visible>
 					</control>
 					<control type="image">
@@ -1390,7 +1390,7 @@
 						<top>978</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-down.png</texture>
+						<texture>ArrowDownBlack.png</texture>
 						<visible>Container(401).HasNext</visible>
 					</control>
 				</control>
@@ -1594,7 +1594,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(421)</visible>
 								</control>
 								<control type="image">
@@ -1602,7 +1602,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(421)</visible>
 								</control>
 							</focusedlayout>
@@ -1663,7 +1663,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(422)</visible>
 								</control>
 								<control type="image">
@@ -1671,7 +1671,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(422)</visible>
 								</control>
 							</focusedlayout>
@@ -1757,7 +1757,7 @@
 						<top>144</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-up.png</texture>
+						<texture>ArrowUpBlack.png</texture>
 						<visible>Container(501).HasPrevious</visible>
 					</control>
 					<control type="image">
@@ -1765,7 +1765,7 @@
 						<top>978</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-down.png</texture>
+						<texture>ArrowDownBlack.png</texture>
 						<visible>Container(501).HasNext</visible>
 					</control>
 				</control>
@@ -1878,7 +1878,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down-focus.png</texture>
+									<texture>ArrowDownWhite.png</texture>
 									<visible>Control.HasFocus(511)</visible>
 								</control>
 								<control type="image">
@@ -1886,7 +1886,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-down.png</texture>
+									<texture>ArrowDownBlack.png</texture>
 									<visible>!Control.HasFocus(511)</visible>
 								</control>
 							</focusedlayout>
@@ -1931,7 +1931,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up.png</texture>
+									<texture>ArrowUpBlack.png</texture>
 									<visible>!Control.HasFocus(512)</visible>
 								</control>
 								<control type="image">
@@ -1939,7 +1939,7 @@
 									<top>15</top>
 									<width>48</width>
 									<height>48</height>
-									<texture>scroll-up-focus.png</texture>
+									<texture>ArrowUpWhite.png</texture>
 									<visible>Control.HasFocus(512)</visible>
 								</control>
 							</focusedlayout>
@@ -2003,7 +2003,7 @@
 						<top>144</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-up.png</texture>
+						<texture>ArrowUpBlack.png</texture>
 						<visible>Container(601).HasPrevious</visible>
 					</control>
 					<control type="image">
@@ -2011,7 +2011,7 @@
 						<top>978</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-down.png</texture>
+						<texture>ArrowDownBlack.png</texture>
 						<visible>Container(601).HasNext</visible>
 					</control>
 				</control>
@@ -2127,7 +2127,7 @@
 						<top>144</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-up.png</texture>
+						<texture>ArrowUpBlack.png</texture>
 						<visible>Container(801).HasPrevious</visible>
 					</control>
 					<control type="image">
@@ -2135,7 +2135,7 @@
 						<top>978</top>
 						<height>24</height>
 						<width>24</width>
-						<texture>scroll-down.png</texture>
+						<texture>ArrowDownBlack.png</texture>
 						<visible>Container(801).HasNext</visible>
 					</control>
 				</control>

@@ -62,12 +62,12 @@
 		<colordiffuse>ScrollBarColor</colordiffuse>
 	</default>
 	<default type="spincontrol">
-		<textureup>scroll-up.png</textureup>
-		<texturedown>scroll-down.png</texturedown>
-		<textureupfocus>scroll-up-focus.png</textureupfocus>
-		<texturedownfocus>scroll-down-focus.png</texturedownfocus>
-		<textureupdisabled>scroll-up.png</textureupdisabled>
-		<texturedowndisabled>scroll-down.png</texturedowndisabled>
+		<textureup>ArrowUpBlack.png</textureup>
+		<texturedown>ArrowDownBlack.png</texturedown>
+		<textureupfocus>ArrowUpWhite.png</textureupfocus>
+		<texturedownfocus>ArrowDownWhite.png</texturedownfocus>
+		<textureupdisabled>ArrowUpBlack.png</textureupdisabled>
+		<texturedowndisabled>ArrowDownBlack.png</texturedowndisabled>
 		<align>right</align>
 		<width>48</width>
 		<height>48</height>
@@ -81,12 +81,12 @@
 		<spinwidth>48</spinwidth>
 		<spinheight>48</spinheight>
 		<texturefocus diffuse="mask-button.png" border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texturefocus>
-		<textureup>scroll-up.png</textureup>
-		<texturedown>scroll-down.png</texturedown>
-		<textureupfocus>scroll-up-focus.png</textureupfocus>
-		<texturedownfocus>scroll-down-focus.png</texturedownfocus>
-		<textureupdisabled>scroll-up.png</textureupdisabled>
-		<texturedowndisabled>scroll-down.png</texturedowndisabled>
+		<textureup>ArrowUpBlack.png</textureup>
+		<texturedown>ArrowDownBlack.png</texturedown>
+		<textureupfocus>ArrowUpWhite.png</textureupfocus>
+		<texturedownfocus>ArrowDownWhite.png</texturedownfocus>
+		<textureupdisabled>ArrowUpBlack.png</textureupdisabled>
+		<texturedowndisabled>ArrowDownBlack.png</texturedowndisabled>
 		<font>font13</font>
 		<textcolor>button-text</textcolor>
 		<disabledcolor>disabled-text</disabledcolor>
@@ -116,10 +116,10 @@
 		<font>font13</font>
 		<texturefocus diffuse="mask-button.png" border="6" colordiffuse="ButtonFocusColour">ButtonFocus.png</texturefocus>
 		<texturebg>button-menu-background.png</texturebg>
-		<textureleft>scroll-left.png</textureleft>
-		<textureleftfocus>scroll-left-focus.png</textureleftfocus>
-		<textureright>scroll-right.png</textureright>
-		<texturerightfocus>scroll-right-focus.png</texturerightfocus>
+		<textureleft>ArrowLeftBlack.png</textureleft>
+		<textureleftfocus>ArrowLeftWhite.png</textureleftfocus>
+		<textureright>ArrowRightBlack.png</textureright>
+		<texturerightfocus>ArrowRightWhite.png</texturerightfocus>
 		<textcolor>button-text</textcolor>
 		<disabledcolor>disabled-text</disabledcolor>
 		<pulseonselect>false</pulseonselect>

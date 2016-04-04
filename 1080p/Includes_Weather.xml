@@ -2769,8 +2769,8 @@
                 <height>48</height>
                 <onleft>9000</onleft>
                 <onright>5999</onright>
-                <texturefocus>scroll-down-focus.png</texturefocus>
-                <texturenofocus>scroll-down.png</texturenofocus>
+                <texturefocus>ArrowDownWhite.png</texturefocus>
+                <texturenofocus>ArrowDownBlack.png</texturenofocus>
                 <onclick>Control.Move(5998,-1)</onclick>
             </control>
             <control type="button" id="5999">
@@ -2780,8 +2780,8 @@
                 <height>48</height>
                 <onleft>6000</onleft>
                 <onright>5999</onright>
-                <texturefocus>scroll-up-focus.png</texturefocus>
-                <texturenofocus>scroll-up.png</texturenofocus>
+                <texturefocus>ArrowUpWhite.png</texturefocus>
+                <texturenofocus>ArrowUpBlack.png</texturenofocus>
                 <onclick>Control.Move(5998,1)</onclick>
             </control>
             <control type="label">

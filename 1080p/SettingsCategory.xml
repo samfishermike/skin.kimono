@@ -62,7 +62,7 @@
                 <top>138</top>
                 <height>24</height>
                 <width>24</width>
-                <texture>scroll-up.png</texture>
+                <texture>ArrowUpBlack.png</texture>
                 <visible>Container(5).HasPrevious</visible>
             </control>
             <control type="image">
@@ -70,7 +70,7 @@
                 <top>945</top>
                 <height>24</height>
                 <width>24</width>
-                <texture>scroll-down.png</texture>
+                <texture>ArrowDownBlack.png</texture>
                 <visible>Container(5).HasNext</visible>
             </control>
         </control>

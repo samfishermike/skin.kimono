@@ -70,10 +70,10 @@
             <height>69</height>
             <spinwidth>40</spinwidth>
             <spinheight>38</spinheight>
-            <textureup>scroll-up.png</textureup>
-            <texturedown>scroll-down.png</texturedown>
-            <textureupfocus>scroll-up-focus.png</textureupfocus>
-            <texturedownfocus>scroll-down-focus.png</texturedownfocus>
+            <textureup>ArrowUpBlack.png</textureup>
+            <texturedown>ArrowDownBlack.png</texturedown>
+            <textureupfocus>ArrowUpWhite.png</textureupfocus>
+            <texturedownfocus>ArrowDownWhite.png</texturedownfocus>
             <align>left</align>
             <reverse>yes</reverse>
         </control>

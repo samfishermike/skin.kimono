@@ -2100,7 +2100,7 @@
                     <top>873</top>
                     <height>24</height>
                     <width>24</width>
-                    <texture>scroll-left.png</texture>
+                    <texture>ArrowLeftBlack.png</texture>
                     <visible>Container(950).HasPrevious</visible>
                 </control>
                 <control type="image">
@@ -2108,7 +2108,7 @@
                     <top>873</top>
                     <height>24</height>
                     <width>24</width>
-                    <texture>scroll-right.png</texture>
+                    <texture>ArrowRightBlack.png</texture>
                     <visible>Container(950).HasNext</visible>
                 </control>
             </control>
