@@ -145,7 +145,7 @@
 			<!-- Feather edge of scrolling text -->
 			<left>316</left>
 			<top>997</top>
-			<width>64</width>
+			<width>128</width>
 			<height>88</height>
 			<aspectratio>stretch</aspectratio>
 			<colordiffuse>BarBorders</colordiffuse>
@@ -153,9 +153,9 @@
 		</control>
 		<control type="image">
 			<!-- Feather edge of scrolling text -->
-			<left>1856</left>
+			<left>1792</left>
 			<top>997</top>
-			<width>64</width>
+			<width>128</width>
 			<height>88</height>
 			<aspectratio>stretch</aspectratio>
 			<colordiffuse>BarBorders</colordiffuse>
