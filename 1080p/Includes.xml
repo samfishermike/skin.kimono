@@ -501,43 +501,36 @@
 			<!-- Date and Time -->
 			<control type="label">
 				<!-- Day -->
-				<left>1506</left>
+				<left>1425</left>
 				<top>18</top>
 				<width>160</width>
 				<height>22</height>
 				<textcolor>light-text</textcolor>
 				<label>$INFO[System.Date(DDD)]</label>
 				<font>font10</font>
-				<align>center</align>
+				<align>right</align>
 			</control>
 			<control type="label">
 				<!-- Date -->
-				<left>1506</left>
+				<left>1425</left>
 				<top>44</top>
 				<width>160</width>
 				<height>22</height>
 				<textcolor>light-text</textcolor>
 				<label>$INFO[System.Date(MMM dd)]</label>
 				<font>font10</font>
-				<align>center</align>
-			</control>
-			<control type="image">
-				<left>1672</left>
-				<top>0</top>
-				<width>6</width>
-				<height>84</height>
-				<texture>separatorhorz.png</texture>
+				<align>right</align>
 			</control>
 			<control type="label">
 				<!-- Time -->
-				<left>1680</left>
+				<left>1600</left>
 				<top>26</top>
 				<width>240</width>
 				<height>30</height>
 				<textcolor>light-text</textcolor>
 				<label>$INFO[System.Time]</label>
 				<font>font18</font>
-				<align>center</align>
+				<align>left</align>
 			</control>
 		</control>
 	</include>

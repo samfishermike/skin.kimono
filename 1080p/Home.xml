@@ -2,7 +2,8 @@
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<onload>ClearProperty(ShowScreenSettings,Home)</onload>
-	<onload>RunScript(script.skin.helper.service,action=ratio,total=$INFO[Window(Home).Property(Movies.Count)],count=$INFO[Window(Home).Property(Movies.Watched)],skinstring=$INFO[Skin.String(movieswatched.percent)])</onload>
+	<onload>RunScript(script.skin.helper.service,action=getpercentage,count=$INFO[Window(Home).Property(Movies.Watched)],total=$INFO[Window(Home).Property(Movies.Count)],skinstring=movieswatched-percentage)</onload>
+	<onload>RunScript(script.skin.helper.service,action=getpercentage,count=$INFO[Window(Home).Property(TVShows.Watched)],total=$INFO[Window(Home).Property(TVShows.Count)],skinstring=tvshowswatched-percentage)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
 	<controls>
 		<include>background</include>
@@ -10,6 +11,70 @@
 		<include>topbar</include>
 
 		<control type="grouplist" id="9050"><!-- Shelf icons-->
+			<control type="group" id="9105"><!-- System icons -->
+				<visible>StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[13000])</visible>
+				<control type="group">
+					<left>560</left>
+					<top>458</top>
+					<control type="image">
+						<!-- Dialog background -->
+						<left>0</left>
+						<top>0</top>
+						<width>1208</width>
+						<height>378</height>
+						<texture border="8">button-menu-background2.png</texture>
+					</control>
+					<control type="image">
+						<!-- Dialog titlebar -->
+						<left>0</left>
+						<top>0</top>
+						<width>1208</width>
+						<height>64</height>
+						<texture border="8" colordiffuse="$VAR[HilightColour]">button-menu-titlebar.png</texture>
+					</control>
+					<control type="label">
+						<!-- Dialog heading -->
+						<left>38</left>
+						<top>12</top>
+						<width>1208</width>
+						<height>45</height>
+						<textcolor>light-text</textcolor>
+						<align>center</align>
+						<label>My Library</label>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+				<control type="image">
+					<left>626</left>
+					<top>572</top>
+					<width>204</width>
+					<height>204</height>
+					<colordiffuse>$VAR[HilightColour]</colordiffuse>
+					<texture>circular-percentage/$INFO[Skin.String(movieswatched-percentage)].png</texture>
+				</control>
+				<control type="image" id="9999">
+					<left>664</left>
+					<top>610</top>
+					<width>128</width>
+					<height>128</height>
+					<texture>HomeMovieUnfocus.png</texture>
+				</control>
+				<control type="image">
+					<left>1100</left>
+					<top>572</top>
+					<width>204</width>
+					<height>204</height>
+					<colordiffuse>$VAR[HilightColour]</colordiffuse>
+					<texture>circular-percentage/$INFO[Skin.String(tvshowswatched-percentage)].png</texture>
+				</control>
+				<control type="image" id="9999">
+					<left>1138</left>
+					<top>610</top>
+					<width>128</width>
+					<height>128</height>
+					<texture>HomeTVShowsUnFocus.png</texture>
+				</control>
+			</control>
 			<control type="group" id="9155"><!-- Movie icons -->
 				<visible>StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[31026])</visible>
 				<control type="group">
@@ -154,7 +219,7 @@
 				</control>
 			</control>
 			<control type="group" id="9802"><!-- Default Shelf image -->
-				<visible>![Control.IsVisible(9155) | Control.IsVisible(9205) | Control.IsVisible(9255) | Control.IsVisible(9355) | Control.IsVisible(9405)]</visible>
+				<visible>![Control.IsVisible(9105) | Control.IsVisible(9155) | Control.IsVisible(9205) | Control.IsVisible(9255) | Control.IsVisible(9355) | Control.IsVisible(9405)]</visible>
 				<control type="image">
 					<left>910</left>
 					<top>295</top>
@@ -305,7 +370,7 @@
 					<thumb>HomeSettingsUnfocus.png</thumb>
 					<icon>HomeSettingsFocus.png</icon>
 					<label>$LOCALIZE[13000]</label>
-					<label2>$LOCALIZE[571]</label2>
+					<label2>$LOCALIZE[13000]</label2>
 					<onclick>ActivateWindow(Settings,,return)</onclick>
 				</item>
 				<item>
