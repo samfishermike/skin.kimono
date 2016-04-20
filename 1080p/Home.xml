@@ -5,6 +5,8 @@
 	<onload>RunScript(script.skin.helper.service,action=getpercentage,count=$INFO[Window(Home).Property(Movies.Watched)],total=$INFO[Window(Home).Property(Movies.Count)],skinstring=movieswatched-percentage)</onload>
 	<onload>RunScript(script.skin.helper.service,action=getpercentage,count=$INFO[Window(Home).Property(TVShows.Watched)],total=$INFO[Window(Home).Property(TVShows.Count)],skinstring=tvshowswatched-percentage)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
+	<onunload>Skin.Reset(movieswatched-percentage)</onunload>
+	<onunload>Skin.Reset(tvshowswatched-percentage)</onunload>
 	<controls>
 		<include>background</include>
 
