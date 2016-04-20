@@ -56,23 +56,23 @@
 			<onleft>3110</onleft>
 			<onright>60</onright>
 			<onup>3030</onup>
-			<ondown>3010</ondown>
+			<ondown>3012</ondown>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>60</pagecontrol>
 			<itemlayout height="128" width="128" condition="StringCompare(Window.Property(palettename),basic)">
 				<control type="image">
-					<width>92%</width>
-					<height>92%</height>
-					<texture border="5">$INFO[ListItem.Icon]</texture>
+					<width>70%</width>
+					<height>70%</height>
+					<texture diffuse="mask-coloursample.png">$INFO[ListItem.Icon]</texture>
 				</control>
 			</itemlayout>
 			<focusedlayout height="128" width="128" condition="StringCompare(Window.Property(palettename),basic)">
 				<control type="group">
-					<animation effect="zoom" time="200" tween="sine" easing="inout" start="100" end="164" center="auto">Focus</animation>
+					<animation effect="zoom" time="200" tween="sine" easing="inout" start="100" end="150" center="auto">Focus</animation>
 					<control type="image">
-						<width>92%</width>
-						<height>92%</height>
-						<texture border="5">$INFO[ListItem.Icon]</texture>
+						<width>70%</width>
+						<height>70%</height>
+						<texture diffuse="mask-coloursample.png">$INFO[ListItem.Icon]</texture>
 					</control>
 				</control>
 			</focusedlayout>
@@ -91,7 +91,7 @@
 				<height>60</height>
 				<font>font11</font>
 				<onup>3110</onup>
-				<onleft>3010</onleft>
+				<onright>3011</onright>
 				<label>190</label>
 				<textcolor>white</textcolor>
 				<align>center</align>
@@ -105,7 +105,7 @@
 				<height>60</height>
 				<font>font11</font>
 				<onup>3110</onup>
-				<onleft>3010</onleft>
+				<onleft>3012</onleft>
 				<label>$ADDON[script.skin.helper.service 32013]</label>
 				<textcolor>white</textcolor>
 				<align>center</align>
