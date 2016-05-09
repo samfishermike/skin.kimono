@@ -479,10 +479,10 @@
 	</include>
 	<include name="kodimenu">
 		<control type="image">
-			<left>12</left>
-			<top>12</top>
-			<width>64</width>
-			<height>64</height>
+			<left>10</left>
+			<top>0</top>
+			<width>84</width>
+			<height>84</height>
 			<texture>SkinLogo.png</texture>
 		</control>
 	</include>
